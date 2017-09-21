@@ -22,8 +22,6 @@ public class View {
     private JButton moveButton;
     private JTextArea dateDisplay;
     private JList roomsList;
-    private int FRAME_WIDTH;
-    private int FRAME_HEIGHT;
     
   
     
@@ -36,15 +34,15 @@ public class View {
         
         dateDisplay = new JTextArea();
         dateDisplay.setSize(700,300);
-        FRAME_WIDTH = 800;
-        FRAME_HEIGHT = 600;
+     
         
     }
 
     void displayUI() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    frame.setUndecorated(true);
         
         panel.add(moveButton);
         panel.add(dateDisplay);
