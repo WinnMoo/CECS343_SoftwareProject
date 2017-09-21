@@ -9,5 +9,9 @@
  * @author winn
  */
 public class Model {
+    private Controller appController;
     
+    public Model(Controller appController){
+        this.appController = appController;
+    }
 }

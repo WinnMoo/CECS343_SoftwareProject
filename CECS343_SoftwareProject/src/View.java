@@ -11,37 +11,55 @@
 
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.*;
 
 public class View {
+    private JFrame frame;
     private JPanel panel;
     private JButton moveButton;
     private JTextArea dateDisplay;
-    private ActionListener moveListener;
     private JList roomsList;
-    private JFrame frame;
+    private int FRAME_WIDTH;
+    private int FRAME_HEIGHT;
+    
   
     
     
     public View(Controller appController){
+        frame = new JFrame();
         panel = new JPanel();
         moveButton = new JButton("Move");
-        //moveButton.addActionListener(new ActionListener());
-        panel.add(moveButton);
+        moveButton.addActionListener(new mouseListener());
         
         dateDisplay = new JTextArea();
         dateDisplay.setSize(700,300);
-        panel.add(dateDisplay);
+        FRAME_WIDTH = 800;
+        FRAME_HEIGHT = 600;
         
+    }
+
+    void displayUI() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
+        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         
+        panel.add(moveButton);
+        panel.add(dateDisplay);
         frame.add(panel);
-    }
-    
-    public void displayUI(){
         frame.setVisible(true);
     }
+    
+    
+    
+    class mouseListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("User Clicked Move");
+        }
+    
+}
 }
