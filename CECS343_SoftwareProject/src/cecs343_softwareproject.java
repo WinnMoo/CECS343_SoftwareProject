@@ -14,7 +14,8 @@ public class cecs343_softwareproject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Controller appController = new Controller();
+        appController.startApp();
     }
     
 }

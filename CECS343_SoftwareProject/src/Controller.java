@@ -9,5 +9,10 @@
  * @author winn
  */
 public class Controller {
+    protected Model appModel;
+    private View appView;
     
+    public void startApp() {
+        appView.displayUI();
+    }
 }
