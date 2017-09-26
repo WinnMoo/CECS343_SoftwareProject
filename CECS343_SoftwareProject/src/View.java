@@ -21,14 +21,18 @@ import javax.swing.*;
 
 public class View {
     private JFrame frame;
+    
+    //Gameboard Panel
     private JPanel imagePanel;
+    private ImageIcon gameBoard;
+    private JLabel imageLabel;
+    
+    //Controls Panel
     private JPanel buttonPanel;
     private JButton moveButton;
-    private JTextArea dateDisplay;
     private JList roomsList;
-    private JScrollPane scrollbar;
-    private ImageIcon gameBoard;
     
+    private JScrollPane scroll;
     
 
 
@@ -36,19 +40,24 @@ public class View {
     
     
     public View(Controller appController){
+        //Gameboard Components
         gameBoard = new ImageIcon("CSULBMap5_1200x1437.png");
-        frame = new JFrame();
-        imagePanel = new JPanel();
+        imageLabel = new JLabel("", gameBoard, JLabel.CENTER);
+        imagePanel = new JPanel(new BorderLayout());
+        
+        scroll = new JScrollPane(imagePanel);
+        
+        //Controls Components
         buttonPanel = new JPanel();
         moveButton = new JButton("Move");
-        scrollbar = new JScrollPane();
         moveButton.addActionListener(new mouseListener());
         
         
-        dateDisplay = new JTextArea();
-        dateDisplay.setSize(700,300);
-     
+        frame = new JFrame();
         
+ 
+     
+
     }
 
     void displayUI() {
@@ -58,17 +67,17 @@ public class View {
         frame.setUndecorated(true);
     
        
-        JLabel label = new JLabel("", gameBoard, JLabel.CENTER);
-        JPanel panel = new JPanel(new BorderLayout());
         
-        panel.add(label, BorderLayout.NORTH );
+        imagePanel.setPreferredSize(new Dimension(1200, 949));
+       
+        imagePanel.add(imageLabel, BorderLayout.NORTH );
         
-        panel.add(scrollbar);
         //panel.setPreferredSize(new Dimension(frame.getContentPane().getWidth() * 2/3, frame.getContentPane().getHeight() * 2/3));
         
         buttonPanel.add(moveButton);
-        //panel.add(dateDisplay);
-        frame.add(panel, BorderLayout.NORTH);
+
+        frame.add(scroll);
+        frame.add(imagePanel, BorderLayout.NORTH);
         frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
