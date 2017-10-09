@@ -10,11 +10,11 @@
  */
 public class Player {
     String name;
-    String room;
+    Room room;
     int positionX;
     int positionY;
     
-    public Player(String givenName, String givenRoom){
+    public Player(String givenName, Room givenRoom){
         name = givenName; 
         room = givenRoom;
         positionX = 50;
@@ -25,7 +25,7 @@ public class Player {
     public String getName(){
         return name;
     }
-    public String getRoom(){
+    public Room getRoom(){
         return room;
     }
     public int getPositionX(){
@@ -35,7 +35,7 @@ public class Player {
         return positionY;
     }
     
-    public void setRoom(String newRoom){
+    public void setRoom(Room newRoom){
         room = newRoom;
     }
     public void setPositionX(int newPositionX){

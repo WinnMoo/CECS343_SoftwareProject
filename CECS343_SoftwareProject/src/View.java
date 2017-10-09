@@ -35,11 +35,6 @@ public class View {
     
     private JScrollPane scroll;
     
- 
-
-
-  
-    
     
     public View(Controller appController){
         //Gameboard Components
@@ -54,11 +49,7 @@ public class View {
         moveButton = new JButton("Move");
         moveButton.addActionListener(new mouseListener());
         
-        
         frame = new JFrame();
-        
- 
-     
 
     }
 

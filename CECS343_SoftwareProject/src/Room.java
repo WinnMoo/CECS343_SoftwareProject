@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,37 +13,15 @@
  */
 public class Room {
     String name;
-    String northRoom;
-    String eastRoom;
-    String southRoom;
-    String westRoom;
+    ArrayList listOfRooms = new ArrayList();
     
-    public Room(String givenName, String north, String east, String south, String west){
-        this.name = givenName;
-        this.northRoom = north;
-        this.eastRoom = east;
-        this.southRoom = south;
-        this.westRoom = west;
+    public Room(String givenName){
+        name = givenName;
+        
+    }
+    public void addRoom(String roomToAdd){
+        listOfRooms.add(roomToAdd);
     }
     
-    public String getName(){
-        return name;
-    }
-    
-    public String getNorth(){
-        return northRoom;
-    }
-    
-    public String getEast(){
-        return eastRoom;
-    }
-    
-    public String getSouth(){
-        return southRoom;
-    }
-    
-    public String getWest(){
-        return westRoom;
-    }
 }
 
