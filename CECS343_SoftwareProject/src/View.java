@@ -32,8 +32,10 @@ public class View {
     private JButton moveButton;
     private JList roomsList;
     
+    
     private JScrollPane scroll;
     
+ 
 
 
   
@@ -66,19 +68,16 @@ public class View {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setUndecorated(true);
     
-       
-        
-        imagePanel.setPreferredSize(new Dimension(1200, 949));
+        //imagePanel.setPreferredSize(new Dimension(1200, 949));
        
         imagePanel.add(imageLabel, BorderLayout.NORTH );
-        
-        //panel.setPreferredSize(new Dimension(frame.getContentPane().getWidth() * 2/3, frame.getContentPane().getHeight() * 2/3));
-        
+           
         buttonPanel.add(moveButton);
-
-        frame.add(scroll);
-        frame.add(imagePanel, BorderLayout.NORTH);
+       
         frame.add(buttonPanel, BorderLayout.SOUTH);
+        //Only need to add the scrollpanel because the image panel is added to the scroll panel
+        //Scrollpanel automatically scales the image according to the preferred size
+        frame.add(scroll);
         frame.setVisible(true);
     }
     
