@@ -33,7 +33,11 @@ public class View {
     private JList roomsList;
     
     
-    private JScrollPane scroll;
+    
+    
+    private JScrollPane mapScroller;
+    
+    private JScrollPane roomListScroller;
     
     
     public View(Controller appController){
@@ -42,12 +46,20 @@ public class View {
         imageLabel = new JLabel("", gameBoard, JLabel.CENTER);
         imagePanel = new JPanel(new BorderLayout());
         
-        scroll = new JScrollPane(imagePanel);
+        mapScroller = new JScrollPane(imagePanel);
         
         //Controls Components
         buttonPanel = new JPanel();
         moveButton = new JButton("Move");
         moveButton.addActionListener(new mouseListener());
+        
+        roomsList = new JList(appController.appModel.listOfPlayers);
+        roomsList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        roomsList.setLayoutOrientation(JList.VERTICAL);
+        roomsList.setVisibleRowCount(5);
+        roomListScroller = new JScrollPane(roomsList);
+        
+        
         
         frame = new JFrame();
 
@@ -60,15 +72,19 @@ public class View {
         frame.setUndecorated(true);
     
         //imagePanel.setPreferredSize(new Dimension(1200, 949));
+        roomListScroller.setPreferredSize(new Dimension(250, 80));
+        
        
-        imagePanel.add(imageLabel, BorderLayout.NORTH );
+        imagePanel.add(imageLabel, BorderLayout.NORTH);
+        
            
         buttonPanel.add(moveButton);
+        buttonPanel.add(roomListScroller);
        
         frame.add(buttonPanel, BorderLayout.SOUTH);
         //Only need to add the scrollpanel because the image panel is added to the scroll panel
         //Scrollpanel automatically scales the image according to the preferred size
-        frame.add(scroll);
+        frame.add(mapScroller);
         frame.setVisible(true);
     }
     

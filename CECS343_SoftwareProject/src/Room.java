@@ -23,5 +23,9 @@ public class Room {
         listOfRooms.add(roomToAdd);
     }
     
+    public ArrayList getConnectedRooms(){
+        return listOfRooms;
+    }
+    
 }
 

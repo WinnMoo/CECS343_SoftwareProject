@@ -33,10 +33,14 @@ public final class Model {
     Room LA5 = new Room("LA 5");
     Room Library = new Room("Library");
     Room WalterPyramid = new Room("Walter Pyramid");
+    
+    
     //Create the players for the game
     Player John = new Player("John", ECS308);
     Player Rebecca = new Player("Rebecca", ECS308);
     Player Charles = new Player("Charles", ECS308);
+    
+    Player[] listOfPlayers = {John, Rebecca, Charles};
 
     public Model(Controller appController) {
         this.appController = appController;
