@@ -19,6 +19,10 @@ public class Room {
         name = givenName;
         
     }
+    
+    public String getNameRoom(){
+        return name;
+    }
     public void addRoom(String roomToAdd){
         listOfRooms.add(roomToAdd);
     }
