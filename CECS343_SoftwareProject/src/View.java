@@ -18,6 +18,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
 
 public class View {
     private JFrame frame;
@@ -32,12 +33,11 @@ public class View {
     private JButton moveButton;
     private JList roomsList;
     
-    
-    
-    
     private JScrollPane mapScroller;
     
     private JScrollPane roomListScroller;
+    
+    private ListSelectionModel roomsListSelectionModel;
     
     
     public View(Controller appController){
@@ -49,17 +49,17 @@ public class View {
         mapScroller = new JScrollPane(imagePanel);
         
         //Controls Components
-        buttonPanel = new JPanel();
-        moveButton = new JButton("Move");
-        moveButton.addActionListener(new mouseListener());
-        
         roomsList = new JList(appController.appModel.createListOfRooms());
         roomsList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         roomsList.setLayoutOrientation(JList.VERTICAL);
         roomsList.setVisibleRowCount(5);
+        
         roomListScroller = new JScrollPane(roomsList);
         
         
+        buttonPanel = new JPanel();
+        moveButton = new JButton("Move");
+        moveButton.addActionListener(new mouseListener());
         
         frame = new JFrame();
 
@@ -77,9 +77,8 @@ public class View {
        
         imagePanel.add(imageLabel, BorderLayout.NORTH);
         
-           
-        buttonPanel.add(moveButton);
         buttonPanel.add(roomListScroller);
+        buttonPanel.add(moveButton);
        
         frame.add(buttonPanel, BorderLayout.SOUTH);
         //Only need to add the scrollpanel because the image panel is added to the scroll panel
@@ -87,14 +86,15 @@ public class View {
         frame.add(mapScroller);
         frame.setVisible(true);
     }
-    
-    
+   
     
     class mouseListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("User Clicked Move");
+            Object element = roomsList.getSelectedValue();
+            System.out.println(element);
         }
     
 }
