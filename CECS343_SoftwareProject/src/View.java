@@ -53,7 +53,7 @@ public class View {
         moveButton = new JButton("Move");
         moveButton.addActionListener(new mouseListener());
         
-        roomsList = new JList(appController.appModel.listOfPlayers);
+        roomsList = new JList(appController.appModel.createListOfRooms());
         roomsList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         roomsList.setLayoutOrientation(JList.VERTICAL);
         roomsList.setVisibleRowCount(5);

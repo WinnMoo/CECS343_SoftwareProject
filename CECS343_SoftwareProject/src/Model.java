@@ -1,4 +1,5 @@
 
+import java.awt.List;
 import java.util.ArrayList;
 
 /*
@@ -6,7 +7,6 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author winn
@@ -38,7 +38,7 @@ public class Model {
     Room WalterPyramid = new Room("Walter Pyramid");
 
     //Create the players for the game
-    Player John = new Player("John", ECS308);
+    Player John = new Player("John", SouthHall);
     Player Rebecca = new Player("Rebecca", ECS308);
     Player Charles = new Player("Charles", ECS308);
 
@@ -133,41 +133,80 @@ public class Model {
         WalterPyramid.addRoom("Rec Center");
     }
 
-    public ArrayList createListOfRooms() {
+    public Object[] createListOfRooms() {
         Room tempRoom = John.getRoom();
         String stringTempRoom = tempRoom.getNameRoom();
 
-        ArrayList emptyArrayList = new ArrayList();
-        
+        Object emptyList[] = {"Room doesn't have connected rooms"};
+
         if (stringTempRoom.equals("ECS308")) {
-            return ECS308.getConnectedRooms();
+            Object results[] = ECS308.getConnectedRooms().toArray(new String[ECS308.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("South Hall")) {
+            Object results[] = SouthHall.getConnectedRooms().toArray(new String[SouthHall.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Lactaction Lounge")) {
+            Object results[] = Lact.getConnectedRooms().toArray(new String[Lact.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Elevators")) {
+            Object results[] = Elevators.getConnectedRooms().toArray(new String[Elevators.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Room of Retirement")) {
+            Object results[] = RoomOfRetirement.getConnectedRooms().toArray(new String[RoomOfRetirement.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("North Hall")) {
+            Object results[] = NorthHall.getConnectedRooms().toArray(new String[NorthHall.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Computer Lab")) {
+            Object results[] = ComputerLab.getConnectedRooms().toArray(new String[ComputerLab.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("ECS302")) {
+            Object results[] = ECS302.getConnectedRooms().toArray(new String[ECS302.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Eat Club")) {
+            Object results[] = EatClub.getConnectedRooms().toArray(new String[EatClub.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("CECS Conference Room")) {
+            Object results[] = ConfRoom.getConnectedRooms().toArray(new String[ConfRoom.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Student Parking")) {
+            Object results[] = StdtPark.getConnectedRooms().toArray(new String[StdtPark.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Forbidden Parking")) {
+            Object results[] = ForbPark.getConnectedRooms().toArray(new String[ForbPark.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Rec Center")) {
+            Object results[] = RecCenter.getConnectedRooms().toArray(new String[RecCenter.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Japanese Garden")) {
+            Object results[] = JPNGarden.getConnectedRooms().toArray(new String[JPNGarden.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("George Allen Field")) {
+            Object results[] = GAField.getConnectedRooms().toArray(new String[GAField.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("West Walkway")) {
+            Object results[] = WestWalkway.getConnectedRooms().toArray(new String[WestWalkway.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("East Walkway")) {
+            Object results[] = EastWalkway.getConnectedRooms().toArray(new String[EastWalkway.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Bratwurst Hall")) {
+            Object results[] = BratwurstHall.getConnectedRooms().toArray(new String[BratwurstHall.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("LA 5")) {
+            Object results[] = LA5.getConnectedRooms().toArray(new String[LA5.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Library")) {
+            Object results[] = Library.getConnectedRooms().toArray(new String[Library.getConnectedRooms().size()]);
+            return results;
+        } else if (stringTempRoom.equals("Walter Pyramid")) {
+            Object results[] = WalterPyramid.getConnectedRooms().toArray(new String[WalterPyramid.getConnectedRooms().size()]);
+            return results;
         }
-        else if(stringTempRoom.equals("SouthHall"))
-        {
-            return SouthHall.getConnectedRooms();
-        }
-        else if(stringTempRoom.equals("Lact"))
-        {
-            return Lact.getConnectedRooms();
-        }
-        else if(stringTempRoom.equals("Elevators")){
-            return Elevators.getConnectedRooms();
-        }
-        else if(stringTempRoom.equals("Room of Retirement")){
-            return RoomOfRetirement.getConnectedRooms();
-        }
-        
-        
-        
-        
-        
-        
-        
-        return emptyArrayList;
+
+        return emptyList;
     }
 
-    public void deleteListOfRooms() {
 
-    }
 
 }
