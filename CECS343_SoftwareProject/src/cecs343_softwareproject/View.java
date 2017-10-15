@@ -8,7 +8,7 @@
  *
  * @author winn
  */
-
+package cecs343_softwareproject;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -19,6 +19,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
+import cecs343_softwareproject.Controller.MyJButton;
 
 public class View {
     private JFrame frame;
@@ -30,8 +31,8 @@ public class View {
     
     //Controls Panel
     private JPanel buttonPanel;
-    private JButton moveButton;
-    private JList roomsList;
+    private MyJButton moveButton;
+    protected JList roomsList;
     
     private JScrollPane mapScroller;
     
@@ -58,8 +59,8 @@ public class View {
         
         
         buttonPanel = new JPanel();
-        moveButton = new JButton("Move");
-        moveButton.addActionListener(new mouseListener());
+        moveButton = appController.new MyJButton("Move");
+        
         
         frame = new JFrame();
 
@@ -86,16 +87,6 @@ public class View {
         frame.add(mapScroller);
         frame.setVisible(true);
     }
-   
-    
-    class mouseListener implements ActionListener{
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("User Clicked Move");
-            Object element = roomsList.getSelectedValue();
-            System.out.println(element);
-        }
-    
 }
-}
+

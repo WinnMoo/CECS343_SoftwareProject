@@ -8,6 +8,9 @@
  *
  * @author winn
  */
+
+package cecs343_softwareproject;
+
 public class Player {
     String name;
     Room room;
