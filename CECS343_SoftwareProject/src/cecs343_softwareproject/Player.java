@@ -14,12 +14,16 @@ package cecs343_softwareproject;
 public class Player {
     String name;
     Room room;
+    
+    int orderNumber;
+    
     int positionX;
     int positionY;
     
-    public Player(String givenName, Room givenRoom){
+    public Player(String givenName, Room givenRoom, int playerNumber){
         name = givenName; 
         room = givenRoom;
+        orderNumber = playerNumber;
         positionX = 50;
         positionY = 50;
     }

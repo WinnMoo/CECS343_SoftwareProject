@@ -40,9 +40,9 @@ public class Model {
     Room WalterPyramid = new Room("Walter Pyramid");
 
     //Create the players for the game
-    Player John = new Player("John", SouthHall);
-    Player Rebecca = new Player("Rebecca", ECS308);
-    Player Charles = new Player("Charles", ECS308);
+    Player John = new Player("John", ECS308, 1);
+    Player Rebecca = new Player("Rebecca", ECS308, 2);
+    Player Charles = new Player("Charles", ECS308, 3);
 
     Player[] listOfPlayers = {John, Rebecca, Charles};
 
@@ -70,6 +70,7 @@ public class Model {
         Lact.addRoom("South Hall");
 
         Elevators.addRoom("North Hall");
+        Elevators.addRoom("LA 5");
 
         RoomOfRetirement.addRoom("North Hall");
 
@@ -135,6 +136,10 @@ public class Model {
         WalterPyramid.addRoom("Rec Center");
     }
 
+    
+    /*
+    Method used for updating the JList that displays the list of available rooms that the player can go in
+    */
     public Object[] createListOfRooms() {
         Room tempRoom = John.getRoom();
         String stringTempRoom = tempRoom.getNameRoom();
@@ -147,7 +152,7 @@ public class Model {
         } else if (stringTempRoom.equals("South Hall")) {
             Object results[] = SouthHall.getConnectedRooms().toArray(new String[SouthHall.getConnectedRooms().size()]);
             return results;
-        } else if (stringTempRoom.equals("Lactaction Lounge")) {
+        } else if (stringTempRoom.equals("Lactation Lounge")) {
             Object results[] = Lact.getConnectedRooms().toArray(new String[Lact.getConnectedRooms().size()]);
             return results;
         } else if (stringTempRoom.equals("Elevators")) {

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class Room {
     String name;
     ArrayList listOfRooms = new ArrayList();
+    int numOfRooms = 0;
     
     public Room(String givenName){
         name = givenName;
@@ -27,10 +28,15 @@ public class Room {
     }
     public void addRoom(String roomToAdd){
         listOfRooms.add(roomToAdd);
+        numOfRooms++;
     }
     
     public ArrayList getConnectedRooms(){
         return listOfRooms;
+    }
+    
+    public int getNumOfRooms(){
+        return numOfRooms;
     }
     
 }
