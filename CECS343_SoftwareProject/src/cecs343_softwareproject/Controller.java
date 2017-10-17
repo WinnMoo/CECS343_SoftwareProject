@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

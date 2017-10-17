@@ -11,14 +11,12 @@ package cecs343_softwareproject;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
 import javax.swing.*;
+<<<<<<< Updated upstream
 import javax.swing.event.ListSelectionEvent;
 
+=======
+>>>>>>> Stashed changes
 import cecs343_softwareproject.Controller.MyJButton;
 
 public class View {
@@ -74,7 +72,7 @@ public class View {
         frame.setUndecorated(true);
 
         //imagePanel.setPreferredSize(new Dimension(1200, 949));
-        roomListScroller.setPreferredSize(new Dimension(250, 80));
+        roomListScroller.setPreferredSize(new Dimension(120, 150));
 
         imagePanel.add(imageLabel, BorderLayout.NORTH);
 
