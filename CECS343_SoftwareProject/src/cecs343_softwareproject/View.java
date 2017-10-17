@@ -18,6 +18,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
+
 import cecs343_softwareproject.Controller.MyJButton;
 
 public class View {

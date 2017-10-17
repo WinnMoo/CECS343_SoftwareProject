@@ -18,7 +18,8 @@ import javax.swing.JList;
  */
 public class Controller {
 
-    public Model appModel;
+    static Model model;
+	public Model appModel;
     public View appView;
     public Random rand;
 
@@ -133,5 +134,9 @@ public class Controller {
             }
         }
     }
+
+	public static Model getModel() {
+		return model;
+	}
 
 }

@@ -17,6 +17,8 @@ public class Model {
 
     private Controller appController;
     //Create all the rooms on the board
+    ArrayList<Player> players = new ArrayList();
+    ArrayList<Room> rooms = new ArrayList();
     Room ECS308 = new Room("ECS308");
     Room SouthHall = new Room("South Hall");
     Room Lact = new Room("Lactation Lounge");

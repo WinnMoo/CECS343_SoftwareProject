@@ -17,12 +17,18 @@ public class Room {
     String name;
     ArrayList listOfRooms = new ArrayList();
     int numOfRooms = 0;
+	public int x;
+	public int y;
     
     public Room(String givenName){
         name = givenName;
         
     }
-    
+    public Room(String givenName, int xcoord, int ycoord){
+        name = givenName;
+        x= xcoord;
+        y= ycoord; 
+    }
     public String getNameRoom(){
         return name;
     }
