@@ -12,11 +12,10 @@ package cecs343_softwareproject;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.*;
-<<<<<<< Updated upstream
+
 import javax.swing.event.ListSelectionEvent;
 
-=======
->>>>>>> Stashed changes
+
 import cecs343_softwareproject.Controller.MyJButton;
 
 public class View {
@@ -29,13 +28,23 @@ public class View {
     private JLabel imageLabel;
 
     //Controls Panel
+    public JPanel controlPanel;
+    
     private JPanel buttonPanel;
     private MyJButton moveButton;
+    public JButton drawButton;
+    public JButton playButton;
     public JList roomsList;
     public DefaultListModel listModel;
 
+    public JPanel textPanel;
+    
+    public JTextArea textArea;
+    public JTextArea cardArea;
+    
     private JScrollPane mapScroller;
 
+    public JScrollPane textScroller;
     private JScrollPane roomListScroller;
 
     public View(Controller appController) {
@@ -56,11 +65,30 @@ public class View {
         roomsList.setLayoutOrientation(JList.VERTICAL);
         roomsList.setVisibleRowCount(5);
 
+        
+        
         roomListScroller = new JScrollPane(roomsList);
 
+        cardArea = new JTextArea(5,30);
+        
+        textArea = new JTextArea(5,30);
+        textPanel = new JPanel();
+        textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
+        textArea.setWrapStyleWord(true);
+        textScroller = new JScrollPane(textArea);
+        
+        
+        controlPanel = new JPanel();
+        
         buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         moveButton = appController.new MyJButton("Move");
-
+        drawButton = new JButton("Draw Card");
+        playButton = new JButton("Play Card");
+        
+        drawButton.setEnabled(false);
+        playButton.setEnabled(false);
+        
         frame = new JFrame();
 
     }
@@ -72,14 +100,22 @@ public class View {
         frame.setUndecorated(true);
 
         //imagePanel.setPreferredSize(new Dimension(1200, 949));
-        roomListScroller.setPreferredSize(new Dimension(120, 150));
+        roomListScroller.setPreferredSize(new Dimension(120, 90));
 
         imagePanel.add(imageLabel, BorderLayout.NORTH);
 
-        buttonPanel.add(roomListScroller);
+        textPanel.add(cardArea);
+        textPanel.add(textScroller);
+        
+        buttonPanel.add(drawButton);
         buttonPanel.add(moveButton);
+        buttonPanel.add(playButton);
+        buttonPanel.add(roomListScroller);
+        controlPanel.add(buttonPanel);
+        controlPanel.add(textPanel);
 
-        frame.add(buttonPanel, BorderLayout.SOUTH);
+        frame.add(controlPanel, BorderLayout.SOUTH);
+  
         //Only need to add the scrollpanel because the image panel is added to the scroll panel
         //Scrollpanel automatically scales the image according to the preferred size
         frame.add(mapScroller);

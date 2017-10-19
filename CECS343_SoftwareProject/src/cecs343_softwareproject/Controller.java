@@ -107,7 +107,7 @@ public class Controller {
                 String convertedString = element.toString();
                 updatePlayerRoom(convertedString, appModel.John);
                 System.out.println("John is now in " + appModel.John.getRoom().getNameRoom());
-
+                appView.textArea.append("John is now in " + appModel.John.getRoom().getNameRoom() + "\n\r");
                 //update jlist
                 updateJList();
 
@@ -122,6 +122,8 @@ public class Controller {
                     
                     
                     updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
+                    
+                    appView.textArea.append(appModel.listOfPlayers[i].name + " is now in " + appModel.listOfPlayers[i].room.getNameRoom() + "\n\r");
                     System.out.println(appModel.listOfPlayers[i].name + " is now in " + appModel.listOfPlayers[i].room.getNameRoom());
                 }
 
