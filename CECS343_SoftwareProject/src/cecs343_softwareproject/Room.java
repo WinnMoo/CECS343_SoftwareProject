@@ -15,20 +15,20 @@ import java.util.ArrayList;
  */
 public class Room {
     String name;
+    int roomPositionX;
+    int roomPositionY;
     ArrayList listOfRooms = new ArrayList();
     int numOfRooms = 0;
-	public int x;
-	public int y;
+    int y;
+ 
     
-    public Room(String givenName){
+    public Room(String givenName, int xCoord, int yCoord){
         name = givenName;
+        roomPositionX = xCoord;
+        roomPositionY = yCoord;
         
     }
-    public Room(String givenName, int xcoord, int ycoord){
-        name = givenName;
-        x= xcoord;
-        y= ycoord; 
-    }
+    
     public String getNameRoom(){
         return name;
     }
@@ -43,6 +43,13 @@ public class Room {
     
     public int getNumOfRooms(){
         return numOfRooms;
+    }
+    
+    public int getRoomPositionX(){
+        return roomPositionX;
+    }
+    public int getRoomPositionY(){
+        return roomPositionY;
     }
     
 }
