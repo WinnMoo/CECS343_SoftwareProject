@@ -62,7 +62,7 @@ public class View {
          imagePanel.add(token1);
          token1.setFont(token1.getFont().deriveFont(Font.BOLD, 24));
          token1.setForeground(Color.RED);
-//         token1.setBounds(ECS308.getRoomPositionX(),ECS308.getRoomPositionY(), 300, 150);
+         token1.setBounds(ECS308.getRoomPositionX(),ECS308.getRoomPositionY(), 300, 150);
 
         
          
