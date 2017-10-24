@@ -1,14 +1,9 @@
 
 package cecs343_softwareproject;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 
 
-=======
-import java.awt.List;
-import java.util.ArrayList;
->>>>>>> origin/master
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,27 +20,27 @@ public class Model {
     //Create all the rooms on the board
     ArrayList<Player> players = new ArrayList();
     ArrayList<Room> rooms = new ArrayList();
-    Room ECS308 = new Room("ECS308",1350,1000);
-    Room SouthHall = new Room("South Hall",1500,850);
-    Room Lact = new Room("Lactation Lounge",1600,1000);
-    Room Elevators = new Room("Elevators",1150,1000);
-    Room RoomOfRetirement = new Room("Room of Retirement",900,1000);
-    Room NorthHall = new Room("North Hall",1000,850);
-    Room ComputerLab = new Room("Computer Lab",900,700);
-    Room ECS302 = new Room("ECS302",1200,700);
-    Room EatClub = new Room("Eat Club",1450,700);
-    Room ConfRoom = new Room("CECS Conference Room",1600,700);
-    Room StdtPark = new Room("Student Parking",1550,200);
-    Room ForbPark = new Room("Forbidden Parking",1600,500);
-    Room RecCenter = new Room("Rec Center",1100,50);
-    Room JPNGarden = new Room("Japanese Garden",1100,50);
-    Room GAField = new Room("George Allen Field",800,200);
-    Room WestWalkway = new Room("West Walkway",700,900);
-    Room EastWalkway = new Room("East Walkway",1750,850);
-    Room BratwurstHall = new Room("Bratwurst Hall",1600,1300);
-    Room LA5 = new Room("LA 5",1150,1300);
-    Room Library = new Room("Library",800,1300);
-    Room WalterPyramid = new Room("Walter Pyramid", 1100,250);
+    Room ECS308 = new Room("ECS308");
+    Room SouthHall = new Room("South Hall");
+    Room Lact = new Room("Lactation Lounge");
+    Room Elevators = new Room("Elevators");
+    Room RoomOfRetirement = new Room("Room of Retirement");
+    Room NorthHall = new Room("North Hall");
+    Room ComputerLab = new Room("Computer Lab");
+    Room ECS302 = new Room("ECS302");
+    Room EatClub = new Room("Eat Club");
+    Room ConfRoom = new Room("CECS Conference Room");
+    Room StdtPark = new Room("Student Parking");
+    Room ForbPark = new Room("Forbidden Parking");
+    Room RecCenter = new Room("Rec Center");
+    Room JPNGarden = new Room("Japanese Garden");
+    Room GAField = new Room("George Allen Field");
+    Room WestWalkway = new Room("West Walkway");
+    Room EastWalkway = new Room("East Walkway");
+    Room BratwurstHall = new Room("Bratwurst Hall");
+    Room LA5 = new Room("LA 5");
+    Room Library = new Room("Library");
+    Room WalterPyramid = new Room("Walter Pyramid");
 
     //Create the players for the game
     Player John = new Player("John", ECS308, 1);

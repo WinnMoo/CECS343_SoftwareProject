@@ -11,24 +11,12 @@ package cecs343_softwareproject;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-<<<<<<< HEAD
 
 import javax.swing.event.ListSelectionEvent;
 
 
-=======
-import javax.swing.event.ListSelectionEvent;
->>>>>>> origin/master
 import cecs343_softwareproject.Controller.MyJButton;
-import java.awt.Color;
-import java.awt.Font;
-import java.util.ArrayList;
 
 public class View {
 
@@ -38,9 +26,7 @@ public class View {
     private JPanel imagePanel;
     private ImageIcon gameBoard;
     private JLabel imageLabel;
-    private JLabel token1;
-    private JLabel token2;
-    private JLabel token3;
+
     //Controls Panel
     public JPanel controlPanel;
     
@@ -50,9 +36,6 @@ public class View {
     public JButton playButton;
     public JList roomsList;
     public DefaultListModel listModel;
-    private Room listOfRooms;
-
- 
 
     public JPanel textPanel;
     
@@ -71,39 +54,6 @@ public class View {
         imagePanel = new JPanel(new BorderLayout());
 
         mapScroller = new JScrollPane(imagePanel);
-        
-
-         imageLabel.setLayout(null);
-         
-         token1 = new JLabel("John");
-         imagePanel.add(token1);
-         token1.setFont(token1.getFont().deriveFont(Font.BOLD, 24));
-         token1.setForeground(Color.RED);
-         token1.setBounds(ECS308.getRoomPositionX(),ECS308.getRoomPositionY(), 300, 150);
-
-        
-         
-         token2 = new JLabel("Rebecca");
-         imagePanel.add(token2);
-         token2.setFont(token2.getFont().deriveFont(Font.BOLD, 24));
-         token2.setForeground(Color.RED);
-         token2.setBounds(1200,700, 300, 150);
-//         token2.setBounds(Locations.ECS_308.xPos,Locations.ECS_308.yPos, 200, 300)
-
-       
-         
-         token3 = new JLabel("Charles");
-         imagePanel.add(token3);
-         token3.setFont(token3.getFont().deriveFont(Font.BOLD, 24));
-         token3.setForeground(Color.RED);
-         token3.setBounds(1200,850, 300, 150);
-//         token3.setBounds(Locations.ECS_308.xPos,Locations.ECS_308.yPos, 200, 300)
-
-  
-        
-       
-        //Controls Components
-     mapScroller = new JScrollPane(imagePanel);
 
         //Controls Components
         DefaultListModel listModel = new DefaultListModel();
@@ -141,14 +91,10 @@ public class View {
         
         frame = new JFrame();
 
-        
-      
     }
-       
- 
 
     void displayUI() {
-       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
