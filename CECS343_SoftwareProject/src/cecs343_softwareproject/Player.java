@@ -46,12 +46,12 @@ public class Player {
     public void setRoom(Room newRoom){
         room = newRoom;
     }
-    public void setPositionX(int newPositionX){
-        positionX = newPositionX;
+    public void setCoords(int x, int y )
+    {
+    	  positionX = x;
+    	  positionY  = y;
     }
-    public void setPositionY(int newPositionY){
-        positionY = newPositionY;
-    }
+ 
     
     
 }
