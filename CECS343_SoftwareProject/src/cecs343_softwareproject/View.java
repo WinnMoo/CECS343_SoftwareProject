@@ -156,27 +156,43 @@ public class View extends javax.swing.JPanel {
 		// buttonPanel.setBounds(40,1300,100,60);
 		leftButtonPanel.setLayout(new BoxLayout(leftButtonPanel, BoxLayout.Y_AXIS));
 		
-		drawCardButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		leftButtonPanel.add( Box.createVerticalStrut(10));
+
+		drawCardButton.setPreferredSize(new Dimension(150,20));
+		drawCardButton.setAlignmentX(Component.LEFT_ALIGNMENT);
 		leftButtonPanel.add(drawCardButton);
-		
-		moveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+		leftButtonPanel.add( Box.createVerticalStrut(10));
+		moveButton.setPreferredSize(new Dimension(150,20));
+		moveButton.setAlignmentX(Component.LEFT_ALIGNMENT);
 		leftButtonPanel.add(moveButton);
-		
-		playCardButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+		leftButtonPanel.add( Box.createVerticalStrut(10));
+		playCardButton.setPreferredSize(new Dimension(150,20));
+		playCardButton.setAlignmentX(Component.LEFT_ALIGNMENT);
 		leftButtonPanel.add(playCardButton);
+
+		leftButtonPanel.add( Box.createVerticalStrut(10));
+
 		
-		roomListScroller.setAlignmentX(Component.CENTER_ALIGNMENT);
+		roomListScroller.setAlignmentX(Component.LEFT_ALIGNMENT);
 		leftButtonPanel.add(roomListScroller);
+		leftButtonPanel.add( Box.createVerticalStrut(10));
+
 		
-		buttonPanel.add( Box.createVerticalStrut(1));
 
 //		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
 		middleButtonPanel.add(cardLabel);
-		buttonPanel.add( Box.createVerticalStrut(1));
+		buttonPanel.add( Box.createVerticalStrut(10));
 		rightButtonPanel.setLayout(new BoxLayout(rightButtonPanel, BoxLayout.Y_AXIS));
 
 		rightButtonPanel.add(textField);
+		textField.setPreferredSize(new Dimension(2100,300));
+		rightButtonPanel.add( Box.createVerticalStrut(10));
+
 		rightButtonPanel.add(textArea);
+		textArea.setPreferredSize(new Dimension(1500,100));
+
 		
 		
 		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
