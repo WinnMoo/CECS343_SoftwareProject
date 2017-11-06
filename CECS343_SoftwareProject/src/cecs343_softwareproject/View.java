@@ -68,6 +68,8 @@ public class View extends javax.swing.JPanel {
 
 	private TextArea textArea;
 
+	private JTextArea jTextArea;
+
 	public View(Controller appController) {
 		// Gameboard Components
 		gameBoard = new ImageIcon("CSULBMap5_1200x1437.png");
@@ -99,7 +101,7 @@ public class View extends javax.swing.JPanel {
 		token3.setBounds(appController.appModel.listOfPlayers[2].room.getRoomPositionX(),
 				appController.appModel.listOfPlayers[2].room.getRoomPositionY() - 25, 100, 50);
 
-		token4 = new JLabel("Jamal");
+		token4 = new JLabel(" ");
 		token4.setFont(token4.getFont().deriveFont(Font.BOLD, 24));
 		token4.setForeground(Color.RED);
 		token4.setBounds(1400, 800, 100, 50);
@@ -133,16 +135,24 @@ public class View extends javax.swing.JPanel {
 		
 		
 		//TextField
-		textField = new java.awt.TextField();
-		textField.setText("HELLO");
+		jTextArea = new javax.swing.JTextArea();
+		String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
+		String b = appController.appModel.listOfPlayers[0].name +"\t6\t"+"6\t"+"6\t"+"6\t";
+		String c = appController.appModel.listOfPlayers[1].name +"\t6\t"+"6\t"+"6\t"+"6\t";
+		String d = appController.appModel.listOfPlayers[2].name +"\t6\t"+"6\t"+"6\t"+"6\t";
+		jTextArea.setFont(new Font("Forte",Font.BOLD, 30));
+
+		String r = appController.appModel.listOfPlayers[1].name + " is now in "+ appController.appModel.listOfPlayers[1].room.getNameRoom();
+		String z = a+"\n"+b+"\n"+c+"\n"+d+"\n"+r;
+		jTextArea.setText(z);
+		
 
 		textArea = new java.awt.TextArea();
-		textArea.setText("AMANDA WAS HERE");
+		textArea.setText("HELLO!");
 		
 		frame = new JFrame();
 
 	}
-
 	void displayUI() {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
@@ -186,8 +196,8 @@ public class View extends javax.swing.JPanel {
 		buttonPanel.add( Box.createVerticalStrut(10));
 		rightButtonPanel.setLayout(new BoxLayout(rightButtonPanel, BoxLayout.Y_AXIS));
 
-		rightButtonPanel.add(textField);
-		textField.setPreferredSize(new Dimension(2100,300));
+		rightButtonPanel.add(jTextArea);
+		jTextArea.setPreferredSize(new Dimension(2100,300));
 		rightButtonPanel.add( Box.createVerticalStrut(10));
 
 		rightButtonPanel.add(textArea);
