@@ -19,7 +19,6 @@ public class Room {
     int roomPositionY;
     ArrayList listOfRooms = new ArrayList();
     int numOfRooms = 0;
-    int y;
  
     
     public Room(String givenName, int xCoord, int yCoord){

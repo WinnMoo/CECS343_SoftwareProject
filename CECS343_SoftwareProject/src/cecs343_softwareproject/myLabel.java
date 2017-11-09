@@ -35,12 +35,12 @@ public class myLabel
   private int getRoomX(int i)
   {
     int room = model.listOfPlayers[i].roomNum;
-    return ((Room)model.rooms.get(room)).x;
+    return ((Room)model.rooms.get(room)).roomPositionX;
   }
   
   private int getRoomY(int i)
   {
     int room = model.listOfPlayers[i].roomNum;
-    return ((Room)model.rooms.get(room)).y + i * 40 + 40;
+    return ((Room)model.rooms.get(room)).roomPositionY + i * 40 + 40;
   }
 }
