@@ -1,4 +1,3 @@
-
 package cecs343_softwareproject;
 
 import java.util.ArrayList;
@@ -8,52 +7,53 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author winn
  */
 public class Room {
+
     String name;
     int roomPositionX;
     int roomPositionY;
     ArrayList listOfRooms = new ArrayList();
     int numOfRooms = 0;
- 
-    
-    public Room(String givenName, int xCoord, int yCoord){
+
+    public Room(String givenName, int xCoord, int yCoord) {
         name = givenName;
         roomPositionX = xCoord;
         roomPositionY = yCoord;
-        
+
     }
-    public void setRoomCoords(int x, int y )
-    {
-    	roomPositionX= x;
-    	roomPositionY = y;
+
+    public void setRoomCoords(int x, int y) {
+        roomPositionX = x;
+        roomPositionY = y;
     }
-    public String getNameRoom(){
+
+    public String getNameRoom() {
         return name;
     }
-    public void addRoom(String roomToAdd){
+
+    public void addRoom(String roomToAdd) {
         listOfRooms.add(roomToAdd);
         numOfRooms++;
     }
-    
-    public ArrayList getConnectedRooms(){
+
+    public ArrayList getConnectedRooms() {
         return listOfRooms;
     }
-    
-    public int getNumOfRooms(){
+
+    public int getNumOfRooms() {
         return numOfRooms;
     }
-    
-    public int getRoomPositionX(){
+
+    public int getRoomPositionX() {
         return roomPositionX;
     }
-    public int getRoomPositionY(){
+
+    public int getRoomPositionY() {
         return roomPositionY;
     }
-    
-}
 
+}
