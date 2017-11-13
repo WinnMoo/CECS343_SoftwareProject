@@ -2,6 +2,7 @@ package cecs343_softwareproject;
 
 import java.awt.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +19,7 @@ public class Model {
     //Create all the rooms on the board
 
     ArrayList<Room> rooms = new ArrayList();
-    ArrayList<Card> deck = new ArrayList();
+    ArrayList<Card> gameDeck = new ArrayList();
     Room ECS308 = new Room("ECS308", 1350, 1000);
     Room SouthHall = new Room("South Hall", 1500, 850);
     Room Lact = new Room("Lactation Lounge", 1600, 1000);
@@ -93,7 +94,7 @@ public class Model {
         this.appController = appController;
 
         constructRooms();
-        constructDeck();
+        gameDeck = constructDeck();
     }
 
     /*
@@ -256,7 +257,8 @@ public class Model {
         return emptyList;
     }
 
-    public void constructDeck(){
+    public ArrayList constructDeck(){
+        ArrayList<Card> deck = new ArrayList();
         deck.add(Card1);
         deck.add(Card2);
         deck.add(Card3);
@@ -296,7 +298,9 @@ public class Model {
         deck.add(Card37);
         deck.add(Card38);
         deck.add(Card39);
-        deck.add(Card40);  
+        deck.add(Card40); 
+        Collections.shuffle(deck);
+        return deck;
     }
     
 }
