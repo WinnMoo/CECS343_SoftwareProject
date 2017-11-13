@@ -3,68 +3,65 @@ package cecs343_softwareproject;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 
 public class Card {
+
     String name;
     String reward;
-    String locationName;
+    ArrayList<String> location = new ArrayList();
     String prereq;
     String fail;
-	Image img;
-	private boolean activeCard;
-    public void printName()
-    {
-      System.out.println("  Card:" + this.name);
-    }
+    Image img;
     
-    public void printLocation()
-    {
-      System.out.println("  Location:" + this.locationName);
+    private boolean activeCard;
+
+    public void printName() {
+        System.out.println("  Card:" + this.name);
     }
-    
-    public void printReward()
-    {
-      System.out.println("  Reward:" + this.reward);
+
+    public void printLocation() {
+        for(int i = 0; i < location.size();i++){
+            System.out.println("  Location:" + this.location.get(i));
+        }
+        
     }
-    public String getName()
-    {
-		return name;
-    	
+
+    public void printReward() {
+        System.out.println("  Reward:" + this.reward);
     }
-    public String getReward()
-    {
-		return reward;
-    	
+
+    public String getName() {
+        return name;
+
     }
-    
-    public void setImage(String i)
-    {
-      try
-      {
-        this.img = ImageIO.read(new File(i));
-      }
-      catch (IOException ex)
-      {
-        Logger.getLogger(Card.class.getName()).log(Level.SEVERE, null, ex);
-      }
+
+    public String getReward() {
+        return reward;
+
     }
-    
-    public Image getImage()
-    {
-      return this.img;
+
+    public void setImage(String i) {
+        try {
+            this.img = ImageIO.read(new File(i));
+        } catch (IOException ex) {
+            Logger.getLogger(Card.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-    public boolean getActive()
-    {
-      return this.activeCard;
+
+    public Image getImage() {
+        return this.img;
     }
-    
-    public void setActive(boolean active)
-    {
-      this.activeCard = active;
+
+    public boolean getActive() {
+        return this.activeCard;
+    }
+
+    public void setActive(boolean active) {
+        this.activeCard = active;
     }
 }

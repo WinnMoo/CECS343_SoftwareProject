@@ -21,36 +21,35 @@ public class Player {
 
     int positionX;
     int positionY;
-    
+
     //Player Stats
- 
     int learning;
     int craft;
     int integrityChip;
     int qualityPoints;
-    
+
     ArrayList<Card> hand = new ArrayList();
-    
-    public Player(int l, int c, int i, int q, String n)
-    {
-    	this.learning = l;
-    	this.craft = c;
-    	this.integrityChip= i;
-    	this.qualityPoints = q;
-    	this.name = n;
+
+    public Player(int l, int c, int i, int q, String n) {
+        this.learning = l;
+        this.craft = c;
+        this.integrityChip = i;
+        this.qualityPoints = q;
+        this.name = n;
     }
+
     public Player(String givenName, Room givenRoom, int playerNumber) {
         name = givenName;
         room = givenRoom;
         orderNumber = playerNumber;
         positionX = 50;
         positionY = 50;
-        
+
         learning = 6;
         craft = 7;
         integrityChip = 8;
         qualityPoints = 9;
-        
+
     }
 
     public String getName() {
@@ -77,59 +76,52 @@ public class Player {
         positionX = x;
         positionY = y;
     }
-    public void dealCard(Card c)
-    {
-    	this.hand.add(c);
+
+    public void dealCard(Card c) {
+        this.hand.add(c);
     }
-    public void addCard(){
-        
+
+    public void addCard() {
+
     }
-    
-    public void removeCard(){
-        
+
+    public void removeCard() {
+
     }
-    public int getLearning()
-    {
-      return this.learning;
+
+    public int getLearning() {
+        return this.learning;
     }
-    
-    public void incLearning()
-    {
-      this.learning += 1;
+
+    public void incLearning() {
+        this.learning += 1;
     }
-    
-    public int getCraft()
-    {
-      return this.craft;
+
+    public int getCraft() {
+        return this.craft;
     }
-    
-    public void incCraft()
-    {
-      this.craft += 1;
+
+    public void incCraft() {
+        this.craft += 1;
     }
-    
-    public int getIntegrity()
-    {
-      return this.integrityChip;
+
+    public int getIntegrity() {
+        return this.integrityChip;
     }
-    
-    public void incIntegrity()
-    {
-      this.integrityChip += 1;
+
+    public void incIntegrity() {
+        this.integrityChip += 1;
     }
-    
-    
-    public int getQP()
-    {
-      return this.qualityPoints;
+
+    public int getQP() {
+        return this.qualityPoints;
     }
-    
-    public void setQP(int p)
-    {
-      if (this.qualityPoints + p < 0) {
-        return;
-      }
-      this.qualityPoints += p;
+
+    public void setQP(int p) {
+        if (this.qualityPoints + p < 0) {
+            return;
+        }
+        this.qualityPoints += p;
     }
 
 }

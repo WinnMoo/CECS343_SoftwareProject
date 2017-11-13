@@ -10,15 +10,16 @@ package cecs343_softwareproject;
  * @author Winn
  */
 public class Card14 extends Card {
-	public Card14() {
-		this.name = "The Big Game";
-		this.reward = "1 Craft Chip and Teleport to Lactation Lounge";
-		this.locationName = "Pyramid";
 
-	}
+    public Card14() {
+        this.name = "The Big Game";
+        this.reward = "1 Craft Chip and Teleport to Lactation Lounge";
+        this.location.add("Walter Pyramid");
 
-	public boolean play(Player p) {
-		return true;
+    }
 
-	}
+    public boolean play(Player p) {
+        return true;
+
+    }
 }

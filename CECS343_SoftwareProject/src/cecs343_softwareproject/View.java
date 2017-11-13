@@ -33,11 +33,11 @@ public class View extends javax.swing.JPanel {
     private JLabel token4;
     // Controls Panel
     private JPanel buttonPanel;
-    
+
     protected MyJButton moveButton;
     protected MyJButton playCardButton;
     protected MyJButton drawCardButton;
-    
+
     public JList roomsList;
     public DefaultListModel listModel;
     public Model appModel;
@@ -60,7 +60,7 @@ public class View extends javax.swing.JPanel {
 
     private JTextArea jTextArea;
 
-	private ActionListener handleDrawCard;
+    private ActionListener handleDrawCard;
 
     public View(Controller appController) {
         // Gameboard Components
@@ -120,7 +120,7 @@ public class View extends javax.swing.JPanel {
         leftButtonPanel = new JPanel();
         middleButtonPanel = new JPanel();
         rightButtonPanel = new JPanel();
-        
+
         moveButton = appController.new MyJButton("Move");
         drawCardButton = appController.new MyJButton("Draw Card");
         playCardButton = appController.new MyJButton("Play Card");
@@ -129,7 +129,7 @@ public class View extends javax.swing.JPanel {
         //TextField
         jTextArea = new javax.swing.JTextArea();
         String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
-        String b = appController.appModel.listOfPlayers[0].name + "\t" + Integer.toString(appController.appModel.listOfPlayers[0].learning) 
+        String b = appController.appModel.listOfPlayers[0].name + "\t" + Integer.toString(appController.appModel.listOfPlayers[0].learning)
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[0].craft)
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[0].integrityChip)
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[0].qualityPoints)
@@ -139,7 +139,7 @@ public class View extends javax.swing.JPanel {
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[1].integrityChip)
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[1].qualityPoints)
                 + "\t";
-        String d = appController.appModel.listOfPlayers[2].name + "\t" + Integer.toString(appController.appModel.listOfPlayers[2].learning) 
+        String d = appController.appModel.listOfPlayers[2].name + "\t" + Integer.toString(appController.appModel.listOfPlayers[2].learning)
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[2].craft)
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[2].integrityChip)
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[2].qualityPoints)
@@ -152,10 +152,8 @@ public class View extends javax.swing.JPanel {
 
         textArea = new java.awt.TextArea();
         Card card1 = new Card1();
-        textArea.setText(appController.appModel.listOfPlayers[0].name+ " has played '"+ card1.getName()+"' for "+card1.getReward());
-		frame = new JFrame();
-
-        
+        textArea.setText(appController.appModel.listOfPlayers[0].name + " has played '" + card1.getName() + "' for " + card1.getReward());
+        frame = new JFrame();
 
     }
 
