@@ -143,7 +143,7 @@ public class Controller {
 
         //Move counter is used to keep track of how many times a player has moved, once movecounter
         //has reached 2, move counter is reset then the ai is allowed its turn
-        int moveCounter;
+        int moveCounter = 0;
 
         public MyJButton(String textToDisplay) {
             this.setText(textToDisplay);
@@ -155,32 +155,57 @@ public class Controller {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Object element = appView.roomsList.getSelectedValue();
 
-                String convertedString = element.toString();
-                updatePlayerRoom(convertedString, appModel.John);
-                System.out.println("John is now in "
-                        + appModel.John.getRoom().getNameRoom());
+                if (e.getActionCommand().equals("Move")) {
+                    System.out.println(moveCounter);
+                    moveCounter++;
+                    
+                    
+                    if (moveCounter == 3) {
+                        moveCounter = 0;
+                        appView.moveButton.setEnabled(false);
+                    } else {
 
-                // update jlist
-                updateJList();
-                // update tokens
-                updateTokens();
-                for (int i = 1; i < appModel.listOfPlayers.length; i++) {
+                        Object element = appView.roomsList.getSelectedValue();
 
-                    int numberOfRoomsToChooseFrom = appModel.listOfPlayers[i].room.numOfRooms;
+                        String convertedString = element.toString();
+                        updatePlayerRoom(convertedString, appModel.John);
+                        System.out.println("John is now in "
+                                + appModel.John.getRoom().getNameRoom());
 
-                    int n = rand.nextInt(numberOfRoomsToChooseFrom);
+                        // update jlist
+                        updateJList();
+                        // update tokens
+                        updateTokens();
+                        for (int i = 1; i < appModel.listOfPlayers.length; i++) {
 
-                    Object newRoomThatWasChosenObject = appModel.listOfPlayers[i].room.listOfRooms.get(n);
-                    String newRoomThatWasChosenString = newRoomThatWasChosenObject.toString();
+                            int numberOfRoomsToChooseFrom = appModel.listOfPlayers[i].room.numOfRooms;
 
-                    updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
-                    System.out.println(appModel.listOfPlayers[i].name + " is now in "
-                            + appModel.listOfPlayers[i].room.getNameRoom());
-                    System.out.println(appModel.listOfPlayers[i].name + "is now at"
-                            + appModel.listOfPlayers[i].room.getRoomPositionX() + " "
-                            + appModel.listOfPlayers[i].room.getRoomPositionY());
+                            int n = rand.nextInt(numberOfRoomsToChooseFrom);
+
+                            Object newRoomThatWasChosenObject = appModel.listOfPlayers[i].room.listOfRooms.get(n);
+                            String newRoomThatWasChosenString = newRoomThatWasChosenObject.toString();
+
+                            updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
+                            System.out.println(appModel.listOfPlayers[i].name + " is now in "
+                                    + appModel.listOfPlayers[i].room.getNameRoom());
+                            System.out.println(appModel.listOfPlayers[i].name + "is now at"
+                                    + appModel.listOfPlayers[i].room.getRoomPositionX() + " "
+                                    + appModel.listOfPlayers[i].room.getRoomPositionY());
+                        }
+                    }
+
+                } else if (e.getActionCommand().equals("Draw Card")) {
+                    //Code to enable play button
+                    appView.playCardButton.setEnabled(true);
+                    appView.drawCardButton.setEnabled(false);
+                } else if (e.getActionCommand().equals("Play Card")) {
+                    //code to play card
+
+                    //code to disable play card button
+                    appView.playCardButton.setEnabled(false);
+                    appView.drawCardButton.setEnabled(true);
+                    appView.moveButton.setEnabled(true);
                 }
             }
 
@@ -189,29 +214,6 @@ public class Controller {
                 addActionListener(listener);
             }
         }
-        
-        class handleDrawCard implements ActionListener{
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Code to enable play button
-                appView.playCardButton.setEnabled(true);
-            }
-            
-            
-        }
-        
-        class handlePlayCard implements ActionListener {
-            
-            public void actionPerformed(ActionEvent e) {
-                //code to play card
-                
-                //code to disable play card button
-                appView.playCardButton.setEnabled(false);
-            }
-
-        }
-        
     }
 
     public static Model getModel() {

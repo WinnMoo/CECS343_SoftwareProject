@@ -11,21 +11,13 @@ package cecs343_softwareproject;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
 import cecs343_softwareproject.Controller.MyJButton;
-import cecs343_softwareproject.Controller.MyJButton.handleDrawCard;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.TextArea;
 import java.awt.TextField;
-import java.util.ArrayList;
 
 public class View extends javax.swing.JPanel {
 
@@ -134,10 +126,8 @@ public class View extends javax.swing.JPanel {
         middleButtonPanel = new JPanel();
         rightButtonPanel = new JPanel();
         
-        drawCardButton = appController.new MyJButton("Draw Card");
-        
-        drawCardButton.addActionListener(handleDrawCard);
         moveButton = appController.new MyJButton("Move");
+        drawCardButton = appController.new MyJButton("Draw Card");
         playCardButton = appController.new MyJButton("Play Card");
         playCardButton.setEnabled(false);
 
