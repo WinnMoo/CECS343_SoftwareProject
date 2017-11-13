@@ -73,6 +73,8 @@ public class View extends javax.swing.JPanel {
 
     private JTextArea jTextArea;
 
+	private ActionListener handleDrawCard;
+
     public View(Controller appController) {
         // Gameboard Components
         gameBoard = new ImageIcon("CSULBMap5_1200x1437.png");

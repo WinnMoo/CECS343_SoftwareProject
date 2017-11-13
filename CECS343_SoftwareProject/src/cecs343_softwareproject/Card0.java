@@ -1,3 +1,4 @@
+package cecs343_softwareproject;
 
 public class Card0 extends Card {
 
@@ -7,4 +8,5 @@ public class Card0 extends Card {
         this.locationName = "Briefing Room 302 or 308";
         //setImage("images\\cardm00.png");
     }
+    
 }
