@@ -9,6 +9,8 @@
  */
 package cecs343_softwareproject;
 
+import java.util.ArrayList;
+
 public class Player {
 
     String name;
@@ -25,6 +27,8 @@ public class Player {
     int craft;
     int integrityChip;
     int qualityPoints;
+    
+    ArrayList<Card> hand = new ArrayList();
 
     public Player(String givenName, Room givenRoom, int playerNumber) {
         name = givenName;
@@ -63,6 +67,14 @@ public class Player {
     public void setCoords(int x, int y) {
         positionX = x;
         positionY = y;
+    }
+    
+    public void addCard(){
+        
+    }
+    
+    public void removeCard(){
+        
     }
 
 }
