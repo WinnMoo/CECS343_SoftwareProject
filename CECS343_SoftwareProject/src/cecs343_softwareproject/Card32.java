@@ -6,5 +6,11 @@ public class Card32 extends Card{
         this.reward = "5 Quality Points and 2 Game Cards";
         this.locationName = "Any room in ECS except Lactation Lounge";
         this.prereq = "3 Learning";
-        this.fail = "Lose 5 Quality Points and Go to Lactation Lounge"
+        this.fail = "Lose 5 Quality Points and Go to Lactation Lounge";
+}
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
 }

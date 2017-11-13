@@ -6,3 +6,9 @@ public class Card12 extends Card{
         this.reward = "1 Craft Chip and Teleport to Lactation Lounge";
         this.locationName = "Any outside space except Forbidden Parking";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

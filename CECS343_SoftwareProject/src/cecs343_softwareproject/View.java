@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.TextArea;
+import java.awt.event.ActionListener;
 
 public class View extends javax.swing.JPanel {
 
@@ -150,9 +151,11 @@ public class View extends javax.swing.JPanel {
         jTextArea.setText(z);
 
         textArea = new java.awt.TextArea();
-        textArea.setText("HELLO!");
+        Card card1 = new Card1();
+        textArea.setText(appController.appModel.listOfPlayers[0].name+ " has played '"+ card1.getName()+"' for "+card1.getReward());
+		frame = new JFrame();
 
-        frame = new JFrame();
+        
 
     }
 

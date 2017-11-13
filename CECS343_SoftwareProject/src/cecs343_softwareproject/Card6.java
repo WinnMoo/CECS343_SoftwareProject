@@ -7,3 +7,9 @@ public class Card6 extends Card{
         this.locationName = "Student Recreation";
 
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

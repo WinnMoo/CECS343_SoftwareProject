@@ -6,3 +6,9 @@ public class Card11 extends Card {
         this.reward = "1 Learning Chip or 1 Craft Chip";
         this.locationName = "EAT Room or George Allen Field";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

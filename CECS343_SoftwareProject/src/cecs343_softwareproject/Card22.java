@@ -8,3 +8,9 @@ public class Card22 extends Card{
         this.prereq = "6 Learning";
         this.fail = "Go to Student Parking";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

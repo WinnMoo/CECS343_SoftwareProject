@@ -98,8 +98,7 @@ public class Controller {
     }
 
     public void updateTokens() {
-        System.out.println(appModel.listOfPlayers[0].room.getRoomPositionX() + " "
-                + appModel.listOfPlayers[0].room.getRoomPositionY());
+     
         appView.token1.setBounds(appModel.listOfPlayers[0].room.getRoomPositionX(),
                 appModel.listOfPlayers[0].room.getRoomPositionY(), 100, 50);
         appView.token2.setBounds(appModel.listOfPlayers[1].room.getRoomPositionX(),
@@ -163,8 +162,7 @@ public class Controller {
 
                         String convertedString = element.toString();
                         updatePlayerRoom(convertedString, appModel.John);
-                        System.out.println("John is now in "
-                                + appModel.John.getRoom().getNameRoom());
+                       
 
                         // update jlist
                         updateJList();
@@ -180,11 +178,7 @@ public class Controller {
                             String newRoomThatWasChosenString = newRoomThatWasChosenObject.toString();
 
                             updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
-                            System.out.println(appModel.listOfPlayers[i].name + " is now in "
-                                    + appModel.listOfPlayers[i].room.getNameRoom());
-                            System.out.println(appModel.listOfPlayers[i].name + "is now at"
-                                    + appModel.listOfPlayers[i].room.getRoomPositionX() + " "
-                                    + appModel.listOfPlayers[i].room.getRoomPositionY());
+                         
                         }
                     }
 

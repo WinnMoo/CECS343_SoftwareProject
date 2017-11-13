@@ -6,5 +6,11 @@ public class Card33 extends Card{
         this.reward = "5 Quality Points";
         this.locationName = "Any building except ECS";
         this.prereq = "6 Craft";
-        this.fail = "Go to Student Parking"
+        this.fail = "Go to Student Parking";
+}
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
 }

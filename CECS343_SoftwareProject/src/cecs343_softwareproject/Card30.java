@@ -6,5 +6,11 @@ public class Card30 extends Card{
         this.reward = "1 Learning Chip and 1 Game Card";
         this.locationName = "Library";
         this.prereq = "2 Learning";
-        this.fail = "Lose 2 Quality Points"
+        this.fail = "Lose 2 Quality Points";
+}
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
 }

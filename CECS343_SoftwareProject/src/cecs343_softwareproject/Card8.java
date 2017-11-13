@@ -6,3 +6,9 @@ public class Card8 extends Card{
         this.reward = "1 Integrity Chip";
         this.locationName = "Elevators";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

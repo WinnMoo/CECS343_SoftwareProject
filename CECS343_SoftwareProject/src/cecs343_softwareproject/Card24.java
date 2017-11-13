@@ -8,3 +8,9 @@ public class Card24 extends Card{
         this.prereq = "3 Learning, 3 Craft, 3 Integrity";
         this.fail = "Discard 1 Game Card";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

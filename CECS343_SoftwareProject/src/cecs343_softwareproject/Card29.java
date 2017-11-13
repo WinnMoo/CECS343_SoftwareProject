@@ -6,5 +6,11 @@ public class Card29 extends Card{
         this.reward = "5 Quality Points and 1 Game Card";
         this.locationName = "George Allen Field";
         this.prereq = "3 Learning and 3 Craft";
-        this.fail = "Go to Student Parking"
+        this.fail = "Go to Student Parking";
+}
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
 }

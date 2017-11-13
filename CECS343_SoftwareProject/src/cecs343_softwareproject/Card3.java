@@ -7,3 +7,9 @@ public class Card3 extends Card{
         this.locationName = "ECS 302";
 
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

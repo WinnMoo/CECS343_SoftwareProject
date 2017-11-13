@@ -8,4 +8,9 @@ public class Card0 extends Card {
         this.locationName = "ECS 302 or 308";
     }
     
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
 }

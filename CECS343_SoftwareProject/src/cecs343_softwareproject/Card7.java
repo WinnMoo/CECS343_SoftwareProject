@@ -6,3 +6,9 @@ public class Card7 extends Card{
         this.reward = "1 Learning Chip. Option to discard 1 game card for another learning chip";
         this.locationName = "Forbidden Parking";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

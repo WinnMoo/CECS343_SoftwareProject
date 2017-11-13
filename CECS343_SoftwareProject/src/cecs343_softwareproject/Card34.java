@@ -6,3 +6,9 @@ public class Card34 extends Card{
         this.reward = "1 Chip of Your Choice";
         this.locationName = "Any space outside ECS except Forbidden Parking";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

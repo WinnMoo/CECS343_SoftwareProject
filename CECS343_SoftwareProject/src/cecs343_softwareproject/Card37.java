@@ -6,3 +6,9 @@ public class Card37 extends Card{
         this.reward = "1 Craft Chip and Teleport to Lactation Lounge";
         this.locationName = "Any Space Outside ECS";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

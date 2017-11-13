@@ -8,3 +8,9 @@ public class Card28 extends Card{
         this.prereq = "4 Learning";
         this.fail = "Lose 2 Quality Points";
 }
+	public boolean play(Player p)
+	{
+		return true;
+		
+	}
+}

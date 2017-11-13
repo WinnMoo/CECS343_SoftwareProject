@@ -42,6 +42,7 @@ public class Model {
     Room Library = new Room("Library", 800, 1300);
     Room WalterPyramid = new Room("Walter Pyramid", 1100, 250);
     
+    Card Card0 = new Card0();
     Card Card1 = new Card1();
     Card Card2 = new Card2();
     Card Card3 = new Card3();
@@ -80,8 +81,7 @@ public class Model {
     Card Card36 = new Card36();
     Card Card37 = new Card37();
     Card Card38 = new Card38();
-    Card Card39 = new Card39();
-    Card Card40 = new Card40();
+   
 
     //Create the players for the game
     Player John = new Player("John", ECS308, 1);
@@ -259,6 +259,7 @@ public class Model {
 
     public ArrayList constructDeck(){
         ArrayList<Card> deck = new ArrayList();
+        deck.add(Card0);
         deck.add(Card1);
         deck.add(Card2);
         deck.add(Card3);
@@ -297,8 +298,6 @@ public class Model {
         deck.add(Card36);
         deck.add(Card37);
         deck.add(Card38);
-        deck.add(Card39);
-        deck.add(Card40); 
         Collections.shuffle(deck);
         return deck;
     }
