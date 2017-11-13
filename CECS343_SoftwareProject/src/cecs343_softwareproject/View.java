@@ -17,7 +17,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.TextArea;
-import java.awt.TextField;
 
 public class View extends javax.swing.JPanel {
 
@@ -41,19 +40,14 @@ public class View extends javax.swing.JPanel {
     public JList roomsList;
     public DefaultListModel listModel;
     public Model appModel;
-    
-    private Room listOfRooms;
 
     private JScrollPane mapScroller;
 
     private JScrollPane roomListScroller;
 
-
     private ImageIcon card1;
 
     private JLabel cardLabel;
-
-    private TextField textField;
 
     private JPanel leftButtonPanel;
 

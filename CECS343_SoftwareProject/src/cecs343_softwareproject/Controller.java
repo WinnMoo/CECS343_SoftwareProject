@@ -159,8 +159,6 @@ public class Controller {
                 if (e.getActionCommand().equals("Move")) {
                     System.out.println(moveCounter);
                     moveCounter++;
-                    
-                    
                     if (moveCounter == 3) {
                         moveCounter = 0;
                         appView.moveButton.setEnabled(false);
@@ -196,9 +194,12 @@ public class Controller {
                     }
 
                 } else if (e.getActionCommand().equals("Draw Card")) {
+                    //Code to draw card
+                    
                     //Code to enable play button
                     appView.playCardButton.setEnabled(true);
                     appView.drawCardButton.setEnabled(false);
+                    
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
 
