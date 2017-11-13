@@ -3,10 +3,9 @@ package cecs343_softwareproject;
 public class Card0 extends Card {
 
     public Card0() {
-        this.name = "CECS 100";
+    	this.name = "CECS 105";
         this.reward = "1 Learning Chip";
-        this.locationName = "Briefing Room 302 or 308";
-        //setImage("images\\cardm00.png");
+        this.locationName = "ECS 302 or 308";
     }
     
 }
