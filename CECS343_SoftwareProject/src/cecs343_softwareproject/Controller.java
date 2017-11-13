@@ -3,14 +3,9 @@ package cecs343_softwareproject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -215,6 +210,14 @@ public class Controller {
                 addActionListener(listener);
             }
         }
+    }
+    
+    public void discardCard(){
+        
+    }
+    
+    public void selectSkillChip(){
+        
     }
 
     public static Model getModel() {
