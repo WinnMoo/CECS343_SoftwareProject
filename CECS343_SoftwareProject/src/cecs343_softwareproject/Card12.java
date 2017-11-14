@@ -19,12 +19,21 @@ public class Card12 extends Card {
     }
 
     public boolean play(Player p) {
-        if(!(p.room.getNameRoom()).equals("Forbidden Parking"))
-        {
+        if (!(p.room.getNameRoom()).equals("Forbidden Parking")
+                || !(p.room.getNameRoom().equals("Computer Lab"))
+                || !(p.room.getNameRoom().equals("ECS302"))
+                || !(p.room.getNameRoom().equals("Eat Club"))
+                || !(p.room.getNameRoom().equals("CECS Conference Room"))
+                || !(p.room.getNameRoom().equals("North Hall"))
+                || !(p.room.getNameRoom().equals("South Hall"))
+                || !(p.room.getNameRoom().equals("Room of Retirement"))
+                || !(p.room.getNameRoom().equals("Elevators"))
+                || !(p.room.getNameRoom().equals("ECS308"))
+                || !(p.room.getNameRoom().equals("Lactation Lounge"))) {
             p.incCraft();
             p.setRoomName("Lactaction Lounge");
             return true;
-            
+
         }
         return false;
 

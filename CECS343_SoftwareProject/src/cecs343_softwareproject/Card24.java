@@ -12,8 +12,9 @@ public class Card24 extends Card {
         this.fileName = ("Card24.png");
     }
 
+    @Override
     public boolean play(Player p) {
-           if (p.room.getNameRoom().equals("Computer Lab")) {
+        if (p.room.getNameRoom().equals("Computer Lab")) {
             if (p.getIntegrity() >= 3 && p.getCraft() >= 3 && p.getIntegrity() >= 3) {
                 p.setQP(5);
                 p.dealACard(appModel.deck.dealCard());

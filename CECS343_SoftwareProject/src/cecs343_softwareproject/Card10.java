@@ -9,16 +9,13 @@ public class Card10 extends Card {
         this.fileName = ("Card10.png");
     }
 
+    @Override
     public boolean play(Player p) {
-        if(p.room.getNameRoom().equals("Japanese Garden"))
-        {
-            optionPicker a = new optionPicker(true,false,true);
-            if(a.selectedAbility== AbilityType.LEARNING)
-            {
+        if (p.room.getNameRoom().equals("Japanese Garden")) {
+            optionPicker a = new optionPicker(true, false, true);
+            if (a.selectedAbility == AbilityType.LEARNING) {
                 p.incLearning();
-            }
-            else
-            {
+            } else {
                 p.incIntegrity();
             }
             return true;

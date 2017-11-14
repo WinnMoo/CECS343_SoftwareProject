@@ -11,10 +11,11 @@ public class Card27 extends Card {
         this.fileName = ("Card27.png");
     }
 
+    @Override
     public boolean play(Player p) {
-               if (p.room.getNameRoom().equals("CECS Conference Room")){
+        if (p.room.getNameRoom().equals("CECS Conference Room")) {
             if (p.getIntegrity() >= 3) {
-              p.setQP(5);
+                p.setQP(5);
                 optionPicker a = new optionPicker(true, true, true);
                 if (a.selectedAbility == AbilityType.CRAFT) {
                     p.incCraft();

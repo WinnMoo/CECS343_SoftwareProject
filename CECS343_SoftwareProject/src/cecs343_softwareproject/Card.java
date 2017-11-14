@@ -66,4 +66,8 @@ public class Card {
     public void setActive(boolean active) {
         this.activeCard = active;
     }
+    
+    public boolean play(Player p){
+        return false;
+    }
 }

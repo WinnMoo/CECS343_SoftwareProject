@@ -2,7 +2,6 @@ package cecs343_softwareproject;
 
 public class Card1 extends Card {
 
-
     public Card1() {
         this.name = "Research Compilers";
         this.reward = "1 Learning Chip";
@@ -10,13 +9,13 @@ public class Card1 extends Card {
         this.fileName = ("card1.png");
     }
 
+    @Override
     public boolean play(Player p) {
-    if(p.room.getNameRoom().equals("Library"))
-    {
-    p.incLearning();
-        return true;
-    }
-    return false;
+        if (p.room.getNameRoom().equals("Library")) {
+            p.incLearning();
+            return true;
+        }
+        return false;
 
     }
 }

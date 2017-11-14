@@ -10,9 +10,9 @@ public class Card3 extends Card {
 
     }
 
+    @Override
     public boolean play(Player p) {
-        if(p.room.getNameRoom().equals("ECS302"))
-        {
+        if (p.room.getNameRoom().equals("ECS302")) {
             p.incLearning();
             return true;
         }

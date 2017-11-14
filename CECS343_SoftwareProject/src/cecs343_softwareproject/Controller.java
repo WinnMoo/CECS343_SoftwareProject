@@ -133,7 +133,6 @@ public class Controller {
         this.appView.cardLabel.setIcon(new ImageIcon(nameOfFile));
         //if clicked
 
-
     }
 
     // public void pickRandomRoom(Player p, int d)
@@ -196,27 +195,7 @@ public class Controller {
                             String convertedString = element.toString();
                             updatePlayerRoom(convertedString, appModel.John);
 
-                            String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
-                            String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[0].craft)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[0].integrityChip)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[0].qualityPoints)
-                                    + "\t";
-                            String c = appModel.listOfPlayers[1].name + "\t" + Integer.toString(appModel.listOfPlayers[1].learning)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[1].craft)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[1].integrityChip)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[1].qualityPoints)
-                                    + "\t";
-                            String d = appModel.listOfPlayers[2].name + "\t" + Integer.toString(appModel.listOfPlayers[2].learning)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[2].craft)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[2].integrityChip)
-                                    + "\t" + Integer.toString(appModel.listOfPlayers[2].qualityPoints)
-                                    + "\t";
-
-                            String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
-                            String t = "Cards in deck " + (appModel.gameDeck.size());
-                            String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t;
-                            appView.jTextArea.setText(z);
+                           updateTextArea();
 
                             // update jlist
                             updateJList();
@@ -241,28 +220,7 @@ public class Controller {
                         appView.playCardButton.setEnabled(true);
                         appView.drawCardButton.setEnabled(false);
 
-                        String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
-                        String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[0].craft)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[0].integrityChip)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[0].qualityPoints)
-                                + "\t";
-                        String c = appModel.listOfPlayers[1].name + "\t" + Integer.toString(appModel.listOfPlayers[1].learning)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[1].craft)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[1].integrityChip)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[1].qualityPoints)
-                                + "\t";
-                        String d = appModel.listOfPlayers[2].name + "\t" + Integer.toString(appModel.listOfPlayers[2].learning)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[2].craft)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[2].integrityChip)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[2].qualityPoints)
-                                + "\t";
-
-                        String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
-                        String t = "Cards in deck " + numOfCardsInDeck;
-                        String x = "Cards discarded "+numDiscarded;
-                        String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t+ "\n"+ x;
-                        appView.jTextArea.setText(z);
+                        updateTextArea();
                     }
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
@@ -310,4 +268,36 @@ public class Controller {
         return model;
     }
 
+    public void failPlay() {
+
+    }
+
+    public void successfulPlay() {
+
+    }
+
+    public void updateTextArea() {
+        String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
+        String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
+                + "\t" + Integer.toString(appModel.listOfPlayers[0].craft)
+                + "\t" + Integer.toString(appModel.listOfPlayers[0].integrityChip)
+                + "\t" + Integer.toString(appModel.listOfPlayers[0].qualityPoints)
+                + "\t";
+        String c = appModel.listOfPlayers[1].name + "\t" + Integer.toString(appModel.listOfPlayers[1].learning)
+                + "\t" + Integer.toString(appModel.listOfPlayers[1].craft)
+                + "\t" + Integer.toString(appModel.listOfPlayers[1].integrityChip)
+                + "\t" + Integer.toString(appModel.listOfPlayers[1].qualityPoints)
+                + "\t";
+        String d = appModel.listOfPlayers[2].name + "\t" + Integer.toString(appModel.listOfPlayers[2].learning)
+                + "\t" + Integer.toString(appModel.listOfPlayers[2].craft)
+                + "\t" + Integer.toString(appModel.listOfPlayers[2].integrityChip)
+                + "\t" + Integer.toString(appModel.listOfPlayers[2].qualityPoints)
+                + "\t";
+
+        String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
+        String t = "Cards in deck " + numOfCardsInDeck;
+        String x = "Cards discarded " + numDiscarded;
+        String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t + "\n" + x;
+        appView.jTextArea.setText(z);
+    }
 }

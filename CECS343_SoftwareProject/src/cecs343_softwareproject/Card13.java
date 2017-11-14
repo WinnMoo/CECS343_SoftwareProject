@@ -11,6 +11,7 @@ public class Card13 extends Card {
         this.fileName = ("Card13.png");
     }
 
+    @Override
     public boolean play(Player p) {
         Room room = p.room;
         if (room.getNameRoom().equals("ECS308")) {
@@ -22,12 +23,8 @@ public class Card13 extends Card {
             return false;
         }
 
-
         return false;
     }
-
-
-    
 
     private void fail(Player p) {
         p.setQP(-3);

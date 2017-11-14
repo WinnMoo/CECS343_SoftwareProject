@@ -5,16 +5,17 @@ Player p;
     public Card16() {
         this.name = "Math 123";
         this.reward = "5 Quality Points";
-        this.location.add("ECS 302");
-        this.location.add("ECS 308");
+        this.location.add("ECS302");
+        this.location.add("ECS308");
         this.prereq = "5 Learning";
         this.fail = "Lose 3 Quality Points and Lose 1 Game Card";
         this.fileName = ("Card16.png");
     }
 
+    @Override
     public boolean play(Player pp) {
         this.p = pp;
-        if(p.room.getNameRoom().equals("ECS 302")||p.room.getNameRoom().equals("ECS 302"))
+        if(p.room.getNameRoom().equals("ECS302")||p.room.getNameRoom().equals("ECS302"))
         {
             if(this.p.getLearning()>=5)
             {

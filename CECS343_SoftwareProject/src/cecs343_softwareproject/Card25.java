@@ -11,6 +11,7 @@ public class Card25 extends Card {
         this.fileName = ("Card25.png");
     }
 
+    @Override
     public boolean play(Player p) {
     if (p.room.getNameRoom().equals("Eat Club")) {
             if (p.getCraft() >= 3) {

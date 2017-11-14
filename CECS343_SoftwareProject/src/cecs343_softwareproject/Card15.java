@@ -12,6 +12,7 @@ public class Card15 extends Card {
 
     }
 
+    @Override
     public boolean play(Player p) {
         if (p.room.getNameRoom().equals("George Allen Field")) {
             if (p.getIntegrity() >= 4) {

@@ -10,6 +10,7 @@ public class Card2 extends Card {
 
     }
 
+    @Override
     public boolean play(Player p) {
         if ((p.room.getNameRoom().equals("Library"))) {
             optionPicker a = new optionPicker(true,false,true);

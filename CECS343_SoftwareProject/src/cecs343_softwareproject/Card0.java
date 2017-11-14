@@ -9,16 +9,14 @@ public class Card0 extends Card {
         this.location.add("ECS308");
         this.fileName = ("Card0.png");
     }
-    
-
+    @Override
     public boolean play(Player p) {
         printName();
-        if((p.room.getNameRoom().equals("ECS302")) || (p.room.getNameRoom().equals("ECS302" )))
-        {
+        if ((p.room.getNameRoom().equals("ECS302")) || (p.room.getNameRoom().equals("ECS302"))) {
             p.incLearning();
             return true;
         }
-            return false;
+        return false;
 
     }
 }

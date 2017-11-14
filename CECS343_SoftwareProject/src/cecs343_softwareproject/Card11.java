@@ -10,6 +10,7 @@ public class Card11 extends Card {
         this.fileName = ("Card11.png");
     }
 
+    @Override
     public boolean play(Player p) {
         if (p.room.getNameRoom().equals("Eat Club") || p.room.getNameRoom().equals("George Allen Field")) {
             optionPicker a = new optionPicker(true, false, true);
