@@ -26,7 +26,7 @@ import javax.swing.JLabel;
  * @author winn
  */
 public class Controller {
-
+    public AI gameAI;
     static Model model;
     public Model appModel;
     public View appView;
@@ -38,8 +38,10 @@ public class Controller {
     public Controller() {
         appModel = new Model(this);
         appView = new View(this);
+        gameAI = new AI(this);
         rand = new Random(System.currentTimeMillis());
         numOfCardsInDeck = appModel.gameDeck.size();
+        
     }
 
     public void startApp() {
@@ -205,18 +207,7 @@ public class Controller {
                             updateJList();
                             // update tokens
                             updateTokens();
-                            for (int i = 1; i < appModel.listOfPlayers.length; i++) {
-
-                                int numberOfRoomsToChooseFrom = appModel.listOfPlayers[i].room.numOfRooms;
-
-                                int n = rand.nextInt(numberOfRoomsToChooseFrom);
-
-                                Object newRoomThatWasChosenObject = appModel.listOfPlayers[i].room.listOfRooms.get(n);
-                                String newRoomThatWasChosenString = newRoomThatWasChosenObject.toString();
-
-                                updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
-
-                            }
+                            
                         }
                     }
 
@@ -253,7 +244,10 @@ public class Controller {
                     if(appModel.listOfPlayers[0].hand.get(0).fileName == null){
                         System.out.println("The null card is" + appModel.listOfPlayers[0].hand.get(0).name);
                     }
-
+                    //After player has played a card, indicates end of turn and start of AI
+                    gameAI.handleAIDraw();
+                    gameAI.handleAIMove();
+                    gameAI.handleAIPlay();
                 }
             }
 
