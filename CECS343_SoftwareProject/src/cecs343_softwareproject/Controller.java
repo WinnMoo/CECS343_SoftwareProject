@@ -195,7 +195,7 @@ public class Controller {
                             String convertedString = element.toString();
                             updatePlayerRoom(convertedString, appModel.John);
 
-                           updateTextArea();
+                            updateTextArea();
 
                             // update jlist
                             updateJList();
@@ -224,7 +224,14 @@ public class Controller {
                     }
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
-
+                    //card0
+                    if(appModel.listOfPlayers[0].hand.get(0).play(appModel.listOfPlayers[0])){
+                        
+                    }
+                    
+                    
+                    
+                    
                     //code to disable play card button
                     appView.playCardButton.setEnabled(false);
                     appView.drawCardButton.setEnabled(true);
@@ -234,7 +241,9 @@ public class Controller {
                     System.out.println(appModel.listOfPlayers[0].hand.get(0).fileName);
                     updateCard();
                     appView.textArea.setText(appModel.listOfPlayers[0].name + " has played " + appModel.listOfPlayers[0].hand.get(0).getName() + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
-
+                    
+                    appModel.listOfPlayers[0].hand.remove(0);
+                    
                     if (appModel.listOfPlayers[0].hand.get(0).fileName == null) {
                         System.out.println("The null card is" + appModel.listOfPlayers[0].hand.get(0).name);
                     }
@@ -266,14 +275,6 @@ public class Controller {
 
     public static Model getModel() {
         return model;
-    }
-
-    public void failPlay() {
-
-    }
-
-    public void successfulPlay() {
-
     }
 
     public void updateTextArea() {

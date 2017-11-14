@@ -18,7 +18,21 @@ public class Card34 extends Card {
         this.fileName = ("Card34.png");
     }
 
+    @Override
     public boolean play(Player p) {
+        if (!(p.room.getNameRoom().equals("Computer Lab"))
+                || !(p.room.getNameRoom().equals("ECS302"))
+                || !(p.room.getNameRoom().equals("Eat Club"))
+                || !(p.room.getNameRoom().equals("CECS Conference Room"))
+                || !(p.room.getNameRoom().equals("North Hall"))
+                || !(p.room.getNameRoom().equals("South Hall"))
+                || !(p.room.getNameRoom().equals("Room of Retirement"))
+                || !(p.room.getNameRoom().equals("Elevators"))
+                || !(p.room.getNameRoom().equals("ECS308"))
+                || !(p.room.getNameRoom().equals("Lactation Lounge"))) {
+            //chipDialog
+            return true;
+        }
         return true;
 
     }

@@ -8,7 +8,7 @@ public class Card5 extends Card {
         this.location.add("ECS308");
         this.fileName = ("Card5.png");
     }
-
+    @Override
     public boolean play(Player p) {
         if(p.room.getNameRoom().equals("ECS308"))
         {

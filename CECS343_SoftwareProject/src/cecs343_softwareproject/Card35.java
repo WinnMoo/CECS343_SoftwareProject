@@ -11,8 +11,22 @@ public class Card35 extends Card {
         this.fileName = ("Card35.png");
     }
 
+    @Override
     public boolean play(Player p) {
-        return true;
 
+        if (p.room.getNameRoom().equals("Computer Lab")) {
+            p.setQP(3);
+            //chipDialog
+            
+            return true;
+        } else {
+            fail(p);
+            return false;
+        }
+
+    }
+
+    private void fail(Player p) {
+        p.setQP(-1);
     }
 }

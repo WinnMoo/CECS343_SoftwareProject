@@ -9,6 +9,7 @@ public class Card8 extends Card {
         this.fileName = ("Card8.png");
     }
 
+    @Override
     public boolean play(Player p) {
         if (p.room.getNameRoom().equals("Elevators")) {
             p.incIntegrity();

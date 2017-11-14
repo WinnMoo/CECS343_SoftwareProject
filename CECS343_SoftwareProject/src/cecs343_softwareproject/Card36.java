@@ -1,7 +1,10 @@
 package cecs343_softwareproject;
 
+import java.util.ArrayList;
+
 public class Card36 extends Card {
 
+    discardDialog dscdDlg;
     public Card36() {
         this.name = "Make a Friend";
         this.reward = "3 Quality Points and a Chip of Your Choice";
@@ -12,8 +15,28 @@ public class Card36 extends Card {
         this.fileName = ("Card36.png");
     }
 
+    @Override
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("South Hall") || p.room.getNameRoom().equals("North Hallf")) {
+            if (p.integrityChip >= 2) {
+                p.setQP(3);
+                //chip dialog
+                return true;
+            } else {
+                fail(p);
+                return false;
+            }
+        } else {
+            fail(p);
+            return false;
+        }
 
+    }
+    
+    private void fail(Player p){
+        ArrayList<Card> handBeforeDiscard = new ArrayList();
+        handBeforeDiscard = appModel.listOfPlayers[0].hand;
+        dscdDlg = new discardDialog(, true, handBeforeDiscard);
+        dscdDlg.setVisible(true);
     }
 }

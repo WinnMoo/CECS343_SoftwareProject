@@ -11,6 +11,7 @@ public class Card7 extends Card {
         this.fileName = ("Card7.png");
     }
 
+    @Override
     public boolean play(Player p) {
         if (p.room.getNameRoom().equals("Forbidden Parking")) {
             p.incLearning();

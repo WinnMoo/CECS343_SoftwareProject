@@ -18,6 +18,7 @@ public class Card12 extends Card {
         this.fileName = ("Card12.png");
     }
 
+    @Override
     public boolean play(Player p) {
         if (!(p.room.getNameRoom()).equals("Forbidden Parking")
                 || !(p.room.getNameRoom().equals("Computer Lab"))

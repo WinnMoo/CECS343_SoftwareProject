@@ -9,6 +9,7 @@ public class Card6 extends Card {
         this.fileName = ("Card6.png");
     }
 
+    @Override
     public boolean play(Player p) {
         if(p.room.getNameRoom().equals("Rec Center"))
         {
