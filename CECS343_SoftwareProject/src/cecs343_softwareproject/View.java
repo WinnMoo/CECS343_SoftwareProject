@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 
 public class View extends javax.swing.JPanel {
 
-    private JFrame frame;
+    protected JFrame frame;
 
     // Gameboard Panel
     public JPanel imagePanel;
