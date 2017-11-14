@@ -19,7 +19,27 @@ public class Card37 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("Japanese Garden") || p.room.getNameRoom().equals("Student Parking") || p.room.getNameRoom().equals("Forbidden Parking") || p.room.getNameRoom().equals("Rec Center") || p.room.getNameRoom().equals("George Allen Field") || p.room.getNameRoom().equals("West Walkway")|| p.room.getNameRoom().equals("East Walkway")|| p.room.getNameRoom().equals("Bratwurst Hall")|| p.room.getNameRoom().equals("LA 5")|| p.room.getNameRoom().equals("Library")|| p.room.getNameRoom().equals("Walter Pyramid")) {
+            if (p.getIntegrity() >= 2) {
+                p.setQP(3);
+                optionPicker a = new optionPicker(true, true, true);
+                if (a.selectedAbility == AbilityType.CRAFT) {
+                    p.incCraft();
+                } else if (a.selectedAbility == AbilityType.LEARNING) {
+                    p.incLearning();
+                } else {
+                    p.incIntegrity();
+                }
+                return true;
+            }
+            fail(p);
+            return false;
+        }
 
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.discardCard();
     }
 }

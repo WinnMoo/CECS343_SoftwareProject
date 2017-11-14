@@ -21,7 +21,21 @@ public class Card33 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
-
+         if (!p.room.getNameRoom().equals("Lactation Lounge")) {
+            if (p.getCraft() >= 6) {
+                p.setQP(5);
+              
+                return true;
+            }
+            fail(p);
+            return false;
+        }
+        
+        return false;
+    }
+    
+    private void fail(Player p) {
+        p.setQP(-5);
+        p.setRoomName("Student Parking");
     }
 }
