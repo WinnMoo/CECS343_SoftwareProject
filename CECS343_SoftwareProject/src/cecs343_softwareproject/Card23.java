@@ -11,7 +11,29 @@ public class Card23 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("Computer Lab")) {
+            if (p.getIntegrity() >= 4) {
+                p.setQP(3);
+                optionPicker a = new optionPicker(true, true, true);
+                if (a.selectedAbility == AbilityType.CRAFT) {
+                    p.incCraft();
+                } else if (a.selectedAbility == AbilityType.LEARNING) {
+                    p.incLearning();
+                } else {
+                    p.incIntegrity();
+                }
+                return true;
+            }
+            fail(p);
+            return false;
+        }
 
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.discardCard();
+        CardDialog c = new CardDialog();
+        c.setVisible(true);
     }
 }

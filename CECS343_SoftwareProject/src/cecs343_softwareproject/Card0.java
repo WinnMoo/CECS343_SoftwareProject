@@ -11,7 +11,13 @@ public class Card0 extends Card {
     
 
     public boolean play(Player p) {
-        return true;
+        printName();
+        if((p.room.getNameRoom().equals("ECS302")) || (p.room.getNameRoom().equals("ECS302" )))
+        {
+            p.incLearning();
+            return true;
+        }
+            return false;
 
     }
 }

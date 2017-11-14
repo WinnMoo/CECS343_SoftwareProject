@@ -12,7 +12,20 @@ public class Card22 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("North Hall")|| p.room.getNameRoom().equals("South Hall")) {
+            if (p.getLearning() >= 6) {
+              p.setQP(5);
 
+                return true;
+            }
+            fail(p);
+            return false;
+        }
+
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.setRoomName("Student Parking");
     }
 }

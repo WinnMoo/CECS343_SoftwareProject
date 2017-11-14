@@ -10,7 +10,12 @@ public class Card4 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if(p.room.getNameRoom().equals("Bratwurst Hall"))
+        {
+            p.incCraft();
+            return true;
+        }
+        return false;
 
     }
 }

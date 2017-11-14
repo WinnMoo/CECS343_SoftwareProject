@@ -18,7 +18,14 @@ public class Card12 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if(!(p.room.getNameRoom()).equals("Forbidden Parking"))
+        {
+            p.incCraft();
+            p.setRoomName("Lactaction Lounge");
+            return true;
+            
+        }
+        return false;
 
     }
 }

@@ -10,6 +10,11 @@ public class Card6 extends Card {
     }
 
     public boolean play(Player p) {
+        if(p.room.getNameRoom().equals("Rec Center"))
+        {
+            p.incIntegrity();
+            return true;
+        }
         return true;
 
     }

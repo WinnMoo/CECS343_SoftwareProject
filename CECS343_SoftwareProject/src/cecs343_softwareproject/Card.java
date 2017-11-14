@@ -17,7 +17,8 @@ public class Card {
     String prereq;
     String fail;
     Image img;
-    
+    static Model appModel;
+
     private boolean activeCard;
 
     public void printName() {
@@ -25,10 +26,10 @@ public class Card {
     }
 
     public void printLocation() {
-        for(int i = 0; i < location.size();i++){
+        for (int i = 0; i < location.size(); i++) {
             System.out.println("  Location:" + this.location.get(i));
         }
-        
+
     }
 
     public void printReward() {

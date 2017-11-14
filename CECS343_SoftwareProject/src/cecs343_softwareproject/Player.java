@@ -71,13 +71,18 @@ public class Player {
     public void setRoom(Room newRoom) {
         room = newRoom;
     }
+    
+    public void setRoomName(String roomName) {
+        room.name = roomName;
+
+    }
 
     public void setCoords(int x, int y) {
         positionX = x;
         positionY = y;
     }
 
-    public void dealCard(Card c) {
+    public void dealACard(Card c) {
         this.hand.add(c);
     }
 
@@ -85,7 +90,7 @@ public class Player {
 
     }
 
-    public void removeCard() {
+    public void discardCard() {
 
     }
 

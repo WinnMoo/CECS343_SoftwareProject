@@ -12,7 +12,22 @@ public class Card24 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+           if (p.room.getNameRoom().equals("Computer Lab")) {
+            if (p.getIntegrity() >= 3 && p.getCraft() >= 3 && p.getIntegrity() >= 3) {
+                p.setQP(5);
+                p.dealACard(appModel.deck.dealCard());
+                return true;
+            }
+            fail(p);
+            return false;
+        }
 
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.discardCard();
+        CardDialog c = new CardDialog();
+        c.setVisible(true);
     }
 }

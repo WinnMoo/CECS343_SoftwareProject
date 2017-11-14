@@ -10,7 +10,16 @@ public class Card11 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("Eat Club") || p.room.getNameRoom().equals("George Allen Field")) {
+            optionPicker a = new optionPicker(true, false, true);
+            if (a.selectedAbility == AbilityType.LEARNING) {
+                p.incLearning();
+            } else {
+                p.incCraft();
+            }
+            return true;
+        }
+        return false;
 
     }
 }

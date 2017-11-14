@@ -42,6 +42,7 @@ public class Model {
     Room Library = new Room("Library", 800, 1300);
     Room WalterPyramid = new Room("Walter Pyramid", 1100, 250);
     
+    CardDeck deck = new CardDeck();
     Card Card0 = new Card0();
     Card Card1 = new Card1();
     Card Card2 = new Card2();

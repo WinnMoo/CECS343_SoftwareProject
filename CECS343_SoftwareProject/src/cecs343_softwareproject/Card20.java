@@ -11,7 +11,21 @@ public class Card20 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("George Allen Field")) {
+            if (p.getCraft() >= 3) {
+                p.incIntegrity();
+                p.setQP(5);
 
+                return true;
+            }
+            fail(p);
+            return false;
+        }
+
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.setRoomName("Student Parking");
     }
 }

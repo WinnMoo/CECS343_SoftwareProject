@@ -2,15 +2,21 @@ package cecs343_softwareproject;
 
 public class Card1 extends Card {
 
+
     public Card1() {
         this.name = "Research Compilers";
         this.reward = "1 Learning Chip";
-        this.locationName = "Library";
+        this.location.add("Library");
 
     }
 
     public boolean play(Player p) {
+    if(p.room.getNameRoom().equals("Library"))
+    {
+    p.incLearning();
         return true;
+    }
+    return false;
 
     }
 }

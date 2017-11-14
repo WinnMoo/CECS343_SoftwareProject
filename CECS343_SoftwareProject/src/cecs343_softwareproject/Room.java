@@ -19,6 +19,10 @@ public class Room {
     ArrayList listOfRooms = new ArrayList();
     int numOfRooms = 0;
 
+    public Room(String givenName) {
+        name = givenName;
+    }
+
     public Room(String givenName, int xCoord, int yCoord) {
         name = givenName;
         roomPositionX = xCoord;

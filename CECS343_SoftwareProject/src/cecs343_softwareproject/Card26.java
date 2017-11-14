@@ -11,7 +11,27 @@ public class Card26 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+           if (p.room.getNameRoom().equals("North Hall")|| p.room.getNameRoom().equals("South Hall")) {
+            if (p.getLearning() >= 6) {
+              p.setQP(5);
+                optionPicker a = new optionPicker(true, true, true);
+                if (a.selectedAbility == AbilityType.CRAFT) {
+                    p.incCraft();
+                } else if (a.selectedAbility == AbilityType.LEARNING) {
+                    p.incLearning();
+                } else {
+                    p.incIntegrity();
+                }
+                return true;
+            }
+            fail(p);
+            return false;
+        }
 
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.discardCard();
     }
 }

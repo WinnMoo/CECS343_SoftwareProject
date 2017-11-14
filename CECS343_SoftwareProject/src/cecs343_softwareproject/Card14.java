@@ -19,7 +19,14 @@ public class Card14 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if(p.room.getNameRoom().equals("Walter Pyramid"))
+        {
+            p.incCraft();
+            p.setRoomName("Walter Pyramid");
+            return true;
+        }
+        return false;
+        
 
     }
 }

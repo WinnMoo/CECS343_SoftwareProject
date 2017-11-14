@@ -1,5 +1,7 @@
 package cecs343_softwareproject;
 
+import javax.swing.JOptionPane;
+
 public class Card7 extends Card {
 
     public Card7() {
@@ -9,7 +11,16 @@ public class Card7 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("Forbidden Parking")) {
+            p.incLearning();
+
+            int re = JOptionPane.showConfirmDialog(null, "Would you like to trade 1 Game Card for another learning chip? ", "Choose one", 0);
+            CardDialog c = new CardDialog();
+            c.setVisible(true);
+            p.incLearning();
+            return true;
+        }
+        return false;
 
     }
 }

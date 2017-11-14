@@ -9,7 +9,11 @@ public class Card8 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("Elevators")) {
+            p.incIntegrity();
+            return true;
+        }
+        return false;
 
     }
 }

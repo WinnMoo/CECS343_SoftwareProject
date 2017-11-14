@@ -10,7 +10,12 @@ public class Card5 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if(p.room.getNameRoom().equals("ECS308"))
+        {
+            p.incCraft();
+            return true;
+        }
+        return false;
 
     }
 }

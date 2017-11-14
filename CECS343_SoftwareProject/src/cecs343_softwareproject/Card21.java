@@ -11,7 +11,21 @@ public class Card21 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+         if (p.room.getNameRoom().equals("Japanese Garden")) {
+            if (p.getLearning() >= 3) {
+                p.incCraft();
+                p.incIntegrity();
 
+                return true;
+            }
+            fail(p);
+            return false;
+        }
+
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.setRoomName("Lactation Lounge");
     }
 }

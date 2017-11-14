@@ -12,7 +12,21 @@ public class Card15 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("George Allen Field")) {
+            if (p.getIntegrity() >= 4) {
+                p.incCraft();
+                p.incCraft();
 
+                return true;
+            }
+            fail(p);
+            return false;
+        }
+
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.setRoomName("Room of Retirement");
     }
 }
