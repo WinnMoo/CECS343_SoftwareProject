@@ -9,6 +9,7 @@ public class Card36 extends Card {
         this.location.add("South Hall");
         this.prereq = "2 Integrity";
         this.fail = "Discard 1 Game Card";
+        this.fileName = ("Card36.png");
     }
 
     public boolean play(Player p) {

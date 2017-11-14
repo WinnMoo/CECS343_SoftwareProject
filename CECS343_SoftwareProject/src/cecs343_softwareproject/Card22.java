@@ -9,6 +9,7 @@ public class Card22 extends Card {
         this.location.add("South Hall");
         this.prereq = "6 Learning";
         this.fail = "Go to Student Parking";
+        this.fileName = ("Card22.png");
     }
 
     public boolean play(Player p) {

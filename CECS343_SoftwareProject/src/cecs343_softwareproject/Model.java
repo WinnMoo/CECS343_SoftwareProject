@@ -97,6 +97,7 @@ public class Model {
 
         constructRooms();
         gameDeck = constructDeck();
+        dealCards();
     }
 
     /*
@@ -302,6 +303,19 @@ public class Model {
         deck.add(Card38);
         Collections.shuffle(deck);
         return deck;
+    }
+    
+    public void dealCards(){
+        for(int i = 0; i < listOfPlayers.length; i++){
+            ArrayList<Card> drawnCards = new ArrayList();
+            for(int j = 0; j < 5; j++){
+                Card tempCard = gameDeck.get(gameDeck.size() - 1);
+                gameDeck.remove(gameDeck.size()-1);
+                drawnCards.add(tempCard);
+                
+            }
+            listOfPlayers[i].hand = drawnCards;
+        }
     }
     
 }

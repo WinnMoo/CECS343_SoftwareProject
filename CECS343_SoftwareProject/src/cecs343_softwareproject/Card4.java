@@ -6,7 +6,7 @@ public class Card4 extends Card {
         this.name = "Lunch at Bratwurst Hall";
         this.reward = "1 Craft Chip";
         this.location.add("Bratwurst Hall");
-
+        this.fileName = ("Card4.png");
     }
 
     public boolean play(Player p) {

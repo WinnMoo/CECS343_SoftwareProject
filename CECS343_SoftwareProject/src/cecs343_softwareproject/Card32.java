@@ -15,9 +15,11 @@ public class Card32 extends Card {
         this.location.add("South Hall");
         this.location.add("Room of Retirement");
         this.location.add("Elevators");
+        
 
         this.prereq = "3 Learning";
         this.fail = "Lose 5 Quality Points and Go to Lactation Lounge";
+        this.fileName = ("Card32.png");
     }
 
     public boolean play(Player p) {

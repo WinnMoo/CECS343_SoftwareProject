@@ -17,6 +17,7 @@ public class Card {
     String prereq;
     String fail;
     Image img;
+    String fileName;
     static Model appModel;
 
     private boolean activeCard;

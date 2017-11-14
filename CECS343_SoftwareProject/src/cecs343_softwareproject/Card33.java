@@ -18,6 +18,7 @@ public class Card33 extends Card {
         this.location.add("Walter Pyramid");
         this.prereq = "6 Craft";
         this.fail = "Go to Student Parking";
+        this.fileName = ("Card33.png");
     }
 
     public boolean play(Player p) {

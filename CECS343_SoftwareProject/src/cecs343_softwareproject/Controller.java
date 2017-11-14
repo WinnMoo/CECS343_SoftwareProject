@@ -1,12 +1,20 @@
 package cecs343_softwareproject;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -155,54 +163,60 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
 
                 if (e.getActionCommand().equals("Move")) {
-                    System.out.println(moveCounter);
-                    moveCounter++;
-                    if (moveCounter == 3) {
-                        moveCounter = 0;
-                        appView.moveButton.setEnabled(false);
+                    Object checkerElement = appView.roomsList.getSelectedValue();
+                    String checkerString = checkerElement.toString();
+                    if (checkerString.equals("")) {
+
                     } else {
+                        System.out.println(moveCounter);
+                        moveCounter++;
+                        if (moveCounter == 3) {
+                            moveCounter = 0;
+                            appView.moveButton.setEnabled(false);
+                        } else {
 
-                        Object element = appView.roomsList.getSelectedValue();
+                            Object element = appView.roomsList.getSelectedValue();
 
-                        String convertedString = element.toString();
-                        updatePlayerRoom(convertedString, appModel.John);
+                            String convertedString = element.toString();
+                            updatePlayerRoom(convertedString, appModel.John);
 
-                        String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
-                        String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[0].craft)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[0].integrityChip)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[0].qualityPoints)
-                                + "\t";
-                        String c = appModel.listOfPlayers[1].name + "\t" + Integer.toString(appModel.listOfPlayers[1].learning)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[1].craft)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[1].integrityChip)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[1].qualityPoints)
-                                + "\t";
-                        String d = appModel.listOfPlayers[2].name + "\t" + Integer.toString(appModel.listOfPlayers[2].learning)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[2].craft)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[2].integrityChip)
-                                + "\t" + Integer.toString(appModel.listOfPlayers[2].qualityPoints)
-                                + "\t";
+                            String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
+                            String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[0].craft)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[0].integrityChip)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[0].qualityPoints)
+                                    + "\t";
+                            String c = appModel.listOfPlayers[1].name + "\t" + Integer.toString(appModel.listOfPlayers[1].learning)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[1].craft)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[1].integrityChip)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[1].qualityPoints)
+                                    + "\t";
+                            String d = appModel.listOfPlayers[2].name + "\t" + Integer.toString(appModel.listOfPlayers[2].learning)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[2].craft)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[2].integrityChip)
+                                    + "\t" + Integer.toString(appModel.listOfPlayers[2].qualityPoints)
+                                    + "\t";
 
-                        String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
-                        String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r;
-                        appView.jTextArea.setText(z);
+                            String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
+                            String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r;
+                            appView.jTextArea.setText(z);
 
-                        // update jlist
-                        updateJList();
-                        // update tokens
-                        updateTokens();
-                        for (int i = 1; i < appModel.listOfPlayers.length; i++) {
+                            // update jlist
+                            updateJList();
+                            // update tokens
+                            updateTokens();
+                            for (int i = 1; i < appModel.listOfPlayers.length; i++) {
 
-                            int numberOfRoomsToChooseFrom = appModel.listOfPlayers[i].room.numOfRooms;
+                                int numberOfRoomsToChooseFrom = appModel.listOfPlayers[i].room.numOfRooms;
 
-                            int n = rand.nextInt(numberOfRoomsToChooseFrom);
+                                int n = rand.nextInt(numberOfRoomsToChooseFrom);
 
-                            Object newRoomThatWasChosenObject = appModel.listOfPlayers[i].room.listOfRooms.get(n);
-                            String newRoomThatWasChosenString = newRoomThatWasChosenObject.toString();
+                                Object newRoomThatWasChosenObject = appModel.listOfPlayers[i].room.listOfRooms.get(n);
+                                String newRoomThatWasChosenString = newRoomThatWasChosenObject.toString();
 
-                            updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
+                                updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
 
+                            }
                         }
                     }
 
@@ -216,11 +230,29 @@ public class Controller {
 
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
-
+                    
+                    
+                    
                     //code to disable play card button
                     appView.playCardButton.setEnabled(false);
                     appView.drawCardButton.setEnabled(true);
                     appView.moveButton.setEnabled(true);
+                    
+                    //update card in panel
+                    appModel.listOfPlayers[0].hand.remove(0);
+                    Image tempImg;
+                    try {
+                        tempImg = ImageIO.read(new File(appModel.listOfPlayers[0].hand.get(0).fileName));
+                        appView.card1.setImage(tempImg);
+                        System.out.println("Updating card");
+                        appView.cardLabel = new JLabel("", appView.card1, JLabel.CENTER);
+                        System.out.println(appModel.listOfPlayers[0].hand.get(0).fileName);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                    
+                    
                 }
             }
 

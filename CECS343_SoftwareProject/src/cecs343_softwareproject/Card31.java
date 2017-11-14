@@ -18,6 +18,7 @@ public class Card31 extends Card {
         this.location.add("Walter Pyramid");
         this.prereq = "4 Integrity";
         this.fail = "Discard 1 Game Card";
+        this.fileName = ("Card31.png");
     }
 
     public boolean play(Player p) {

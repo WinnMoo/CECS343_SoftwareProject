@@ -46,9 +46,9 @@ public class View extends javax.swing.JPanel {
 
     private JScrollPane roomListScroller;
 
-    private ImageIcon card1;
+    protected ImageIcon card1;
 
-    private JLabel cardLabel;
+    protected JLabel cardLabel;
 
     private JPanel leftButtonPanel;
 
@@ -65,7 +65,7 @@ public class View extends javax.swing.JPanel {
     public View(Controller appController) {
         // Gameboard Components
         gameBoard = new ImageIcon("CSULBMap5_1200x1437.png");
-        card1 = new ImageIcon("card1.png");
+        card1 = new ImageIcon("Card0.png");
         cardLabel = new JLabel("", card1, JLabel.CENTER);
         imageLabel = new JLabel("", gameBoard, JLabel.CENTER);
         imagePanel = new JPanel(new BorderLayout());
@@ -124,7 +124,7 @@ public class View extends javax.swing.JPanel {
         moveButton = appController.new MyJButton("Move");
         drawCardButton = appController.new MyJButton("Draw Card");
         playCardButton = appController.new MyJButton("Play Card");
-        playCardButton.setEnabled(false);
+        playCardButton.setEnabled(true);
 
         //TextField
         jTextArea = new javax.swing.JTextArea();

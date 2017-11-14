@@ -6,6 +6,7 @@ public class Card3 extends Card {
         this.name = "Professor Murgolo's CECS 174 Class";
         this.reward = "1 Learning Chip";
         this.location.add("ECS302");
+        this.fileName = ("Card3.png");
 
     }
 

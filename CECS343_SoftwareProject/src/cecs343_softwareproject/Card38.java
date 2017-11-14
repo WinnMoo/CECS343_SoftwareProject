@@ -6,6 +6,7 @@ public class Card38 extends Card {
         this.name = "Student Parking";
         this.reward = "1 Craft Chip and Teleport to Lactation Lounge";
         this.location.add("Student Parking");
+        this.fileName = ("Card38.png");
     }
 
     public boolean play(Player p) {

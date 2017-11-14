@@ -9,6 +9,7 @@ Player p;
         this.location.add("ECS 308");
         this.prereq = "5 Learning";
         this.fail = "Lose 3 Quality Points and Lose 1 Game Card";
+        this.fileName = ("Card16.png");
     }
 
     public boolean play(Player pp) {
