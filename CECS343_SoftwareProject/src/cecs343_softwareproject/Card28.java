@@ -11,7 +11,21 @@ public class Card28 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (p.room.getNameRoom().equals("Elevators")) {
+            if (p.getLearning() >= 4) {
+                p.incCraft();
+                p.incCraft();
 
+                return true;
+            }
+            fail(p);
+            return false;
+        }
+
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.setQP(-2);
     }
 }

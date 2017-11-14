@@ -21,7 +21,27 @@ public class Card31 extends Card {
     }
 
     public boolean play(Player p) {
-        return true;
+        if (!p.room.getNameRoom().equals("ECS 302") || !p.room.getNameRoom().equals("ECS 308")) {
+            if (p.getIntegrity() >= 4) {
+                p.setQP(4);
+                optionPicker a = new optionPicker(true, true, true);
+                if (a.selectedAbility == AbilityType.CRAFT) {
+                    p.incCraft();
+                } else if (a.selectedAbility == AbilityType.LEARNING) {
+                    p.incLearning();
+                } else {
+                    p.incIntegrity();
+                }
+                return true;
+            }
+            fail(p);
+            return false;
+        }
 
+        return false;
+    }
+
+    private void fail(Player p) {
+        p.discardCard();
     }
 }
