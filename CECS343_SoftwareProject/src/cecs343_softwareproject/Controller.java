@@ -241,6 +241,7 @@ public class Controller {
                     appView.playCardButton.setEnabled(false);
                     appView.drawCardButton.setEnabled(true);
                     appView.moveButton.setEnabled(true);
+                    appView.textArea.setText(appModel.listOfPlayers[0].name + " has played " + appModel.listOfPlayers[0].hand.get(0).getName() + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
 
                     //update card in panel
                     appModel.listOfPlayers[0].hand.remove(0);

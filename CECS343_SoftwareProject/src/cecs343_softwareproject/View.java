@@ -56,7 +56,7 @@ public class View extends javax.swing.JPanel {
 
     private JPanel middleButtonPanel;
 
-    private TextArea textArea;
+    protected TextArea textArea;
 
     protected JTextArea jTextArea;
 
@@ -152,7 +152,6 @@ public class View extends javax.swing.JPanel {
 
         textArea = new java.awt.TextArea();
         Card card1 = new Card1();
-        textArea.setText(appController.appModel.listOfPlayers[0].name + " has played '" + card1.getName() + "' for " + card1.getReward());
         frame = new JFrame();
 
     }
