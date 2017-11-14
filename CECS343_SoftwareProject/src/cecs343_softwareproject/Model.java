@@ -17,9 +17,10 @@ public class Model {
 
     private Controller appController;
     //Create all the rooms on the board
-
+    ArrayList<Card> drawnCards;
     ArrayList<Room> rooms = new ArrayList();
     ArrayList<Card> gameDeck = new ArrayList();
+    ArrayList<Card> discardDeck = new ArrayList();
     Room ECS308 = new Room("ECS308", 1350, 1000);
     Room SouthHall = new Room("South Hall", 1500, 850);
     Room Lact = new Room("Lactation Lounge", 1600, 1000);
@@ -41,7 +42,7 @@ public class Model {
     Room LA5 = new Room("LA 5", 1150, 1300);
     Room Library = new Room("Library", 800, 1300);
     Room WalterPyramid = new Room("Walter Pyramid", 1100, 250);
-    
+
     CardDeck deck = new CardDeck();
     Card Card0 = new Card0();
     Card Card1 = new Card1();
@@ -82,8 +83,6 @@ public class Model {
     Card Card36 = new Card36();
     Card Card37 = new Card37();
     Card Card38 = new Card38();
-   
-    
 
     //Create the players for the game
     Player John = new Player("John", ECS308, 1);
@@ -260,7 +259,7 @@ public class Model {
         return emptyList;
     }
 
-    public ArrayList constructDeck(){
+    public ArrayList constructDeck() {
         ArrayList<Card> deck = new ArrayList();
         deck.add(Card0);
         deck.add(Card1);
@@ -304,18 +303,18 @@ public class Model {
         Collections.shuffle(deck);
         return deck;
     }
-    
-    public void dealCards(){
-        for(int i = 0; i < listOfPlayers.length; i++){
-            ArrayList<Card> drawnCards = new ArrayList();
-            for(int j = 0; j < 5; j++){
+
+    public void dealCards() {
+        for (int i = 0; i < listOfPlayers.length; i++) {
+            drawnCards = new ArrayList();
+            for (int j = 0; j < 5; j++) {
                 Card tempCard = gameDeck.get(gameDeck.size() - 1);
-                gameDeck.remove(gameDeck.size()-1);
+                gameDeck.remove(gameDeck.size() - 1);
                 drawnCards.add(tempCard);
-                
+
             }
             listOfPlayers[i].hand = drawnCards;
         }
     }
-    
+
 }

@@ -45,10 +45,10 @@ public class Player {
         positionX = 50;
         positionY = 50;
 
-        learning = 6;
-        craft = 7;
-        integrityChip = 8;
-        qualityPoints = 9;
+        learning = 0;
+        craft = 0;
+        integrityChip = 0;
+        qualityPoints = 0;
 
     }
 

@@ -1,5 +1,6 @@
 package cecs343_softwareproject;
 
+import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,13 +27,14 @@ import javax.swing.JLabel;
  * @author winn
  */
 public class Controller {
+
     public AI gameAI;
     static Model model;
     public Model appModel;
     public View appView;
     public Random rand;
     int numOfCardsInDeck;
-
+    int numDiscarded;
     discardDialog dscdDlg;
 
     public Controller() {
@@ -41,7 +43,8 @@ public class Controller {
         gameAI = new AI(this);
         rand = new Random(System.currentTimeMillis());
         numOfCardsInDeck = appModel.gameDeck.size();
-        
+        numDiscarded = 0;
+
     }
 
     public void startApp() {
@@ -119,6 +122,17 @@ public class Controller {
                 appModel.listOfPlayers[1].room.getRoomPositionY() + 25, 100, 50);
         appView.token3.setBounds(appModel.listOfPlayers[2].room.getRoomPositionX(),
                 appModel.listOfPlayers[2].room.getRoomPositionY() - 25, 100, 50);
+
+    }
+
+    public void updateCard() {
+
+        //update card in panel
+        appModel.listOfPlayers[0].hand.remove(0);
+        String nameOfFile = appModel.listOfPlayers[0].hand.get(0).fileName;
+        this.appView.cardLabel.setIcon(new ImageIcon(nameOfFile));
+        //if clicked
+
 
     }
 
@@ -200,20 +214,22 @@ public class Controller {
                                     + "\t";
 
                             String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
-                            String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r;
+                            String t = "Cards in deck " + (appModel.gameDeck.size());
+                            String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t;
                             appView.jTextArea.setText(z);
 
                             // update jlist
                             updateJList();
                             // update tokens
                             updateTokens();
-                            
+
                         }
                     }
 
                 } else if (e.getActionCommand().equals("Draw Card")) {
                     //Code to draw card
                     numOfCardsInDeck--;
+                    numDiscarded++;
                     if (numOfCardsInDeck == 0) {
                         appModel.gameDeck = appModel.constructDeck();
                     } else {
@@ -224,6 +240,29 @@ public class Controller {
                         //Code to enable play button
                         appView.playCardButton.setEnabled(true);
                         appView.drawCardButton.setEnabled(false);
+
+                        String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
+                        String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[0].craft)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[0].integrityChip)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[0].qualityPoints)
+                                + "\t";
+                        String c = appModel.listOfPlayers[1].name + "\t" + Integer.toString(appModel.listOfPlayers[1].learning)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[1].craft)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[1].integrityChip)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[1].qualityPoints)
+                                + "\t";
+                        String d = appModel.listOfPlayers[2].name + "\t" + Integer.toString(appModel.listOfPlayers[2].learning)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[2].craft)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[2].integrityChip)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[2].qualityPoints)
+                                + "\t";
+
+                        String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
+                        String t = "Cards in deck " + numOfCardsInDeck;
+                        String x = "Cards discarded "+numDiscarded;
+                        String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t+ "\n"+ x;
+                        appView.jTextArea.setText(z);
                     }
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
@@ -232,16 +271,13 @@ public class Controller {
                     appView.playCardButton.setEnabled(false);
                     appView.drawCardButton.setEnabled(true);
                     appView.moveButton.setEnabled(true);
-                    appView.textArea.setText(appModel.listOfPlayers[0].name + " has played " + appModel.listOfPlayers[0].hand.get(0).getName() + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
 
                     //update card in panel
-                    appModel.listOfPlayers[0].hand.remove(0);
-                    ImageIcon tempImg;
-                    tempImg = new ImageIcon(appModel.listOfPlayers[0].hand.get(0).fileName);
-                    Image tempImage = tempImg.getImage();
-                    appView.card1.setImage(tempImage);
                     System.out.println(appModel.listOfPlayers[0].hand.get(0).fileName);
-                    if(appModel.listOfPlayers[0].hand.get(0).fileName == null){
+                    updateCard();
+                    appView.textArea.setText(appModel.listOfPlayers[0].name + " has played " + appModel.listOfPlayers[0].hand.get(0).getName() + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
+
+                    if (appModel.listOfPlayers[0].hand.get(0).fileName == null) {
                         System.out.println("The null card is" + appModel.listOfPlayers[0].hand.get(0).name);
                     }
                     //After player has played a card, indicates end of turn and start of AI

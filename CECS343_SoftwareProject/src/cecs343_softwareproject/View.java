@@ -16,8 +16,11 @@ import cecs343_softwareproject.Controller.MyJButton;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.TextArea;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class View extends javax.swing.JPanel {
 
@@ -37,6 +40,7 @@ public class View extends javax.swing.JPanel {
     protected MyJButton moveButton;
     protected MyJButton playCardButton;
     protected MyJButton drawCardButton;
+    protected MyJButton cardButton;
 
     public JList roomsList;
     public DefaultListModel listModel;
@@ -59,12 +63,27 @@ public class View extends javax.swing.JPanel {
     protected TextArea textArea;
 
     protected JTextArea jTextArea;
+    String fName;
 
-    public View(Controller appController) {
+    public View(final Controller appController) {
         // Gameboard Components
         gameBoard = new ImageIcon("CSULBMap5_1200x1437.png");
-        card1 = new ImageIcon("Card0.png");
+        fName = "Card0.png";
+        card1 = new ImageIcon(fName);
         cardLabel = new JLabel("", card1, JLabel.CENTER);
+
+        cardLabel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("FUCK");
+                System.out.println(appController.appModel.listOfPlayers[0].hand.size());
+                for (int i = 0; i < appController.appModel.listOfPlayers[0].hand.size(); i++) {
+                    System.out.println(appController.appModel.listOfPlayers[0].hand.size());
+
+                    String nameOfFile = appController.appModel.listOfPlayers[0].hand.get(i).fileName;
+                    cardLabel.setIcon(new ImageIcon(nameOfFile));
+                }
+            }
+        });
         imageLabel = new JLabel("", gameBoard, JLabel.CENTER);
         imagePanel = new JPanel(new BorderLayout());
 
@@ -143,13 +162,13 @@ public class View extends javax.swing.JPanel {
                 + "\t" + Integer.toString(appController.appModel.listOfPlayers[2].qualityPoints)
                 + "\t";
         jTextArea.setFont(new Font("Forte", Font.BOLD, 30));
-
+        String t = "Cards in deck " + (appController.appModel.gameDeck.size());
         String r = appController.appModel.listOfPlayers[0].name + " is now in " + appController.appModel.listOfPlayers[0].room.getNameRoom();
-        String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r;
+        String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t;
         jTextArea.setText(z);
 
         textArea = new java.awt.TextArea();
-        Card card1 = new Card1();
+        Card card2 = new Card2();
         frame = new JFrame();
 
     }
