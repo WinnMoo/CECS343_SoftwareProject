@@ -2,6 +2,7 @@ package cecs343_softwareproject;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.DefaultListModel;
@@ -22,12 +23,15 @@ public class Controller {
     public Model appModel;
     public View appView;
     public Random rand;
+    int numOfCardsInDeck;
+    
+    discardDialog dscdDlg;
 
     public Controller() {
         appModel = new Model(this);
         appView = new View(this);
         rand = new Random(System.currentTimeMillis());
-
+        numOfCardsInDeck = appModel.gameDeck.size();
     }
 
     public void startApp() {
@@ -184,6 +188,9 @@ public class Controller {
 
                 } else if (e.getActionCommand().equals("Draw Card")) {
                     //Code to draw card
+                    numOfCardsInDeck--;
+                    
+                    
                     
                     //Code to enable play button
                     appView.playCardButton.setEnabled(true);
@@ -207,6 +214,10 @@ public class Controller {
     }
     
     public void discardCard(){
+        ArrayList<Card> handBeforeDiscard = new ArrayList();
+        handBeforeDiscard = appModel.listOfPlayers[0].hand;
+        dscdDlg = new discardDialog(appView.frame, true, handBeforeDiscard);
+        dscdDlg.setVisible(true);
         
     }
     

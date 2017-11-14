@@ -83,6 +83,7 @@ public class Model {
     Card Card37 = new Card37();
     Card Card38 = new Card38();
    
+    
 
     //Create the players for the game
     Player John = new Player("John", ECS308, 1);
