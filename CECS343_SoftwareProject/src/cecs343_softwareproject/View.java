@@ -58,7 +58,7 @@ public class View extends javax.swing.JPanel {
 
     private TextArea textArea;
 
-    private JTextArea jTextArea;
+    protected JTextArea jTextArea;
 
     private ActionListener handleDrawCard;
 
@@ -146,7 +146,7 @@ public class View extends javax.swing.JPanel {
                 + "\t";
         jTextArea.setFont(new Font("Forte", Font.BOLD, 30));
 
-        String r = appController.appModel.listOfPlayers[1].name + " is now in " + appController.appModel.listOfPlayers[1].room.getNameRoom();
+        String r = appController.appModel.listOfPlayers[0].name + " is now in " + appController.appModel.listOfPlayers[0].room.getNameRoom();
         String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r;
         jTextArea.setText(z);
 

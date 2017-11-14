@@ -24,7 +24,7 @@ public class Controller {
     public View appView;
     public Random rand;
     int numOfCardsInDeck;
-    
+
     discardDialog dscdDlg;
 
     public Controller() {
@@ -102,7 +102,7 @@ public class Controller {
     }
 
     public void updateTokens() {
-     
+
         appView.token1.setBounds(appModel.listOfPlayers[0].room.getRoomPositionX(),
                 appModel.listOfPlayers[0].room.getRoomPositionY(), 100, 50);
         appView.token2.setBounds(appModel.listOfPlayers[1].room.getRoomPositionX(),
@@ -166,7 +166,27 @@ public class Controller {
 
                         String convertedString = element.toString();
                         updatePlayerRoom(convertedString, appModel.John);
-                       
+
+                        String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
+                        String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[0].craft)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[0].integrityChip)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[0].qualityPoints)
+                                + "\t";
+                        String c = appModel.listOfPlayers[1].name + "\t" + Integer.toString(appModel.listOfPlayers[1].learning)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[1].craft)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[1].integrityChip)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[1].qualityPoints)
+                                + "\t";
+                        String d = appModel.listOfPlayers[2].name + "\t" + Integer.toString(appModel.listOfPlayers[2].learning)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[2].craft)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[2].integrityChip)
+                                + "\t" + Integer.toString(appModel.listOfPlayers[2].qualityPoints)
+                                + "\t";
+
+                        String r = appModel.listOfPlayers[0].name + " is now in " + appModel.listOfPlayers[0].room.getNameRoom();
+                        String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r;
+                        appView.jTextArea.setText(z);
 
                         // update jlist
                         updateJList();
@@ -182,20 +202,18 @@ public class Controller {
                             String newRoomThatWasChosenString = newRoomThatWasChosenObject.toString();
 
                             updatePlayerRoom(newRoomThatWasChosenString, appModel.listOfPlayers[i]);
-                         
+
                         }
                     }
 
                 } else if (e.getActionCommand().equals("Draw Card")) {
                     //Code to draw card
                     numOfCardsInDeck--;
-                    
-                    
-                    
+
                     //Code to enable play button
                     appView.playCardButton.setEnabled(true);
                     appView.drawCardButton.setEnabled(false);
-                    
+
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
 
@@ -212,17 +230,17 @@ public class Controller {
             }
         }
     }
-    
-    public void discardCard(){
+
+    public void discardCard() {
         ArrayList<Card> handBeforeDiscard = new ArrayList();
         handBeforeDiscard = appModel.listOfPlayers[0].hand;
         dscdDlg = new discardDialog(appView.frame, true, handBeforeDiscard);
         dscdDlg.setVisible(true);
-        
+
     }
-    
-    public void selectSkillChip(){
-        
+
+    public void selectSkillChip() {
+
     }
 
     public static Model getModel() {
