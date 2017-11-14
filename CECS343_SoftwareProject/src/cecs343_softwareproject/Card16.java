@@ -10,6 +10,7 @@ Player p;
         this.prereq = "5 Learning";
         this.fail = "Lose 3 Quality Points and Lose 1 Game Card";
         this.fileName = ("Card16.png");
+        setImage("Card16.png");
     }
 
     @Override

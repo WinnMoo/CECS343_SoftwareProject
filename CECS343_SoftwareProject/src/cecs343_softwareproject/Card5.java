@@ -7,6 +7,7 @@ public class Card5 extends Card {
         this.reward = "1 Learning Chip";
         this.location.add("ECS308");
         this.fileName = ("Card5.png");
+        setImage("Card5.png");
     }
     @Override
     public boolean play(Player p) {

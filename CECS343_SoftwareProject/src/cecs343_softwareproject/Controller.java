@@ -178,9 +178,10 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
 
                 if (e.getActionCommand().equals("Move")) {
-                    Object checkerElement = appView.roomsList.getSelectedValue();
-                    String checkerString = checkerElement.toString();
-                    if (checkerString.equals("")) {
+                    Object element = appView.roomsList.getSelectedValue();
+                    
+
+                    if (element == null) {
 
                     } else {
                         System.out.println(moveCounter);
@@ -190,8 +191,6 @@ public class Controller {
                             appView.moveButton.setEnabled(false);
                         } else {
 
-                            Object element = appView.roomsList.getSelectedValue();
-
                             String convertedString = element.toString();
                             updatePlayerRoom(convertedString, appModel.John);
 
@@ -199,8 +198,6 @@ public class Controller {
 
                             // update jlist
                             updateJList();
-                            // update tokens
-
                         }
                     }
 
@@ -218,6 +215,7 @@ public class Controller {
                         System.out.println(appModel.listOfPlayers[0].hand.size());
                         //Code to enable play button
                         appView.playCardButton.setEnabled(true);
+                        appView.moveButton.setEnabled(true);
                         appView.drawCardButton.setEnabled(false);
 
                         updateTextArea();
@@ -303,6 +301,7 @@ public class Controller {
         String x = "Cards discarded " + numDiscarded;
         String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t + "\n" + x;
         appView.jTextArea.setText(z);
+        appView.cardLabel.setIcon(new ImageIcon(appModel.listOfPlayers[0].hand.get(0).getImage()));
         updateTokens();
     }
 }

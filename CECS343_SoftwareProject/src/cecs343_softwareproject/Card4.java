@@ -7,6 +7,7 @@ public class Card4 extends Card {
         this.reward = "1 Craft Chip";
         this.location.add("Bratwurst Hall");
         this.fileName = ("Card4.png");
+        setImage("Card4.png");
     }
 
     @Override

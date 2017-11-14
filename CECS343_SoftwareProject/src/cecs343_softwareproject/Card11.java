@@ -8,6 +8,7 @@ public class Card11 extends Card {
         this.location.add("Eat Club");
         this.location.add("George Allen Field");
         this.fileName = ("Card11.png");
+        setImage("Card11.png");
     }
 
     @Override

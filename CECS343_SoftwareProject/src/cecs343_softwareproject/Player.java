@@ -122,7 +122,7 @@ public class Player {
         return this.qualityPoints;
     }
 
-    public void setQP(int p) {
+public void setQP(int p) {
         if (this.qualityPoints + p < 0) {
             return;
         }

@@ -16,7 +16,7 @@ public class Card14 extends Card {
         this.reward = "1 Craft Chip and Teleport to Lactation Lounge";
         this.location.add("Walter Pyramid");
         this.fileName = ("Card14.png");
-
+        setImage("Card14.png");
     }
 
     @Override

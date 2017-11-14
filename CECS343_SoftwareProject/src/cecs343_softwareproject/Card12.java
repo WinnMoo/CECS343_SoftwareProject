@@ -16,6 +16,7 @@ public class Card12 extends Card {
         this.location.add("Library");
         this.location.add("Walter Pyramid");
         this.fileName = ("Card12.png");
+        setImage("Card12.png");
     }
 
     @Override

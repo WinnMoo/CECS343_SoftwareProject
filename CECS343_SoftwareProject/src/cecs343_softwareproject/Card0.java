@@ -8,7 +8,9 @@ public class Card0 extends Card {
         this.location.add("ECS302");
         this.location.add("ECS308");
         this.fileName = ("Card0.png");
+        setImage("Card0.png");
     }
+    
     @Override
     public boolean play(Player p) {
         printName();

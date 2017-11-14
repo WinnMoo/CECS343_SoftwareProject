@@ -7,6 +7,7 @@ public class Card1 extends Card {
         this.reward = "1 Learning Chip";
         this.location.add("Library");
         this.fileName = ("card1.png");
+        setImage("Card1.png");
     }
 
     @Override

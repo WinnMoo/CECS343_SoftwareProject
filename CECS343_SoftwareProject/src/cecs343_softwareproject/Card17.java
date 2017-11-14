@@ -9,6 +9,7 @@ public class Card17 extends Card {
         this.prereq = "3 Learning";
         this.fail = "Lose 3 Quality Points";
         this.fileName = ("Card17.png");
+        setImage("Card17.png");
     }
 
     @Override

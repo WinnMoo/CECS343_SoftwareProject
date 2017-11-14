@@ -20,6 +20,8 @@ public class Card32 extends Card {
         this.prereq = "3 Learning";
         this.fail = "Lose 5 Quality Points and Go to Lactation Lounge";
         this.fileName = ("Card32.png");
+        
+        setImage("Card32.png");
     }
 
     public boolean play(Player p) {

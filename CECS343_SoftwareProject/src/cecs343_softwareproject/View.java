@@ -65,23 +65,28 @@ public class View extends javax.swing.JPanel {
     protected JTextArea jTextArea;
     String fName;
 
+    int currentCardNumber;
+    
     public View(final Controller appController) {
         // Gameboard Components
+        currentCardNumber = 0;
+        
         gameBoard = new ImageIcon("CSULBMap5_1200x1437.png");
-        fName = "Card0.png";
+        
+        fName = appController.appModel.listOfPlayers[0].hand.get(0).fileName;
         card1 = new ImageIcon(fName);
         cardLabel = new JLabel("", card1, JLabel.CENTER);
 
+        
         cardLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 System.out.println("FUCK");
                 System.out.println(appController.appModel.listOfPlayers[0].hand.size());
-                for (int i = 0; i < appController.appModel.listOfPlayers[0].hand.size(); i++) {
-                    System.out.println(appController.appModel.listOfPlayers[0].hand.size());
-
-                    String nameOfFile = appController.appModel.listOfPlayers[0].hand.get(i).fileName;
-                    cardLabel.setIcon(new ImageIcon(nameOfFile));
+                currentCardNumber++;
+                if(currentCardNumber % appController.appModel.listOfPlayers[0].hand.size() == 0){
+                    currentCardNumber = 0;
                 }
+                cardLabel.setIcon(new ImageIcon(appController.appModel.listOfPlayers[0].hand.get(currentCardNumber).getImage()));
             }
         });
         imageLabel = new JLabel("", gameBoard, JLabel.CENTER);
@@ -141,7 +146,8 @@ public class View extends javax.swing.JPanel {
         moveButton = appController.new MyJButton("Move");
         drawCardButton = appController.new MyJButton("Draw Card");
         playCardButton = appController.new MyJButton("Play Card");
-        playCardButton.setEnabled(true);
+        moveButton.setEnabled(false);
+        playCardButton.setEnabled(false);
 
         //TextField
         jTextArea = new javax.swing.JTextArea();
