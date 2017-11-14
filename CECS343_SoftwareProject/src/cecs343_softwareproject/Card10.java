@@ -5,7 +5,7 @@ public class Card10 extends Card {
     public Card10() {
         this.name = "Enjoying the Peace";
         this.reward = "1 Learning Chip or 1 Integrity Chip";
-        this.locationName = "Japanese Garden";
+        this.location.add("Japanese Garden");
     }
 
     public boolean play(Player p) {
