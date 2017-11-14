@@ -18,24 +18,11 @@ public class Card33 extends Card {
         this.location.add("Walter Pyramid");
         this.prereq = "6 Craft";
         this.fail = "Go to Student Parking";
+        this.fileName = ("Card33.png");
     }
 
     public boolean play(Player p) {
-         if (!p.room.getNameRoom().equals("Lactation Lounge")) {
-            if (p.getCraft() >= 6) {
-                p.setQP(5);
-              
-                return true;
-            }
-            fail(p);
-            return false;
-        }
-        
-        return false;
-    }
-    
-    private void fail(Player p) {
-        p.setQP(-5);
-        p.setRoomName("Student Parking");
+        return true;
+
     }
 }

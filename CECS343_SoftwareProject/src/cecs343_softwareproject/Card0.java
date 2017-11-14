@@ -7,6 +7,7 @@ public class Card0 extends Card {
         this.reward = "1 Learning Chip";
         this.location.add("ECS302");
         this.location.add("ECS308");
+        this.fileName = ("Card0.png");
     }
     
 

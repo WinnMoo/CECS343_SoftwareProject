@@ -15,6 +15,7 @@ public class Card12 extends Card {
         this.location.add("LA 5");
         this.location.add("Library");
         this.location.add("Walter Pyramid");
+        this.fileName = ("Card12.png");
     }
 
     public boolean play(Player p) {

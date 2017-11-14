@@ -6,7 +6,7 @@ public class Card5 extends Card {
         this.name = "CECS 100";
         this.reward = "1 Learning Chip";
         this.location.add("ECS308");
-
+        this.fileName = ("Card5.png");
     }
 
     public boolean play(Player p) {

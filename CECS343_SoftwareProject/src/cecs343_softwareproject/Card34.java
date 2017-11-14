@@ -15,25 +15,11 @@ public class Card34 extends Card {
         this.location.add("LA 5");
         this.location.add("Library");
         this.location.add("Walter Pyramid");
+        this.fileName = ("Card34.png");
     }
 
     public boolean play(Player p) {
-        if (!p.room.getNameRoom().equals("ECS 302") || !p.room.getNameRoom().equals("ECS 308")) {
-            if (p.getIntegrity() >= 4) {
-                optionPicker a = new optionPicker(true, true, true);
-                if (a.selectedAbility == AbilityType.CRAFT) {
-                    p.incCraft();
-                } else if (a.selectedAbility == AbilityType.LEARNING) {
-                    p.incLearning();
-                } else {
-                    p.incIntegrity();
-                }
-                return true;
-            }
-            return false;
-        }
+        return true;
 
-        return false;
     }
-
 }

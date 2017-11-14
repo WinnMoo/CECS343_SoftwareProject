@@ -8,30 +8,11 @@ public class Card35 extends Card {
         this.location.add("Computer Lab");
         this.prereq = "2 Craft and 3 Integrity";
         this.fail = "Lose 1 Quality Point";
+        this.fileName = ("Card35.png");
     }
 
     public boolean play(Player p) {
-        if (p.room.getNameRoom().equals("Computer Lab")) {
-            if (p.getIntegrity() >= 3 && p.getCraft() >= 2) {
-                p.setQP(3);
-                optionPicker a = new optionPicker(true, true, true);
-                if (a.selectedAbility == AbilityType.CRAFT) {
-                    p.incCraft();
-                } else if (a.selectedAbility == AbilityType.LEARNING) {
-                    p.incLearning();
-                } else {
-                    p.incIntegrity();
-                }
-                return true;
-            }
-            fail(p);
-            return false;
-        }
+        return true;
 
-        return false;
-    }
-
-    private void fail(Player p) {
-        p.setQP(-1);
     }
 }

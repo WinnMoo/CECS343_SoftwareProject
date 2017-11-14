@@ -8,6 +8,7 @@ public class Card27 extends Card {
         this.location.add("CECS Conference Room");
         this.prereq = "3 Integrity";
         this.fail = "Discard 1 Game Card";
+        this.fileName = ("Card27.png");
     }
 
     public boolean play(Player p) {

@@ -6,7 +6,7 @@ public class Card6 extends Card {
         this.name = "Exercising Mind and Body";
         this.reward = "1 Integrity Chip";
         this.location.add("Rec Center");
-
+        this.fileName = ("Card6.png");
     }
 
     public boolean play(Player p) {

@@ -7,6 +7,7 @@ public class Card11 extends Card {
         this.reward = "1 Learning Chip or 1 Craft Chip";
         this.location.add("Eat Club");
         this.location.add("George Allen Field");
+        this.fileName = ("Card11.png");
     }
 
     public boolean play(Player p) {

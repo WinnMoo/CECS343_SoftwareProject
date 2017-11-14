@@ -8,6 +8,7 @@ public class Card13 extends Card {
         this.location.add("ECS308");
         this.prereq = "3 Craft";
         this.fail = "Lose 3 Quality Points";
+        this.fileName = ("Card13.png");
     }
 
     public boolean play(Player p) {

@@ -15,6 +15,7 @@ public class Card14 extends Card {
         this.name = "The Big Game";
         this.reward = "1 Craft Chip and Teleport to Lactation Lounge";
         this.location.add("Walter Pyramid");
+        this.fileName = ("Card14.png");
 
     }
 

@@ -8,6 +8,7 @@ public class Card29 extends Card {
         this.location.add("George Allen Field");
         this.prereq = "3 Learning and 3 Craft";
         this.fail = "Go to Student Parking";
+        this.fileName = ("Card29.png");
     }
 
     public boolean play(Player p) {

@@ -8,6 +8,7 @@ public class Card7 extends Card {
         this.name = "Parking Violation";
         this.reward = "1 Learning Chip. Option to discard 1 game card for another learning chip";
         this.location.add("Forbidden Parking");
+        this.fileName = ("Card7.png");
     }
 
     public boolean play(Player p) {
