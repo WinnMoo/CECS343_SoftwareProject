@@ -22,6 +22,7 @@ public class Controller {
     static Model model;
     public Model appModel;
     public View appView;
+    CardDeck gameDeck;
     public Random rand;
     int numOfCardsInDeck;
 
@@ -31,7 +32,7 @@ public class Controller {
         appModel = new Model(this);
         appView = new View(this);
         rand = new Random(System.currentTimeMillis());
-        numOfCardsInDeck = appModel.gameDeck.size();
+        numOfCardsInDeck = gameDeck.getDeckSize();
     }
 
     public void startApp() {
