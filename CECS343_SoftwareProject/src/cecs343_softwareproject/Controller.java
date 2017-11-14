@@ -223,36 +223,36 @@ public class Controller {
                 } else if (e.getActionCommand().equals("Draw Card")) {
                     //Code to draw card
                     numOfCardsInDeck--;
+                    if (numOfCardsInDeck == 0) {
+                        appModel.gameDeck = appModel.constructDeck();
+                    } else {
+                        Card tempCard = appModel.gameDeck.get(appModel.gameDeck.size() - 1);
+                        appModel.gameDeck.remove(appModel.gameDeck.size() - 1);
+                        appModel.listOfPlayers[0].hand.add(tempCard);
 
-                    //Code to enable play button
-                    appView.playCardButton.setEnabled(true);
-                    appView.drawCardButton.setEnabled(false);
-
+                        //Code to enable play button
+                        appView.playCardButton.setEnabled(true);
+                        appView.drawCardButton.setEnabled(false);
+                    }
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
-                    
-                    
-                    
+
                     //code to disable play card button
                     appView.playCardButton.setEnabled(false);
                     appView.drawCardButton.setEnabled(true);
                     appView.moveButton.setEnabled(true);
-                    
+
                     //update card in panel
                     appModel.listOfPlayers[0].hand.remove(0);
-                    Image tempImg;
-                    try {
-                        tempImg = ImageIO.read(new File(appModel.listOfPlayers[0].hand.get(0).fileName));
-                        appView.card1.setImage(tempImg);
-                        System.out.println("Updating card");
-                        appView.cardLabel = new JLabel("", appView.card1, JLabel.CENTER);
-                        System.out.println(appModel.listOfPlayers[0].hand.get(0).fileName);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                    ImageIcon tempImg;
+                    tempImg = new ImageIcon(appModel.listOfPlayers[0].hand.get(0).fileName);
+                    Image tempImage = tempImg.getImage();
+                    appView.card1.setImage(tempImage);
+                    System.out.println(appModel.listOfPlayers[0].hand.get(0).fileName);
+                    if(appModel.listOfPlayers[0].hand.get(0).fileName == null){
+                        System.out.println("The null card is" + appModel.listOfPlayers[0].hand.get(0).name);
                     }
-                    
-                    
-                    
+
                 }
             }
 
