@@ -53,6 +53,8 @@ public class AI {
 
     public void handleAIPlay() {
         for (int i = 1; i < appController.appModel.listOfPlayers.length; i++) {
+            appController.numDiscarded++;
+            appController.appModel.listOfPlayers[i].hand.get(0).play(appController.appModel.listOfPlayers[0]);
             appController.appModel.listOfPlayers[i].hand.remove(0);
         }
     }

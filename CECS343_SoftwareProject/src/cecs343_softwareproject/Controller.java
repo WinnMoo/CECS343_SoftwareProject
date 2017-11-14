@@ -200,7 +200,6 @@ public class Controller {
                             // update jlist
                             updateJList();
                             // update tokens
-                            updateTokens();
 
                         }
                     }
@@ -211,11 +210,12 @@ public class Controller {
                     numDiscarded++;
                     if (numOfCardsInDeck == 0) {
                         appModel.gameDeck = appModel.constructDeck();
+                        numOfCardsInDeck = 40;
                     } else {
                         Card tempCard = appModel.gameDeck.get(appModel.gameDeck.size() - 1);
                         appModel.gameDeck.remove(appModel.gameDeck.size() - 1);
                         appModel.listOfPlayers[0].hand.add(tempCard);
-
+                        System.out.println(appModel.listOfPlayers[0].hand.size());
                         //Code to enable play button
                         appView.playCardButton.setEnabled(true);
                         appView.drawCardButton.setEnabled(false);
@@ -225,13 +225,9 @@ public class Controller {
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
                     //card0
-                    if(appModel.listOfPlayers[0].hand.get(0).play(appModel.listOfPlayers[0])){
-                        
-                    }
-                    
-                    
-                    
-                    
+
+                    appModel.listOfPlayers[0].hand.get(0).play(appModel.listOfPlayers[0]);
+
                     //code to disable play card button
                     appView.playCardButton.setEnabled(false);
                     appView.drawCardButton.setEnabled(true);
@@ -240,13 +236,20 @@ public class Controller {
                     //update card in panel
                     System.out.println(appModel.listOfPlayers[0].hand.get(0).fileName);
                     updateCard();
-                    appView.textArea.setText(appModel.listOfPlayers[0].name + " has played " + appModel.listOfPlayers[0].hand.get(0).getName() + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
-                    
+                    boolean result = appModel.listOfPlayers[0].hand.get(0).play(appModel.listOfPlayers[0]);
+                    if (result) {
+                        appView.textArea.setText(appModel.listOfPlayers[0].name + " has played " + appModel.listOfPlayers[0].hand.get(0).getName() + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
+                    } else {
+                        appView.textArea.setText(appModel.listOfPlayers[0].name+" has failed this card.");
+
+                    }
                     appModel.listOfPlayers[0].hand.remove(0);
-                    
+
                     if (appModel.listOfPlayers[0].hand.get(0).fileName == null) {
                         System.out.println("The null card is" + appModel.listOfPlayers[0].hand.get(0).name);
                     }
+                    updateTextArea();
+
                     //After player has played a card, indicates end of turn and start of AI
                     gameAI.handleAIDraw();
                     gameAI.handleAIMove();
@@ -300,5 +303,6 @@ public class Controller {
         String x = "Cards discarded " + numDiscarded;
         String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t + "\n" + x;
         appView.jTextArea.setText(z);
+        updateTokens();
     }
 }

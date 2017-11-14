@@ -36,7 +36,6 @@ public class Card36 extends Card {
     private void fail(Player p){
         ArrayList<Card> handBeforeDiscard = new ArrayList();
         handBeforeDiscard = appModel.listOfPlayers[0].hand;
-        dscdDlg = new discardDialog(, true, handBeforeDiscard);
-        dscdDlg.setVisible(true);
+//s        dscdDlg.setVisible(true);
     }
 }
