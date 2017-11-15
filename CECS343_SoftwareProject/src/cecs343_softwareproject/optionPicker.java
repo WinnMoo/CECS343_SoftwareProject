@@ -43,13 +43,13 @@ public class optionPicker extends JDialog {
         this.honor = new JButton("Integrity");
         this.honor.addActionListener(this.a);
         this.honor.setEnabled(b0);
-      
+
         this.honor.setAlignmentX(0.5F);
 
         this.skill = new JButton("Craft");
         this.skill.addActionListener(this.a);
         this.skill.setEnabled(b1);
-      
+
         this.skill.setAlignmentX(0.5F);
 
         this.buttons.add(Box.createRigidArea(new Dimension(50, 0)));
@@ -80,17 +80,15 @@ public class optionPicker extends JDialog {
                 optionPicker.this.selectedAbility = AbilityType.LEARNING;
                 optionPicker.this.selectedA = "KNOWLEDGE";
             } else if (e.getActionCommand().equals("Integrity")) {
-                 optionPicker.this.selectedAbility = AbilityType.INTEGRITY;
-                 optionPicker.this.selectedA = "Honor";
+                optionPicker.this.selectedAbility = AbilityType.INTEGRITY;
+                optionPicker.this.selectedA = "Honor";
             } else if (e.getActionCommand().equals("Craft")) {
-                 optionPicker.this.selectedAbility = AbilityType.CRAFT;
-                 optionPicker.this.selectedA = "Skill";
+                optionPicker.this.selectedAbility = AbilityType.CRAFT;
+                optionPicker.this.selectedA = "Skill";
             } else {
-                 optionPicker.this.selectedAbility = AbilityType.NONE;
+                optionPicker.this.selectedAbility = AbilityType.NONE;
             }
-             optionPicker.this.handleClick();
+            optionPicker.this.handleClick();
         }
     }
 }
-
-

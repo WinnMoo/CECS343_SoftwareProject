@@ -14,7 +14,7 @@ public class Card25 extends Card {
 
     @Override
     public boolean play(Player p) {
-    if (p.room.getNameRoom().equals("Eat Club")) {
+        if (p.room.getNameRoom().equals("Eat Club")) {
             if (p.getCraft() >= 3) {
                 p.setQP(3);
                 optionPicker a = new optionPicker(true, true, true);
@@ -36,7 +36,5 @@ public class Card25 extends Card {
 
     private void fail(Player p) {
         p.setQP(-2);
-        CardDialog c = new CardDialog();
-        c.setVisible(true);
     }
 }

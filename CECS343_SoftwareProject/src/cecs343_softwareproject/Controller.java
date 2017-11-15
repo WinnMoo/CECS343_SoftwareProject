@@ -35,7 +35,6 @@ public class Controller {
     public Random rand;
     int numOfCardsInDeck;
     int numDiscarded;
-    discardDialog dscdDlg;
 
     public Controller() {
         appModel = new Model(this);
@@ -168,88 +167,11 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
 
                 if (e.getActionCommand().equals("Move")) {
-                    Object element = appView.roomsList.getSelectedValue();
-
-                    if (element == null) {
-
-                    } else {
-                        System.out.println(moveCounter);
-                        moveCounter++;
-                        if (moveCounter == 3) {
-                            moveCounter = 0;
-                            appView.moveButton.setEnabled(false);
-                        } else {
-
-                            String convertedString = element.toString();
-                            updatePlayerRoom(convertedString, appModel.John);
-
-                            updateTextArea();
-
-                            // update jlist
-                            updateJList();
-                        }
-                    }
-
+                    handleMove(moveCounter);
                 } else if (e.getActionCommand().equals("Draw Card")) {
-                    //Code to draw card
-                    numOfCardsInDeck--;
-                    numDiscarded++;
-                    if (numOfCardsInDeck == 0) {
-                        appModel.gameDeck = appModel.constructDeck();
-                        numOfCardsInDeck = 40;
-                    } else {
-                        Card tempCard = appModel.gameDeck.get(appModel.gameDeck.size() - 1);
-                        appModel.gameDeck.remove(appModel.gameDeck.size() - 1);
-                        appModel.listOfPlayers[0].hand.add(tempCard);
-                        System.out.println(appModel.listOfPlayers[0].hand.size());
-                        //Code to enable play button
-                        appView.playCardButton.setEnabled(true);
-                        appView.moveButton.setEnabled(true);
-                        appView.drawCardButton.setEnabled(false);
-
-                        updateTextArea();
-                    }
+                    handleDraw();
                 } else if (e.getActionCommand().equals("Play Card")) {
-                    //code to play card
-
-                    if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).fileName.equals("Card36.png")) {
-                        if (!appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
-                            appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");
-                            discardCard();
-                        } else {
-                            appView.textArea.setText(appModel.listOfPlayers[0].name
-                                    + " has played "
-                                    + appModel.listOfPlayers[0].hand.get(0).getName()
-                                    + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
-                        }
-                    } else {
-                        if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
-                            appView.textArea.setText(appModel.listOfPlayers[0].name
-                                    + " has played "
-                                    + appModel.listOfPlayers[0].hand.get(0).getName()
-                                    + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
-                        } else {
-                            appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");
-                        }
-                    }
-                    
-                    appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0]);
-                    System.out.println(appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name);
-                    appModel.listOfPlayers[0].hand.remove(0);
-
-                    //code to disable play card button
-                    appView.playCardButton.setEnabled(false);
-                    appView.drawCardButton.setEnabled(true);
-                    appView.moveButton.setEnabled(true);
-
-                    
-
-                    updateTextArea();
-
-                    //After player has played a card, indicates end of turn and start of AI
-                    gameAI.handleAIDraw();
-                    gameAI.handleAIMove();
-                    gameAI.handleAIPlay();
+                    handlePlay();
                 }
             }
 
@@ -258,14 +180,6 @@ public class Controller {
                 addActionListener(listener);
             }
         }
-    }
-
-    public void discardCard() {
-        ArrayList<Card> handBeforeDiscard = new ArrayList();
-        handBeforeDiscard = appModel.listOfPlayers[0].hand;
-        dscdDlg = new discardDialog(appView.frame, true, handBeforeDiscard);
-        dscdDlg.setVisible(true);
-
     }
 
     public void selectSkillChip() {
@@ -303,5 +217,83 @@ public class Controller {
         appView.cardLabel.setIcon(new ImageIcon(appModel.listOfPlayers[0].hand.get(0).getImage()));
 
         updateTokens();
+    }
+
+    public void handleDraw() {
+        //Code to draw card
+        numOfCardsInDeck--;
+        numDiscarded++;
+        if (numOfCardsInDeck <= 0) {
+            appModel.gameDeck = appModel.constructDeck();
+            numOfCardsInDeck = 40;
+        } else {
+            Card tempCard = appModel.gameDeck.get(appModel.gameDeck.size() - 1);
+            appModel.gameDeck.remove(appModel.gameDeck.size() - 1);
+            appModel.listOfPlayers[0].hand.add(tempCard);
+            System.out.println("The number of cards in hand after playing a card is :" + appModel.listOfPlayers[0].hand.size());
+            //Code to enable play button
+            appView.playCardButton.setEnabled(true);
+            appView.moveButton.setEnabled(true);
+            appView.drawCardButton.setEnabled(false);
+
+            updateTextArea();
+        }
+    }
+
+    public void handleMove(int counter) {
+        int moveCounter = counter;
+        Object element = appView.roomsList.getSelectedValue();
+
+        if (element == null) {
+
+        } else {
+            System.out.println("The amount of moves left are: " + moveCounter);
+            moveCounter++;
+            if (moveCounter == 3) {
+                moveCounter = 0;
+                appView.moveButton.setEnabled(false);
+                String convertedString = element.toString();
+                updatePlayerRoom(convertedString, appModel.John);
+
+                updateTextArea();
+
+                updateJList();
+            } else {
+
+                String convertedString = element.toString();
+                updatePlayerRoom(convertedString, appModel.John);
+
+                updateTextArea();
+
+                // update jlist
+                updateJList();
+            }
+        }
+    }
+
+    public void handlePlay() {
+        if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
+            appView.textArea.setText(appModel.listOfPlayers[0].name
+                    + " has played "
+                    + appModel.listOfPlayers[0].hand.get(0).getName()
+                    + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
+        } else {
+            appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");
+        }
+
+        System.out.println("The card being removed from the hand because it was played is: " + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name);
+        appModel.listOfPlayers[0].hand.remove(0);
+
+        //code to disable play card button
+        appView.playCardButton.setEnabled(false);
+        appView.drawCardButton.setEnabled(true);
+        appView.moveButton.setEnabled(true);
+
+        System.out.println("John is in: " + appModel.listOfPlayers[0].room.getNameRoom());
+        //After player has played a card, indicates end of turn and start of AI
+        gameAI.handleAIDraw();
+        gameAI.handleAIMove();
+        gameAI.handleAIPlay();
+        updateTextArea();
     }
 }

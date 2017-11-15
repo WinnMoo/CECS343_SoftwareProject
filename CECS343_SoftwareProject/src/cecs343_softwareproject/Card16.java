@@ -1,7 +1,7 @@
 package cecs343_softwareproject;
 
 public class Card16 extends Card {
-Player p;
+
     public Card16() {
         this.name = "Math 123";
         this.reward = "5 Quality Points";
@@ -14,26 +14,31 @@ Player p;
     }
 
     @Override
-    public boolean play(Player pp) {
-        this.p = pp;
-        if(p.room.getNameRoom().equals("ECS302")||p.room.getNameRoom().equals("ECS302"))
-        {
-            if(this.p.getLearning()>=5)
-            {
-                this.p.setQP(5);
+    public boolean play(Player p) {
+
+        if (p.room.getNameRoom().equals("ECS302") || p.room.getNameRoom().equals("ECS302")) {
+            if (p.getLearning() >= 5) {
+                p.setQP(5);
                 return true;
             }
-            fail();
-                return false;
+            fail(p);
+            return false;
         }
-        
-        return false; 
+        return false;
 
     }
 
-    private void fail() {
-        this.p.setQP(-3);
-        CardDialog c = new CardDialog();
-        c.setVisible(true);
+    private void fail(Player p) {
+        p.setQP(-3);
+        if (p.name.equals("John")) {
+            CardDialog c = new CardDialog(p.hand.get(0), p.hand.get(1), p.hand.get(2), p.hand.get(3), p.hand.get(4));
+            c.setVisible(true);
+            String cardToDiscard = c.getDiscardedCard();
+            for (int i = 1; i < 6; i++) {
+                if (p.hand.get(i).name.equals(cardToDiscard)) {
+                    p.hand.remove(i);
+                }
+            }
+        }
     }
 }

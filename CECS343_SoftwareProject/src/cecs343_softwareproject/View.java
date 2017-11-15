@@ -80,8 +80,8 @@ public class View extends javax.swing.JPanel {
         
         cardLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                System.out.println("FUCK");
-                System.out.println(appController.appModel.listOfPlayers[0].hand.size());
+ 
+                System.out.println("The number of cards in hand while clicking is: " + appController.appModel.listOfPlayers[0].hand.size());
                 currentCardNumber++;
                 if(currentCardNumber % appController.appModel.listOfPlayers[0].hand.size() == 0){
                     currentCardNumber = 0;
