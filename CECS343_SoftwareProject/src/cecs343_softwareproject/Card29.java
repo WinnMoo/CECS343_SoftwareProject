@@ -30,6 +30,7 @@ public class Card29 extends Card {
     }
 
     private void fail(Player p) {
+        System.out.println("Failed to play " + name);
         p.setRoomName("Student Parking");
     }
 }

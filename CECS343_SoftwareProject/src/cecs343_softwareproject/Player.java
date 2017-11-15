@@ -47,10 +47,10 @@ public class Player {
         positionY = 50;
 
         mapOfSchool = listOfRooms;
-        learning = 0;
-        craft = 0;
-        integrityChip = 0;
-        qualityPoints = 0;
+        learning = 5;
+        craft = 5;
+        integrityChip = 5;
+        qualityPoints = 5;
 
     }
 
@@ -77,6 +77,7 @@ public class Player {
     public void setRoomName(String roomName) {
         for(int i = 0; i < mapOfSchool.size(); i++){
             if(mapOfSchool.get(i).getNameRoom().equals(roomName)){
+                System.out.println("Player's room is being changed to " + mapOfSchool.get(i).getNameRoom());
                 this.room = mapOfSchool.get(i);
             }
         }
