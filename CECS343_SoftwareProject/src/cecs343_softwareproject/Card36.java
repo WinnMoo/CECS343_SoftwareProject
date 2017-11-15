@@ -15,7 +15,8 @@ public class Card36 extends Card {
 
     @Override
     public boolean play(Player p) {
-        if (p.room.getNameRoom().equals("South Hall") || p.room.getNameRoom().equals("North Hallf")) {
+        System.out.println("Player is in " + p.room.getNameRoom());
+        if (p.room.getNameRoom().equals("South Hall") || p.room.getNameRoom().equals("North Hall")) {
             if (p.integrityChip >= 2) {
                 p.setQP(3);
                 //chip dialog
@@ -32,12 +33,14 @@ public class Card36 extends Card {
     }
 
     private void fail(Player p) {
-        CardDialog c = new CardDialog(p.hand.get(0), p.hand.get(1), p.hand.get(2), p.hand.get(3), p.hand.get(4));
-        c.setVisible(true);
-        String cardToDiscard = c.getDiscardedCard();
-        for(int i = 1; i < 6; i++){
-            if(p.hand.get(i).name.equals(cardToDiscard)){
-                p.hand.remove(i);
+        if (p.name.equals("John")) {
+            CardDialog c = new CardDialog(p.hand.get(0), p.hand.get(1), p.hand.get(2), p.hand.get(3), p.hand.get(4));
+            c.setVisible(true);
+            String cardToDiscard = c.getDiscardedCard();
+            for (int i = 1; i < 6; i++) {
+                if (p.hand.get(i).name.equals(cardToDiscard)) {
+                    p.hand.remove(i);
+                }
             }
         }
     }

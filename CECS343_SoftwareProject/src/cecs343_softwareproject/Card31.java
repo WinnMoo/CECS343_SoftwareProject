@@ -24,7 +24,18 @@ public class Card31 extends Card {
 
     @Override
     public boolean play(Player p) {
-        if (!p.room.getNameRoom().equals("ECS 302") || !p.room.getNameRoom().equals("ECS 308")) {
+        System.out.println("Player is in " + p.room.getNameRoom());
+        if ((p.room.getNameRoom().equals("Japanese Garden"))
+                || (p.room.getNameRoom().equals("Student Parking"))
+                || (p.room.getNameRoom().equals("Forbidden Parking"))
+                || (p.room.getNameRoom().equals("Rec Center"))
+                || (p.room.getNameRoom().equals("George Allen Field"))
+                || (p.room.getNameRoom().equals("West Walkway"))
+                || (p.room.getNameRoom().equals("East Walkway"))
+                || (p.room.getNameRoom().equals("Bratwurst Hall"))
+                || (p.room.getNameRoom().equals("LA 5"))
+                || (p.room.getNameRoom().equals("Library"))
+                || (p.room.getNameRoom().equals("Walter Pyramid"))) {
             if (p.getIntegrity() >= 4) {
                 p.setQP(4);
                 optionPicker a = new optionPicker(true, true, true);

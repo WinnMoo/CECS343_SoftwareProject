@@ -14,6 +14,7 @@ public class Card28 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Elevators")) {
             if (p.getLearning() >= 4) {
                 p.incCraft();

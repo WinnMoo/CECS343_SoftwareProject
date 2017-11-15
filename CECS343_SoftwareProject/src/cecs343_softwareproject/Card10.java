@@ -12,6 +12,7 @@ public class Card10 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Japanese Garden")) {
             optionPicker a = new optionPicker(true, false, true);
             if (a.selectedAbility == AbilityType.LEARNING) {

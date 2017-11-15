@@ -14,8 +14,8 @@ public class Card13 extends Card {
 
     @Override
     public boolean play(Player p) {
-        Room room = p.room;
-        if (room.getNameRoom().equals("ECS308")) {
+        System.out.println("Player is in " + p.room.getNameRoom());
+        if (p.room.getNameRoom().equals("ECS308")) {
             if (p.getCraft() >= 3) {
                 p.setQP(5);
                 return true;

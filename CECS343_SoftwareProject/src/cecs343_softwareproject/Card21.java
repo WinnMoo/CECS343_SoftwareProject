@@ -14,6 +14,7 @@ public class Card21 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("Player is in " + p.room.getNameRoom());
          if (p.room.getNameRoom().equals("Japanese Garden")) {
             if (p.getLearning() >= 3) {
                 p.incCraft();

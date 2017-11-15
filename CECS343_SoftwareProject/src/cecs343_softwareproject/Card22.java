@@ -15,6 +15,7 @@ public class Card22 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("North Hall")|| p.room.getNameRoom().equals("South Hall")) {
             if (p.getLearning() >= 6) {
               p.setQP(5);

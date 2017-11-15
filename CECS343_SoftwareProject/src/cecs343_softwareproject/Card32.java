@@ -15,20 +15,28 @@ public class Card32 extends Card {
         this.location.add("South Hall");
         this.location.add("Room of Retirement");
         this.location.add("Elevators");
-        
 
         this.prereq = "3 Learning";
         this.fail = "Lose 5 Quality Points and Go to Lactation Lounge";
         this.fileName = ("Card32.png");
-        
+
         setImage("Card32.png");
     }
 
     public boolean play(Player p) {
-      if (!p.room.getNameRoom().equals("Lactation Lounge")) {
+        System.out.println("Player is in " + p.room.getNameRoom());
+        if (p.room.getNameRoom().equals("Computer Lab")
+                || p.room.getNameRoom().equals("ECS308")
+                || p.room.getNameRoom().equals("ECS302")
+                || p.room.getNameRoom().equals("Eat Club")
+                || p.room.getNameRoom().equals("CECS Conference Room")
+                || p.room.getNameRoom().equals("North Hall")
+                || p.room.getNameRoom().equals("South Hall")
+                || p.room.getNameRoom().equals("Room of Retirement")
+                || p.room.getNameRoom().equals("Elevators")) {
             if (p.getLearning() >= 3) {
                 p.setQP(5);
-               
+
                 return true;
             }
             fail(p);

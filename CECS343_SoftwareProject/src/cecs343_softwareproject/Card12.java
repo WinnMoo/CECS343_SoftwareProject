@@ -21,19 +21,19 @@ public class Card12 extends Card {
 
     @Override
     public boolean play(Player p) {
-        if (!(p.room.getNameRoom()).equals("Forbidden Parking")
-                || !(p.room.getNameRoom().equals("Computer Lab"))
-                || !(p.room.getNameRoom().equals("ECS302"))
-                || !(p.room.getNameRoom().equals("Eat Club"))
-                || !(p.room.getNameRoom().equals("CECS Conference Room"))
-                || !(p.room.getNameRoom().equals("North Hall"))
-                || !(p.room.getNameRoom().equals("South Hall"))
-                || !(p.room.getNameRoom().equals("Room of Retirement"))
-                || !(p.room.getNameRoom().equals("Elevators"))
-                || !(p.room.getNameRoom().equals("ECS308"))
-                || !(p.room.getNameRoom().equals("Lactation Lounge"))) {
+        System.out.println("Player is in " + p.room.getNameRoom());
+        if ((p.room.getNameRoom().equals("Japanese Garden"))
+                || (p.room.getNameRoom().equals("Student Parking"))
+                || (p.room.getNameRoom().equals("Rec Center"))
+                || (p.room.getNameRoom().equals("George Allen Field"))
+                || (p.room.getNameRoom().equals("West Walkway"))
+                || (p.room.getNameRoom().equals("East Walkway"))
+                || (p.room.getNameRoom().equals("Bratwurst Hall"))
+                || (p.room.getNameRoom().equals("LA 5"))
+                || (p.room.getNameRoom().equals("Library"))
+                || (p.room.getNameRoom().equals("Walter Pyramid"))) {
             p.incCraft();
-            p.setRoomName("Lactaction Lounge");
+            p.setRoomName("Lactation Lounge");
             return true;
 
         }

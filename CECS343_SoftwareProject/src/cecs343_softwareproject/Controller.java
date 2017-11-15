@@ -1,21 +1,12 @@
 package cecs343_softwareproject;
 
-import java.awt.BorderLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -275,7 +266,7 @@ public class Controller {
         if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
             appView.textArea.setText(appModel.listOfPlayers[0].name
                     + " has played "
-                    + appModel.listOfPlayers[0].hand.get(0).getName()
+                    + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name
                     + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
         } else {
             appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");

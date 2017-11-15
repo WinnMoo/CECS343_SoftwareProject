@@ -15,8 +15,8 @@ public class Card9 extends Card {
     }
 
     @Override
-    public boolean play(Player pp) {
-        this.p = pp;
+    public boolean play(Player p) {
+        System.out.println("Player is in " + p.room.getNameRoom());
         if ((p.room.getNameRoom().equals("Room of Retirement"))) {
             if (p.learning <= 6 && p.craft <= 6 && p.integrityChip <= 6) {
                 this.p.setQP(10);

@@ -14,7 +14,8 @@ public class Card30 extends Card {
     
     @Override
     public boolean play(Player p) {
-        if (p.room.getNameRoom().equals("George Allen Field")) {
+        System.out.println("Player is in " + p.room.getNameRoom());
+        if (p.room.getNameRoom().equals("Library")) {
             if (p.getLearning() >= 2) {
                 p.incLearning();
                 p.dealACard(appModel.deck.dealCard());

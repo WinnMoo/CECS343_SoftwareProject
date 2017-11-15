@@ -13,7 +13,7 @@ public class Card0 extends Card {
     
     @Override
     public boolean play(Player p) {
-        printName();
+        System.out.println("Player is in " + p.room.getNameRoom());
         if ((p.room.getNameRoom().equals("ECS302")) || (p.room.getNameRoom().equals("ECS302"))) {
             p.incLearning();
             return true;

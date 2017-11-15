@@ -14,6 +14,7 @@ public class Card27 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("CECS Conference Room")) {
             if (p.getIntegrity() >= 3) {
                 p.setQP(5);

@@ -14,6 +14,7 @@ public class Card29 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("George Allen Field")) {
             if (p.getLearning() >= 3 && p.getCraft() >= 3) {
                 p.setQP(5);
