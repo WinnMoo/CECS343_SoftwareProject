@@ -228,6 +228,7 @@ public class Controller {
             appView.moveButton.setEnabled(true);
             appView.drawCardButton.setEnabled(false);
         }
+        
         updateJList();
         updateTextArea();
     }

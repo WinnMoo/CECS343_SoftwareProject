@@ -2,8 +2,6 @@ package cecs343_softwareproject;
 
 public class Card9 extends Card {
 
-    Player p;
-
     public Card9() {
         this.name = "Goodbye, Professor";
         this.reward = "10 Quality Points";
@@ -20,22 +18,22 @@ public class Card9 extends Card {
         System.out.println("Player is in " + p.room.getNameRoom());
         if ((p.room.getNameRoom().equals("Room of Retirement"))) {
             if (p.learning < 6 || p.craft < 6 || p.integrityChip < 6) {
-                this.p.setQP(10);
+                p.setQP(10);
                 System.out.println("Player has earned 10 quality points");
                 System.out.println("===========================");
                 return true;
             }
-            fail();
+            fail(p);
             System.out.println("===========================");
             return false;
         } else {
-            fail();
+            fail(p);
             System.out.println("===========================");
             return false;
         }
     }
 
-    private void fail() {
+    private void fail(Player p) {
         System.out.println("Failed to play " + name);
         if (p.name.equals("John")) {
             CardDialog c = new CardDialog(p.hand.get(0), p.hand.get(1), p.hand.get(2), p.hand.get(3), p.hand.get(4));

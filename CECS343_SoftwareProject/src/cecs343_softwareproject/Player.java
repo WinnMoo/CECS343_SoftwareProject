@@ -39,14 +39,13 @@ public class Player {
         this.name = n;
     }
 
-    public Player(String givenName, Room givenRoom, int playerNumber, ArrayList<Room> listOfRooms) {
+    public Player(String givenName, Room givenRoom, int playerNumber) {
         name = givenName;
         room = givenRoom;
         orderNumber = playerNumber;
         positionX = 50;
         positionY = 50;
 
-        mapOfSchool = listOfRooms;
         learning = 5;
         craft = 5;
         integrityChip = 5;
@@ -73,10 +72,10 @@ public class Player {
     public void setRoom(Room newRoom) {
         room = newRoom;
     }
-    
+
     public void setRoomName(String roomName) {
-        for(int i = 0; i < mapOfSchool.size(); i++){
-            if(mapOfSchool.get(i).getNameRoom().equals(roomName)){
+        for (int i = 0; i < mapOfSchool.size(); i++) {
+            if (mapOfSchool.get(i).getNameRoom().equals(roomName)) {
                 System.out.println("Player's room is being changed to " + mapOfSchool.get(i).getNameRoom());
                 this.room = mapOfSchool.get(i);
             }
@@ -128,7 +127,7 @@ public class Player {
         return this.qualityPoints;
     }
 
-public void setQP(int p) {
+    public void setQP(int p) {
         if (this.qualityPoints + p < 0) {
             return;
         }

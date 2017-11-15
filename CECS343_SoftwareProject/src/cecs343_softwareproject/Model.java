@@ -84,9 +84,9 @@ public class Model {
     Card Card38 = new Card38();
 
     //Create the players for the game
-    Player John = new Player("John", ECS308, 1, rooms);
-    Player Rebecca = new Player("Rebecca", ECS308, 2, rooms);
-    Player Charles = new Player("Charles", ECS308, 3, rooms);
+    Player John = new Player("John", ECS308, 1);
+    Player Rebecca = new Player("Rebecca", ECS308, 2);
+    Player Charles = new Player("Charles", ECS308, 3);
 
     Player[] listOfPlayers = {John, Rebecca, Charles};
 
@@ -94,8 +94,12 @@ public class Model {
         this.appController = appController;
 
         constructRooms();
+        constructRoomsList();
         gameDeck = constructDeck();
         dealCards();
+        handOutMaps();
+        System.out.println("Size of rooms: " + rooms.size());
+
     }
 
     /*
@@ -303,6 +307,36 @@ public class Model {
         return deck;
     }
 
+    public void constructRoomsList(){
+        rooms.add(ECS308);
+        rooms.add(SouthHall);
+        rooms.add(Lact);
+        rooms.add(Elevators);
+        rooms.add(RoomOfRetirement);
+        rooms.add(NorthHall);
+        rooms.add(ComputerLab);
+        rooms.add(ECS302);
+        rooms.add(EatClub);
+        rooms.add(ConfRoom);
+        rooms.add(StdtPark);
+        rooms.add(ForbPark);
+        rooms.add(RecCenter);
+        rooms.add(JPNGarden);
+        rooms.add(GAField);
+        rooms.add(WestWalkway);
+        rooms.add(EastWalkway);
+        rooms.add(BratwurstHall);
+        rooms.add(LA5);
+        rooms.add(Library);
+        rooms.add(WalterPyramid);  
+    }
+    
+    public void handOutMaps(){
+        for(int i = 0; i < listOfPlayers.length; i++){
+            listOfPlayers[i].mapOfSchool = rooms;
+        }
+    }
+    
     public void dealCards() {
         for (int i = 0; i < listOfPlayers.length; i++) {
             drawnCards = new ArrayList();
