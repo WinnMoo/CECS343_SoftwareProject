@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 
 public class Card {
 
+    Controller cntrl;
     String name;
     String reward;
     ArrayList<String> location = new ArrayList();
@@ -69,5 +70,9 @@ public class Card {
     
     public boolean play(Player p){
         return false;
+    }
+    public void setController(Controller cntrl){
+        this.cntrl = cntrl;
+        
     }
 }

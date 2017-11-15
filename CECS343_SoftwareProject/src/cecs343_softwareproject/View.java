@@ -174,7 +174,6 @@ public class View extends javax.swing.JPanel {
         jTextArea.setText(z);
 
         textArea = new java.awt.TextArea();
-        Card card2 = new Card2();
         frame = new JFrame();
 
     }

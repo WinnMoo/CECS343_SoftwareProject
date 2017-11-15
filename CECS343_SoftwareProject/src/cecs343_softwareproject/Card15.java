@@ -31,4 +31,5 @@ public class Card15 extends Card {
     private void fail(Player p) {
         p.setRoomName("Room of Retirement");
     }
+    
 }

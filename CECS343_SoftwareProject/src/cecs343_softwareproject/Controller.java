@@ -125,16 +125,6 @@ public class Controller {
 
     }
 
-    public void updateCard() {
-
-        //update card in panel
-        appModel.listOfPlayers[0].hand.remove(0);
-        String nameOfFile = appModel.listOfPlayers[0].hand.get(0).fileName;
-        this.appView.cardLabel.setIcon(new ImageIcon(nameOfFile));
-        //if clicked
-
-    }
-
     // public void pickRandomRoom(Player p, int d)
     // {
     // int t = 0;
@@ -179,7 +169,6 @@ public class Controller {
 
                 if (e.getActionCommand().equals("Move")) {
                     Object element = appView.roomsList.getSelectedValue();
-                    
 
                     if (element == null) {
 
@@ -222,30 +211,39 @@ public class Controller {
                     }
                 } else if (e.getActionCommand().equals("Play Card")) {
                     //code to play card
-                    //card0
 
-                    appModel.listOfPlayers[0].hand.get(0).play(appModel.listOfPlayers[0]);
+                    if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).fileName.equals("Card36.png")) {
+                        if (!appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
+                            appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");
+                            discardCard();
+                        } else {
+                            appView.textArea.setText(appModel.listOfPlayers[0].name
+                                    + " has played "
+                                    + appModel.listOfPlayers[0].hand.get(0).getName()
+                                    + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
+                        }
+                    } else {
+                        if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
+                            appView.textArea.setText(appModel.listOfPlayers[0].name
+                                    + " has played "
+                                    + appModel.listOfPlayers[0].hand.get(0).getName()
+                                    + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
+                        } else {
+                            appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");
+                        }
+                    }
+                    
+                    appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0]);
+                    System.out.println(appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name);
+                    appModel.listOfPlayers[0].hand.remove(0);
 
                     //code to disable play card button
                     appView.playCardButton.setEnabled(false);
                     appView.drawCardButton.setEnabled(true);
                     appView.moveButton.setEnabled(true);
 
-                    //update card in panel
-                    System.out.println(appModel.listOfPlayers[0].hand.get(0).fileName);
-                    updateCard();
-                    boolean result = appModel.listOfPlayers[0].hand.get(0).play(appModel.listOfPlayers[0]);
-                    if (result) {
-                        appView.textArea.setText(appModel.listOfPlayers[0].name + " has played " + appModel.listOfPlayers[0].hand.get(0).getName() + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
-                    } else {
-                        appView.textArea.setText(appModel.listOfPlayers[0].name+" has failed this card.");
+                    
 
-                    }
-                    appModel.listOfPlayers[0].hand.remove(0);
-
-                    if (appModel.listOfPlayers[0].hand.get(0).fileName == null) {
-                        System.out.println("The null card is" + appModel.listOfPlayers[0].hand.get(0).name);
-                    }
                     updateTextArea();
 
                     //After player has played a card, indicates end of turn and start of AI
@@ -301,7 +299,9 @@ public class Controller {
         String x = "Cards discarded " + numDiscarded;
         String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t + "\n" + x;
         appView.jTextArea.setText(z);
+
         appView.cardLabel.setIcon(new ImageIcon(appModel.listOfPlayers[0].hand.get(0).getImage()));
+
         updateTokens();
     }
 }

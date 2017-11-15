@@ -28,6 +28,7 @@ public class Player {
     int integrityChip;
     int qualityPoints;
 
+    ArrayList<Room> mapOfSchool = new ArrayList();
     ArrayList<Card> hand = new ArrayList();
 
     public Player(int l, int c, int i, int q, String n) {
@@ -38,13 +39,14 @@ public class Player {
         this.name = n;
     }
 
-    public Player(String givenName, Room givenRoom, int playerNumber) {
+    public Player(String givenName, Room givenRoom, int playerNumber, ArrayList<Room> listOfRooms) {
         name = givenName;
         room = givenRoom;
         orderNumber = playerNumber;
         positionX = 50;
         positionY = 50;
 
+        mapOfSchool = listOfRooms;
         learning = 0;
         craft = 0;
         integrityChip = 0;
@@ -73,8 +75,11 @@ public class Player {
     }
     
     public void setRoomName(String roomName) {
-        room.name = roomName;
-
+        for(int i = 0; i < mapOfSchool.size(); i++){
+            if(mapOfSchool.get(i).getNameRoom().equals(roomName)){
+                this.room = mapOfSchool.get(i);
+            }
+        }
     }
 
     public void setCoords(int x, int y) {

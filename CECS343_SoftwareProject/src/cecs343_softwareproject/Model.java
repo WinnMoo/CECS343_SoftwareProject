@@ -85,9 +85,9 @@ public class Model {
     Card Card38 = new Card38();
 
     //Create the players for the game
-    Player John = new Player("John", ECS308, 1);
-    Player Rebecca = new Player("Rebecca", ECS308, 2);
-    Player Charles = new Player("Charles", ECS308, 3);
+    Player John = new Player("John", ECS308, 1, rooms);
+    Player Rebecca = new Player("Rebecca", ECS308, 2, rooms);
+    Player Charles = new Player("Charles", ECS308, 3, rooms);
 
     Player[] listOfPlayers = {John, Rebecca, Charles};
 

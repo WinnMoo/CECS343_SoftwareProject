@@ -35,8 +35,6 @@ public class Card36 extends Card {
     }
     
     private void fail(Player p){
-        ArrayList<Card> handBeforeDiscard = new ArrayList();
-        handBeforeDiscard = appModel.listOfPlayers[0].hand;
-//s        dscdDlg.setVisible(true);
+        
     }
 }
