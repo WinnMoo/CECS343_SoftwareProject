@@ -14,6 +14,7 @@ public class Card35 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Computer Lab")) {
             p.setQP(3);
@@ -27,10 +28,12 @@ public class Card35 extends Card {
                     }
                 }
             }
-
+            System.out.println("===========================");
             return true;
         } else {
             fail(p);
+            System.out.println("Player has failed to play " + name);
+            System.out.println("===========================");
             return false;
         }
 

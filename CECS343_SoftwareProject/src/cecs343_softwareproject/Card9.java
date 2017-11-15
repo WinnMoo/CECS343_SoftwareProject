@@ -16,17 +16,23 @@ public class Card9 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if ((p.room.getNameRoom().equals("Room of Retirement"))) {
-            if (p.learning <= 6 && p.craft <= 6 && p.integrityChip <= 6) {
+            if (p.learning < 6 || p.craft < 6 || p.integrityChip < 6) {
                 this.p.setQP(10);
+                System.out.println("Player has earned 10 quality points");
+                System.out.println("===========================");
                 return true;
             }
             fail();
+            System.out.println("===========================");
+            return false;
+        } else {
+            fail();
+            System.out.println("===========================");
             return false;
         }
-        return false;
-
     }
 
     private void fail() {

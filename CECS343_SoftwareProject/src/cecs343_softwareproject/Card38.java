@@ -12,12 +12,18 @@ public class Card38 extends Card {
     
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Student Parking")) {
             p.incCraft();
             p.setRoomName("Lactation Lounge");
+            System.out.println("Incrementing Craft");
+            System.out.println("Teleporting to Lactation Lounge");
+            System.out.println("===========================");
             return true;
         } else {
+            System.out.println("User has failed to play" + name);
+            System.out.println("===========================");
             return false;
         }
     }

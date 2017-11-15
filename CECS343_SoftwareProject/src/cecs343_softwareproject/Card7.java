@@ -14,10 +14,11 @@ public class Card7 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Forbidden Parking")) {
             p.incLearning();
-
+            System.out.println("Incrementing learning");
             if (p.getName().equals("John")) {
                 int re = JOptionPane.showConfirmDialog(null, "Would you like to trade 1 Game Card for another learning chip? ", "Choose one", 0);
 
@@ -31,8 +32,11 @@ public class Card7 extends Card {
                 }
                 p.incLearning();
             }
+            System.out.println("===========================");
             return true;
         }
+        System.out.println("Failed to play " + name);
+        System.out.println("===========================");
         return false;
 
     }

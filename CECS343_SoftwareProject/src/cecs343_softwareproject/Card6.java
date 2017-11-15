@@ -12,13 +12,17 @@ public class Card6 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
-        if(p.room.getNameRoom().equals("Rec Center"))
-        {
+        if (p.room.getNameRoom().equals("Rec Center")) {
             p.incIntegrity();
+            System.out.println("Incrementing Integrity");
+            System.out.println("===========================");
             return true;
         }
-        return true;
+        System.out.println("User has failed to play " + name);
+        System.out.println("===========================");
+        return false;
 
     }
 }

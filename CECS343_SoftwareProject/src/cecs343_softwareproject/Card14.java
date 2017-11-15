@@ -21,13 +21,18 @@ public class Card14 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Walter Pyramid")) {
             p.incCraft();
+            System.out.println("Incrementing Craft");
             p.setRoomName("Lactation Lounge");
+            System.out.println("Teleporting player to Lactation Lounge");
+            System.out.println("===========================");
             return true;
         }
+        System.out.println("User has failed to play " + name);
+        System.out.println("===========================");
         return false;
-
     }
 }

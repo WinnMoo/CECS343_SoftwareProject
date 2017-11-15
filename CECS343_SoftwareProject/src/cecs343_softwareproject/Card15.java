@@ -14,23 +14,29 @@ public class Card15 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("George Allen Field")) {
             if (p.getIntegrity() >= 4) {
                 p.incCraft();
                 p.incCraft();
-
+                System.out.println("Incrementing craft points by 2");
+                System.out.println("===========================");
                 return true;
             }
             fail(p);
+            System.out.println("User has failed to play " + name);
+            System.out.println("===========================");
             return false;
         }
-
+        fail(p);
+        System.out.println("User has failed to play " + name);
+        System.out.println("===========================");
         return false;
     }
 
     private void fail(Player p) {
         p.setRoomName("Room of Retirement");
     }
-    
+
 }

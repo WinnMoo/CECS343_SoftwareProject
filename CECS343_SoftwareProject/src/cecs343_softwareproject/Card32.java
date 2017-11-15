@@ -24,6 +24,7 @@ public class Card32 extends Card {
     }
 
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Computer Lab")
                 || p.room.getNameRoom().equals("ECS308")
@@ -36,13 +37,18 @@ public class Card32 extends Card {
                 || p.room.getNameRoom().equals("Elevators")) {
             if (p.getLearning() >= 3) {
                 p.setQP(5);
-
+                System.out.println("Incrementing quality points by 5");
+                System.out.println("===========================");
                 return true;
             }
             fail(p);
+            System.out.println("User has failed to play" + name);
+            System.out.println("===========================");
             return false;
         }
-
+        fail(p);
+        System.out.println("User has failed to play" + name);
+        System.out.println("===========================");
         return false;
     }
 

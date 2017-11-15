@@ -23,7 +23,7 @@ public class Card13 extends Card {
             fail(p);
             return false;
         }
-
+        
         return false;
     }
 

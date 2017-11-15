@@ -12,17 +12,22 @@ public class Card10 extends Card {
 
     @Override
     public boolean play(Player p) {
+        System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Japanese Garden")) {
             optionPicker a = new optionPicker(true, false, true);
             if (a.selectedAbility == AbilityType.LEARNING) {
                 p.incLearning();
+                System.out.println("Incrementing Learning");
             } else {
                 p.incIntegrity();
+                System.out.println("Incrementing Integrity");
             }
+            System.out.println("===========================");
             return true;
         }
+        System.out.println("User has failed to play " + name);
+        System.out.println("===========================");
         return false;
-
     }
 }

@@ -158,11 +158,12 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
 
                 if (e.getActionCommand().equals("Move")) {
-                    handleMove(moveCounter);
+                    moveCounter = handleMove(moveCounter);
                 } else if (e.getActionCommand().equals("Draw Card")) {
                     handleDraw();
+                    moveCounter = 0;
                 } else if (e.getActionCommand().equals("Play Card")) {
-                    handlePlay();
+                    moveCounter = handlePlay();
                 }
             }
 
@@ -226,19 +227,19 @@ public class Controller {
             appView.playCardButton.setEnabled(true);
             appView.moveButton.setEnabled(true);
             appView.drawCardButton.setEnabled(false);
-
-            updateTextArea();
         }
+        updateJList();
+        updateTextArea();
     }
 
-    public void handleMove(int counter) {
+    public int handleMove(int counter) {
         int moveCounter = counter;
         Object element = appView.roomsList.getSelectedValue();
 
         if (element == null) {
 
         } else {
-            System.out.println("The amount of moves left are: " + moveCounter);
+            System.out.println("The amount of moves left are: " + (moveCounter + 1));
             moveCounter++;
             if (moveCounter == 3) {
                 moveCounter = 0;
@@ -260,31 +261,39 @@ public class Controller {
                 updateJList();
             }
         }
+        updateTextArea();
+        return moveCounter;
     }
 
-    public void handlePlay() {
+    public int handlePlay() {
         if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
             appView.textArea.setText(appModel.listOfPlayers[0].name
                     + " has played "
                     + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name
-                    + "' for " + appModel.listOfPlayers[0].hand.get(0).getReward());
+                    + "' for " + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).getReward());
         } else {
             appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");
         }
 
-        System.out.println("The card being removed from the hand because it was played is: " + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name);
-        appModel.listOfPlayers[0].hand.remove(0);
+        System.out.println("The card being removed from the hand because it was played is: " 
+                + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).fileName
+                + " "
+                + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name);
+        appModel.listOfPlayers[0].hand.remove(appView.currentCardNumber);
 
         //code to disable play card button
         appView.playCardButton.setEnabled(false);
+        appView.moveButton.setEnabled(false);
+        int moveCounter = 0;
         appView.drawCardButton.setEnabled(true);
-        appView.moveButton.setEnabled(true);
 
         System.out.println("John is in: " + appModel.listOfPlayers[0].room.getNameRoom());
         //After player has played a card, indicates end of turn and start of AI
         gameAI.handleAIDraw();
         gameAI.handleAIMove();
         gameAI.handleAIPlay();
+        updateJList();
         updateTextArea();
+        return moveCounter;
     }
 }
