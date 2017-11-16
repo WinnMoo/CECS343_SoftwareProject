@@ -1,9 +1,10 @@
 package cecs343_softwareproject;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Card36 extends Card {
-
+    public Random rand;
     public Card36() {
         this.name = "Make a Friend";
         this.reward = "3 Quality Points and a Chip of Your Choice";
@@ -13,6 +14,7 @@ public class Card36 extends Card {
         this.fail = "Discard 1 Game Card";
         this.fileName = ("Card36.png");
         setImage("Card36.png");
+        
     }
 
     @Override
@@ -24,7 +26,16 @@ public class Card36 extends Card {
                 p.setQP(3);
                 if(p.name.equals("John")){
                 optionPicker a = new optionPicker(p, true, true, true);
+                } else{
+                int n = rand.nextInt(3);
+                if(n == 1){
+                    p.incLearning();
+                }else if(n == 2){
+                    p.incIntegrity();
+                }else{
+                    p.incCraft();
                 }
+            }
                 System.out.println("===========================");
                 return true;
             } else {

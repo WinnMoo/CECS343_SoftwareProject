@@ -1,7 +1,8 @@
 package cecs343_softwareproject;
+import java.util.Random;
 
 public class Card34 extends Card {
-
+    public Random rand;
     public Card34() {
         this.name = "The Outpost";
         this.reward = "1 Chip of Your Choice";
@@ -35,6 +36,15 @@ public class Card34 extends Card {
                 || (p.room.getNameRoom().equals("Walter Pyramid"))) {
             if(p.name.equals("John")){
             optionPicker a = new optionPicker(p, true, true, true);
+            }else {
+                int n = rand.nextInt(3);
+                if (n == 1) {
+                    p.incLearning();
+                } else if (n == 2) {
+                    p.incIntegrity();
+                } else {
+                    p.incCraft();
+                }
             }
             System.out.println("===========================");
             return true;

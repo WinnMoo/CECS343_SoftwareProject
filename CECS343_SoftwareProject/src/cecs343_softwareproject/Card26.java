@@ -1,6 +1,10 @@
 package cecs343_softwareproject;
 
+import java.util.Random;
+
 public class Card26 extends Card {
+
+    public Random rand;
 
     public Card26() {
         this.name = "Program Crashes";
@@ -20,8 +24,17 @@ public class Card26 extends Card {
             System.out.println("Player successfully played card");
             if (p.getLearning() >= 6) {
                 p.setQP(5);
-                if(p.name.equals("John")){
-                optionPicker a = new optionPicker(p, true, true, true);
+                if (p.name.equals("John")) {
+                    optionPicker a = new optionPicker(p, true, true, true);
+                } else {
+                    int n = rand.nextInt(3);
+                    if (n == 1) {
+                        p.incLearning();
+                    } else if (n == 2) {
+                        p.incIntegrity();
+                    } else {
+                        p.incCraft();
+                    }
                 }
                 return true;
             }

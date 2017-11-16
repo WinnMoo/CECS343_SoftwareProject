@@ -1,7 +1,9 @@
 package cecs343_softwareproject;
 
-public class Card23 extends Card {
+import java.util.Random;
 
+public class Card23 extends Card {
+    public Random rand;
     public Card23() {
         this.name = "A New Laptop";
         this.reward = "3 Quality Points and a Chip of Your Choice";
@@ -21,6 +23,15 @@ public class Card23 extends Card {
                 p.setQP(3);
                 if(p.name.equals("John")){
                 optionPicker a = new optionPicker(p, true, true, true);
+                } else {
+                    int n = rand.nextInt(3);
+                    if (n == 1) {
+                        p.incLearning();
+                    } else if (n == 2) {
+                        p.incIntegrity();
+                    } else {
+                        p.incCraft();
+                    }
                 }
                 
                 System.out.println("===========================");
