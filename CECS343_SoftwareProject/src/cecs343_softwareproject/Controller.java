@@ -182,6 +182,10 @@ public class Controller {
         return model;
     }
 
+    public void updateHand(){
+        appView.cardLabel.setIcon(new ImageIcon(appModel.listOfPlayers[0].hand.get(0).getImage()));
+    }
+    
     public void updateTextArea() {
         String a = "\tLearning\tCraft\tIntegrity\tQuality Points";
         String b = appModel.listOfPlayers[0].name + "\t" + Integer.toString(appModel.listOfPlayers[0].learning)
@@ -206,7 +210,7 @@ public class Controller {
         String z = a + "\n" + b + "\n" + c + "\n" + d + "\n" + r + "\n" + t + "\n" + x;
         appView.jTextArea.setText(z);
 
-        appView.cardLabel.setIcon(new ImageIcon(appModel.listOfPlayers[0].hand.get(0).getImage()));
+        
 
         updateTokens();
     }
@@ -228,7 +232,7 @@ public class Controller {
             appView.moveButton.setEnabled(true);
             appView.drawCardButton.setEnabled(false);
         }
-        
+        updateHand();
         updateJList();
         updateTextArea();
     }
@@ -297,6 +301,7 @@ public class Controller {
         gameAI.handleAIPlay();
         updateJList();
         updateTextArea();
+        updateHand();
         return moveCounter;
     }
 }
