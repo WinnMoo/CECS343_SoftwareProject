@@ -18,12 +18,16 @@ public class Card35 extends Card {
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Computer Lab")) {
             p.setQP(3);
-            if (p.name.equals("John")) {
-                System.out.println("Failed to play " + name);
-                if (p.name.equals("John")) {
-                    CardDialog c = new CardDialog(p);
-                    c.setVisible(true);
-                }
+            optionPicker a = new optionPicker(true, true, true);
+            if (a.selectedAbility == AbilityType.LEARNING) {
+                p.incLearning();
+                System.out.println("Incrementing Learning");
+            } else if(a.selectedAbility == AbilityType.CRAFT) {
+                p.incCraft();
+                System.out.println("Incrementing Craft");
+            }else {
+                p.incIntegrity();
+                System.out.println("Incrementing Integrity");
             }
             System.out.println("===========================");
             return true;

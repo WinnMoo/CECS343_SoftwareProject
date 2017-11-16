@@ -81,7 +81,7 @@ public class View extends javax.swing.JPanel {
  
                 System.out.println("The number of cards in hand while clicking is: " + appController.appModel.listOfPlayers[0].hand.size());
                 currentCardNumber++;
-                if(currentCardNumber == appController.appModel.listOfPlayers[0].hand.size()){
+                if(currentCardNumber >= appController.appModel.listOfPlayers[0].hand.size()){
                     currentCardNumber = 0;
                 }
                 cardLabel.setIcon(new ImageIcon(appController.appModel.listOfPlayers[0].hand.get(currentCardNumber).getImage()));
