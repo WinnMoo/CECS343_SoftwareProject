@@ -268,12 +268,12 @@ public class Controller {
 
     public int handlePlay() {
         if (appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).play(appModel.listOfPlayers[0])) {
-            appView.textArea.setText(appModel.listOfPlayers[0].name
+            appView.textArea.append(appModel.listOfPlayers[0].name
                     + " has played "
                     + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name
-                    + "' for " + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).getReward());
+                    + " for " + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).getReward() + "\n");
         } else {
-            appView.textArea.setText(appModel.listOfPlayers[0].name + " has failed this card.");
+            appView.textArea.append(appModel.listOfPlayers[0].name + " has failed this card.\n");
         }
 
         System.out.println("The card being removed from the hand because it was played is: " 

@@ -54,7 +54,14 @@ public class AI {
     public void handleAIPlay() {
         for (int i = 1; i < appController.appModel.listOfPlayers.length; i++) {
             appController.numDiscarded++;
-            appController.appModel.listOfPlayers[i].hand.get(0).play(appController.appModel.listOfPlayers[i]);
+            if (appController.appModel.listOfPlayers[i].hand.get(0).play(appController.appModel.listOfPlayers[i])) {
+                appController.appView.textArea.append(appController.appModel.listOfPlayers[i].name
+                        + " has played "
+                        + appController.appModel.listOfPlayers[i].hand.get(appController.appView.currentCardNumber).name
+                        + " for " + appController.appModel.listOfPlayers[i].hand.get(appController.appView.currentCardNumber).getReward() + "\n");
+            } else {
+                appController.appView.textArea.append(appController.appModel.listOfPlayers[i].name + " has failed this card." + "\n");
+            }
             appController.appModel.listOfPlayers[i].hand.remove(0);
         }
     }
