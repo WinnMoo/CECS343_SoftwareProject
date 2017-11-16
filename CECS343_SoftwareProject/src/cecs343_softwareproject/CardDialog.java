@@ -5,13 +5,14 @@
  */
 package cecs343_softwareproject;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -21,76 +22,52 @@ import javax.swing.JPanel;
 class CardDialog extends JDialog {
 
     JPanel cardsButtonPanel = new JPanel();
-    JButton firstCard;
-    JButton secondCard;
-    JButton thirdCard;
-    JButton fourthCard;
-    JButton fifthCard;
+    JButton cardDiscardButton;
 
-    buttonListener cardListener = new buttonListener();
     String selectedCard = "";
 
-    public CardDialog(Card card1, Card card2, Card card3, Card card4, Card card5) {
-        this.cardsButtonPanel.setLayout(new BoxLayout(cardsButtonPanel, 0));
-        setSize(new Dimension(920, 300));
-        cardsButtonPanel.setSize(new Dimension(920,300));
+    int currentCardNumber;
+    String fName;
+    protected ImageIcon card1;
+    protected JLabel cardLabel;
+
+    public CardDialog(final Player p) {
+        currentCardNumber = 0;
+
+        fName = p.hand.get(0).fileName;
+        card1 = new ImageIcon(fName);
+        cardLabel = new JLabel("", card1, JLabel.CENTER);
+
+        cardLabel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+
+                System.out.println("The number of cards in hand while clicking is: " + p.hand.size());
+                currentCardNumber++;
+                if (currentCardNumber == p.hand.size()) {
+                    currentCardNumber = 0;
+                }
+                cardLabel.setIcon(new ImageIcon(p.hand.get(currentCardNumber).getImage()));
+            }
+        });
+
+        cardDiscardButton = new JButton("Discard this card");
+        cardDiscardButton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("Discarding " + "'" + selectedCard + "'");
+                p.hand.remove(currentCardNumber);
+                dispose();
+            }
+        });
+
+        this.cardsButtonPanel.setLayout(new BorderLayout());
+        cardsButtonPanel.add(cardDiscardButton, BorderLayout.SOUTH);
+        cardsButtonPanel.add(cardLabel, BorderLayout.NORTH);
         
-        firstCard = new JButton(card1.name);
-        firstCard.addActionListener(cardListener);
-        firstCard.setEnabled(true);
-        firstCard.setAlignmentX(0.5F);
-        
-        secondCard = new JButton(card2.name);
-        secondCard.addActionListener(cardListener);
-        secondCard.setEnabled(true);
-        secondCard.setAlignmentX(0.5F);
-        
-        thirdCard = new JButton(card3.name);
-        thirdCard.addActionListener(cardListener);
-        thirdCard.setEnabled(true);
-        thirdCard.setAlignmentX(0.5F);
-        
-        fourthCard = new JButton(card4.name);
-        fourthCard.addActionListener(cardListener);
-        fourthCard.setEnabled(true);
-        fourthCard.setAlignmentX(0.5F);
-        
-        fifthCard = new JButton(card5.name);
-        fifthCard.addActionListener(cardListener);
-        fifthCard.setEnabled(true);
-        fifthCard.setAlignmentX(0.5F);
-        
-        cardsButtonPanel.add(Box.createRigidArea(new Dimension(50, 0)));
-        cardsButtonPanel.add(firstCard);
-        cardsButtonPanel.add(secondCard);
-        cardsButtonPanel.add(thirdCard);
-        cardsButtonPanel.add(fourthCard);
-        cardsButtonPanel.add(fifthCard);
-        
-        
+        setSize(new Dimension(200, 400));
+        cardsButtonPanel.setSize(new Dimension(200, 400));
+
         add(cardsButtonPanel);
         setVisible(true);
-    }
-
-    public String getDiscardedCard(){
-        System.out.println("Discarding " + "'" + selectedCard + "'");
-        return selectedCard;
-    }
-    
-    private void handleClick(){
-        setVisible(false);
-    }
-    
-    class buttonListener implements ActionListener {
-
-        buttonListener() {
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            selectedCard = e.getActionCommand();
-            handleClick();
-        }
     }
 
 }

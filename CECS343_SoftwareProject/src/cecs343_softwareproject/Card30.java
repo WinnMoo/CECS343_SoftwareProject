@@ -1,7 +1,7 @@
 package cecs343_softwareproject;
 
 public class Card30 extends Card {
-    
+
     public Card30() {
         this.name = "Elective Class";
         this.reward = "1 Learning Chip and 1 Game Card";
@@ -11,7 +11,7 @@ public class Card30 extends Card {
         this.fileName = ("Card30.png");
         setImage("Card30.png");
     }
-    
+
     @Override
     public boolean play(Player p) {
         System.out.println("===========================");
@@ -20,7 +20,9 @@ public class Card30 extends Card {
             if (p.getLearning() >= 2) {
                 p.incLearning();
                 System.out.println("Incrementing learning");
-                p.dealACard(appModel.deck.dealCard());
+                Card tempCard = appModel.gameDeck.get(appModel.gameDeck.size() - 1);
+                appModel.gameDeck.remove(appModel.gameDeck.size() - 1);
+                appModel.listOfPlayers[0].hand.add(tempCard);
                 System.out.println("Dealing a card to player");
                 System.out.println("===========================");
                 return true;
@@ -35,7 +37,7 @@ public class Card30 extends Card {
         System.out.println("===========================");
         return false;
     }
-    
+
     private void fail(Player p) {
         p.setQP(-2);
     }

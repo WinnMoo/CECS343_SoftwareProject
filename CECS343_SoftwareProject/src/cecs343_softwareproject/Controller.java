@@ -280,6 +280,8 @@ public class Controller {
                 + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).fileName
                 + " "
                 + appModel.listOfPlayers[0].hand.get(appView.currentCardNumber).name);
+        
+        
         appModel.listOfPlayers[0].hand.remove(appView.currentCardNumber);
 
         //code to disable play card button

@@ -87,18 +87,6 @@ public class Player {
         positionY = y;
     }
 
-    public void dealACard(Card c) {
-        this.hand.add(c);
-    }
-
-    public void addCard() {
-
-    }
-
-    public void discardCard() {
-
-    }
-
     public int getLearning() {
         return this.learning;
     }

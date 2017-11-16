@@ -21,7 +21,10 @@ public class Card24 extends Card {
             if (p.getIntegrity() >= 3 && p.getCraft() >= 3 && p.getIntegrity() >= 3) {
                 p.setQP(5);
                 System.out.println("Incrementing quality points by 5");
-                p.dealACard(appModel.deck.dealCard());
+                //
+                Card tempCard = appModel.gameDeck.get(appModel.gameDeck.size() - 1);
+                appModel.gameDeck.remove(appModel.gameDeck.size() - 1);
+                appModel.listOfPlayers[0].hand.add(tempCard);
                 System.out.println("Dealing a card to player");
                 System.out.println("===========================");
                 return true;
@@ -38,15 +41,11 @@ public class Card24 extends Card {
     }
 
     private void fail(Player p) {
-        p.discardCard();
         if (p.getName().equals("John")) {
-            CardDialog c = new CardDialog(p.hand.get(0), p.hand.get(1), p.hand.get(2), p.hand.get(3), p.hand.get(4));
-            c.setVisible(true);
-            String cardToDiscard = c.getDiscardedCard();
-            for (int i = 1; i < 6; i++) {
-                if (p.hand.get(i).name.equals(cardToDiscard)) {
-                    p.hand.remove(i);
-                }
+            System.out.println("Failed to play " + name);
+            if (p.name.equals("John")) {
+                CardDialog c = new CardDialog(p);
+                c.setVisible(true);
             }
         }
     }

@@ -20,7 +20,9 @@ public class Card29 extends Card {
             if (p.getLearning() >= 3 && p.getCraft() >= 3) {
                 p.setQP(5);
                 System.out.println("Incrementing quality points by 5");
-                p.dealACard(appModel.deck.dealCard());
+                Card tempCard = appModel.gameDeck.get(appModel.gameDeck.size() - 1);
+                appModel.gameDeck.remove(appModel.gameDeck.size() - 1);
+                appModel.listOfPlayers[0].hand.add(tempCard);
                 System.out.println("User has been dealt a card");
                 System.out.println("===========================");
                 return true;

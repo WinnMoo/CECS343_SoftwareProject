@@ -22,13 +22,10 @@ public class Card7 extends Card {
             if (p.getName().equals("John")) {
                 int re = JOptionPane.showConfirmDialog(null, "Would you like to trade 1 Game Card for another learning chip? ", "Choose one", 0);
 
-                CardDialog c = new CardDialog(p.hand.get(0), p.hand.get(1), p.hand.get(2), p.hand.get(3), p.hand.get(4));
-                c.setVisible(true);
-                String cardToDiscard = c.getDiscardedCard();
-                for (int i = 1; i < 6; i++) {
-                    if (p.hand.get(i).name.equals(cardToDiscard)) {
-                        p.hand.remove(i);
-                    }
+                System.out.println("Failed to play " + name);
+                if (p.name.equals("John")) {
+                    CardDialog c = new CardDialog(p);
+                    c.setVisible(true);
                 }
                 p.incLearning();
             }

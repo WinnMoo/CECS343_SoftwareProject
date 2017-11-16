@@ -53,6 +53,12 @@ public class Card32 extends Card {
     }
 
     private void fail(Player p) {
-        p.discardCard();
+        if (p.getName().equals("John")) {
+            System.out.println("Failed to play " + name);
+            if (p.name.equals("John")) {
+                CardDialog c = new CardDialog(p);
+                c.setVisible(true);
+            }
+        }
     }
 }
