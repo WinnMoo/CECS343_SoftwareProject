@@ -39,16 +39,8 @@ public class Card31 extends Card {
                 || (p.room.getNameRoom().equals("Walter Pyramid"))) {
             if (p.getIntegrity() >= 4) {
                 p.setQP(4);
-                optionPicker a = new optionPicker(true, true, true);
-                if (a.selectedAbility == AbilityType.CRAFT) {
-                    p.incCraft();
-                    System.out.println("Incrementing Craft");
-                } else if (a.selectedAbility == AbilityType.LEARNING) {
-                    p.incLearning();
-                    System.out.println("Incrementing Learning");
-                } else {
-                    p.incIntegrity();
-                    System.out.println("Incrementing Integrity");
+                if(p.name.equals("John")){
+                optionPicker a = new optionPicker(p, true, true, true);
                 }
                 System.out.println("===========================");
                 return true;

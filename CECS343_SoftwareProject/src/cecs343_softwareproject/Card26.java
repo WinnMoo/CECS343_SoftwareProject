@@ -20,18 +20,9 @@ public class Card26 extends Card {
             System.out.println("Player successfully played card");
             if (p.getLearning() >= 6) {
                 p.setQP(5);
-                optionPicker a = new optionPicker(true, true, true);
-                if (a.selectedAbility == AbilityType.CRAFT) {
-                    p.incCraft();
-                    System.out.println("Incrementing Craft");
-                } else if (a.selectedAbility == AbilityType.LEARNING) {
-                    p.incLearning();
-                    System.out.println("Incrementing Learning");
-                } else {
-                    p.incIntegrity();
-                    System.out.println("Incrementing Integrity");
+                if(p.name.equals("John")){
+                optionPicker a = new optionPicker(p, true, true, true);
                 }
-                System.out.println("===========================");
                 return true;
             }
             fail(p);

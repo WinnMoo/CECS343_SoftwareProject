@@ -15,13 +15,8 @@ public class Card10 extends Card {
         System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Japanese Garden")) {
-            optionPicker a = new optionPicker(true, false, true);
-            if (a.selectedAbility == AbilityType.LEARNING) {
-                p.incLearning();
-                System.out.println("Incrementing Learning");
-            } else {
-                p.incIntegrity();
-                System.out.println("Incrementing Integrity");
+            if(p.name.equals("John")){
+            optionPicker a = new optionPicker(p, true, false, true);
             }
             System.out.println("===========================");
             return true;

@@ -16,19 +16,20 @@ public class Card11 extends Card {
         System.out.println("===========================");
         System.out.println("Player is in " + p.room.getNameRoom());
         if (p.room.getNameRoom().equals("Eat Club") || p.room.getNameRoom().equals("George Allen Field")) {
-            optionPicker a = new optionPicker(true, false, true);
-            if (a.selectedAbility == AbilityType.LEARNING) {
-                p.incLearning();
-                System.out.println("Incrementing Learning");
-            } else {
-                p.incCraft();
-                System.out.println("Incrementing Craft");
+            if (p.name.equals("John")) {
+                optionPicker a = new optionPicker(p, true, false, true);
+
             }
+
             System.out.println("===========================");
             return true;
         }
-        System.out.println("User has failed to play " + name);
-        System.out.println("===========================");
+
+        System.out.println(
+                "User has failed to play " + name);
+        System.out.println(
+                "===========================");
+
         return false;
     }
 }

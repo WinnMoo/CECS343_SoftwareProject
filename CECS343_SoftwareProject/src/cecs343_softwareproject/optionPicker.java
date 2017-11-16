@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -26,29 +28,45 @@ public class optionPicker extends JDialog {
     JButton honor;
     JButton skill;
     Image image;
-    buttonListener a = new buttonListener();
     String selectedA = "";
     AbilityType selectedAbility;
 
-    public optionPicker(boolean b, boolean b0, boolean b1) {
+    public optionPicker(final Player p,boolean b, boolean b0, boolean b1) {
         this.buttons.setLayout(new BoxLayout(this.buttons, 0));
         setSize(new Dimension(920, 240));
         this.buttons.setSize(new Dimension(920, 240));
 
         this.knowledge = new JButton("Learning");
-        this.knowledge.addActionListener(this.a);
         this.knowledge.setEnabled(b);
         this.knowledge.setAlignmentX(0.5F);
+        this.knowledge.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                p.incLearning();
+                System.out.println("Incrementing Learning");
+                dispose();
+            }
+        });
 
         this.honor = new JButton("Integrity");
-        this.honor.addActionListener(this.a);
         this.honor.setEnabled(b0);
-
         this.honor.setAlignmentX(0.5F);
+        this.honor.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                p.incIntegrity();
+                System.out.println("Incrementing Integrity");
+                dispose();
+            }
+        });
 
         this.skill = new JButton("Craft");
-        this.skill.addActionListener(this.a);
         this.skill.setEnabled(b1);
+        this.skill.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                p.incCraft();
+                System.out.println("Inrementing Craft");
+                dispose();
+            }
+        });
 
         this.skill.setAlignmentX(0.5F);
 
@@ -65,30 +83,4 @@ public class optionPicker extends JDialog {
         setVisible(true);
     }
 
-    private void handleClick() {
-        setVisible(false);
-    }
-
-    class buttonListener
-            implements ActionListener {
-
-        buttonListener() {
-        }
-
-        public void actionPerformed(ActionEvent e) {
-            if (e.getActionCommand().equals("Learning")) {
-                optionPicker.this.selectedAbility = AbilityType.LEARNING;
-                optionPicker.this.selectedA = "KNOWLEDGE";
-            } else if (e.getActionCommand().equals("Integrity")) {
-                optionPicker.this.selectedAbility = AbilityType.INTEGRITY;
-                optionPicker.this.selectedA = "Honor";
-            } else if (e.getActionCommand().equals("Craft")) {
-                optionPicker.this.selectedAbility = AbilityType.CRAFT;
-                optionPicker.this.selectedA = "Skill";
-            } else {
-                optionPicker.this.selectedAbility = AbilityType.NONE;
-            }
-            optionPicker.this.handleClick();
-        }
-    }
 }

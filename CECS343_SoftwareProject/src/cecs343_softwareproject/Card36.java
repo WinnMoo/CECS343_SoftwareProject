@@ -22,16 +22,8 @@ public class Card36 extends Card {
         if (p.room.getNameRoom().equals("South Hall") || p.room.getNameRoom().equals("North Hall")) {
             if (p.integrityChip >= 2) {
                 p.setQP(3);
-                optionPicker a = new optionPicker(true, true, true);
-                if (a.selectedAbility == AbilityType.LEARNING) {
-                    p.incLearning();
-                    System.out.println("Incrementing Learning");
-                } else if (a.selectedAbility == AbilityType.CRAFT) {
-                    p.incCraft();
-                    System.out.println("Incrementing Craft");
-                } else {
-                    p.incIntegrity();
-                    System.out.println("Incrementing Integrity");
+                if(p.name.equals("John")){
+                optionPicker a = new optionPicker(p, true, true, true);
                 }
                 System.out.println("===========================");
                 return true;

@@ -33,16 +33,8 @@ public class Card34 extends Card {
                 || (p.room.getNameRoom().equals("LA 5"))
                 || (p.room.getNameRoom().equals("Library"))
                 || (p.room.getNameRoom().equals("Walter Pyramid"))) {
-            optionPicker a = new optionPicker(true, true, true);
-            if (a.selectedAbility == AbilityType.LEARNING) {
-                p.incLearning();
-                System.out.println("Incrementing Learning");
-            } else if(a.selectedAbility == AbilityType.CRAFT) {
-                p.incCraft();
-                System.out.println("Incrementing Craft");
-            }else {
-                p.incIntegrity();
-                System.out.println("Incrementing Integrity");
+            if(p.name.equals("John")){
+            optionPicker a = new optionPicker(p, true, true, true);
             }
             System.out.println("===========================");
             return true;
