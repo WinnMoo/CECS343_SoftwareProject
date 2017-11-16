@@ -88,38 +88,38 @@ public class Player {
     }
 
     public int getLearning() {
-        return this.learning;
+        return learning;
     }
 
     public void incLearning() {
-        this.learning += 1;
+        learning += 1;
     }
 
     public int getCraft() {
-        return this.craft;
+        return craft;
     }
 
     public void incCraft() {
-        this.craft += 1;
+        craft += 1;
     }
 
     public int getIntegrity() {
-        return this.integrityChip;
+        return integrityChip;
     }
 
     public void incIntegrity() {
-        this.integrityChip += 1;
+        integrityChip += 1;
     }
 
     public int getQP() {
-        return this.qualityPoints;
+        return qualityPoints;
     }
 
     public void setQP(int p) {
-        if (this.qualityPoints + p < 0) {
+        if (qualityPoints + p < 0) {
             return;
         }
-        this.qualityPoints += p;
+        qualityPoints += p;
     }
 
 }
